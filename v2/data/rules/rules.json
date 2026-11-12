@@ -1,0 +1,9 @@
+{
+ "_FIXTURE": "Synthetic example values for the public repo and tests. Real rules live in v2/data/rules/private/rules.json (git-ignored).",
+ "id": "fixture-rules-v1",
+ "effective_from": "2026-11-01", "effective_to": null, "accounts": ["DEMO-EVAL-50K"],
+ "size_text": "2–4 MNQ micros, set from planned risk before entry.",
+ "max_losses_per_day": 2, "daily_stop_usd": 400, "profit_stop_usd": 900, "max_trades_per_day": 3,
+ "stop_out_break_min": 10, "news_window_min": 15, "news_scope": "HIGH events only",
+ "firm": {"name": "Demo Firm", "plan": "Demo 50K eval", "dll_usd": 1000, "max_loss_usd": 2000, "max_loss_type": "EOD trailing", "consistency_pct": 50, "profit_target_usd": 3000, "size_cap": "5 minis or 50 micros"}
+}

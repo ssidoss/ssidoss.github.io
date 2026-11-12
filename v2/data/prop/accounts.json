@@ -1,0 +1,23 @@
+{
+ "_FIXTURE": "Synthetic demo accounts for the public repo and tests. Real accounts live in v2/data/prop/private/accounts.json (git-ignored) and only ship inside encrypted pages.",
+ "schema": "sidoss.prop/1", "updated_at": "2026-11-12T12:40:00Z", "source": "fixture",
+ "firms": [{"id": "demo", "name": "Demo Prop Firm", "split": 0.9, "rules_url": null, "rules_note": "Fixture rules modelled on an EOD-trailing eval with a 50% consistency rule."}],
+ "accounts": [
+  {"id": "DEMO-50K-A", "label": "50K Eval A", "firm": "demo", "plan": "Flex 50K eval", "type": "eval", "status": "active", "size": 50000,
+   "balance": 51240, "balance_source": "fixture", "balance_observed_at": "2026-11-12T12:30:00Z",
+   "consistencyPct": 152.5, "consistencyTargetPct": 50, "profitTargetUsd": 3000, "adjustedTargetUsd": null,
+   "criteria": {"max_loss_usd": 2000, "max_loss_type": "EOD trailing", "min_balance_usd": 49100, "daily_loss_limit_usd": 1200, "profit_target_usd": 3000, "consistency": 50, "size_cap": "4 minis / 40 micros", "source": "fixture"},
+   "daily": [{"date": "2026-11-10", "net": 640}, {"date": "2026-11-11", "net": -310}, {"date": "2026-11-12", "net": 910}], "fees": [{"type": "eval", "amount": 90}]},
+  {"id": "DEMO-50K-B", "label": "50K Eval B", "firm": "demo", "plan": "Flex 50K eval", "type": "eval", "status": "active", "size": 50000,
+   "balance": 50410, "balance_source": "fixture", "balance_observed_at": "2026-11-12T12:30:00Z",
+   "consistencyPct": 98.0, "consistencyTargetPct": 50, "profitTargetUsd": 3000, "adjustedTargetUsd": null,
+   "criteria": {"max_loss_usd": 2000, "max_loss_type": "EOD trailing", "min_balance_usd": 48410, "daily_loss_limit_usd": 1200, "profit_target_usd": 3000, "consistency": 50, "size_cap": "4 minis / 40 micros", "source": "fixture"},
+   "daily": [{"date": "2026-11-11", "net": 402}, {"date": "2026-11-12", "net": 8}], "fees": [{"type": "eval", "amount": 90}]},
+  {"id": "DEMO-100K-F", "label": "100K Funded", "firm": "demo", "plan": "Flex 100K funded", "type": "funded", "status": "active", "size": 100000,
+   "balance": 101350, "balance_source": "fixture", "balance_observed_at": "2026-11-12T12:30:00Z",
+   "criteria": {"max_loss_usd": 3000, "max_loss_type": "EOD trailing", "min_balance_usd": 98350, "daily_loss_limit_usd": null, "qualifying_days_required": 5, "qualifying_day_min_usd": 150, "payout_cap_usd": 2000, "payout_split": 0.9, "source": "fixture"},
+   "daily": [{"date": "2026-11-05", "net": 410}, {"date": "2026-11-06", "net": 95}, {"date": "2026-11-09", "net": 380}, {"date": "2026-11-10", "net": 220}, {"date": "2026-11-11", "net": 245}],
+   "payout_progress": {"pdays": 3, "pdayDates": ["2026-11-05", "2026-11-09", "2026-11-10"], "note": "11 Nov 245 not yet counted by firm dashboard (fixture)"},
+   "payouts": [{"date": "2026-10-30", "gross": 1500, "net": 1350, "status": "paid"}], "fees": [{"type": "activation", "amount": 0}]}
+ ]
+}

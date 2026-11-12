@@ -1,0 +1,10 @@
+# Real personal data never goes into this public repo
+v2/data/**/private/
+v2/data/market/raw/
+.claude/channels/
+**/.env
+node_modules/
+v2/data/office/runs.jsonl
+v2/data/office/validation.json
+v2/data/research/pilot_*.json
+v2/data/analyst/pilot_*.json

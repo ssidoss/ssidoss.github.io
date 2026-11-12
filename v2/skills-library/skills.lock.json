@@ -1,0 +1,1332 @@
+[
+ {
+  "name": "design-taste-frontend",
+  "repo": "Leonxlnx/taste-skill",
+  "commit": "12af471f627f866411b4bd785b19646d3672784c",
+  "path": "skills/taste-skill",
+  "license": "MIT",
+  "description": "tasteskill v2, the anti-slop frontend skill. Art direction for websites, distilled from a study of 247 curated gallery sites (One Page Love, Awwwards Sites of the Day). Deals researched directions (idea, composition, typ",
+  "vendored": true,
+  "library_path": "Leonxlnx/design-taste-frontend"
+ },
+ {
+  "name": "academy-guide",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/academy-guide",
+  "license": "Apache-2.0",
+  "description": "Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product \u2014 it recommends matching courses, tutorials, and use cases from Claude Academy (academy.claude.com), Anthropi",
+  "vendored": true,
+  "library_path": "anthropics/academy-guide"
+ },
+ {
+  "name": "algorithmic-art",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/algorithmic-art",
+  "license": "Apache-2.0",
+  "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. C",
+  "vendored": true,
+  "library_path": "anthropics/algorithmic-art"
+ },
+ {
+  "name": "brand-guidelines",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/brand-guidelines",
+  "license": "Apache-2.0",
+  "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design ",
+  "vendored": true,
+  "library_path": "anthropics/brand-guidelines"
+ },
+ {
+  "name": "canvas-design",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/canvas-design",
+  "license": "Apache-2.0",
+  "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs",
+  "vendored": true,
+  "library_path": "anthropics/canvas-design"
+ },
+ {
+  "name": "claude-api",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/claude-api",
+  "license": "Apache-2.0",
+  "description": "|-",
+  "vendored": true,
+  "library_path": "anthropics/claude-api"
+ },
+ {
+  "name": "discernment-nudge",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/discernment-nudge",
+  "license": "Apache-2.0",
+  "description": "After you give a substantive answer or draft that the user may act on \u2014 advice or recommendations, drafted artifacts such as goals, plans, pitches, proposals, or emails, estimates or projections, analysis or interpretati",
+  "vendored": true,
+  "library_path": "anthropics/discernment-nudge"
+ },
+ {
+  "name": "doc-coauthoring",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/doc-coauthoring",
+  "license": "Apache-2.0",
+  "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users ef",
+  "vendored": true,
+  "library_path": "anthropics/doc-coauthoring"
+ },
+ {
+  "name": "docx",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/docx",
+  "license": "Apache-2.0",
+  "description": "\"Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', o",
+  "vendored": true,
+  "library_path": "anthropics/docx"
+ },
+ {
+  "name": "frontend-design",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/frontend-design",
+  "license": "Apache-2.0",
+  "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+  "vendored": true,
+  "library_path": "anthropics/frontend-design"
+ },
+ {
+  "name": "internal-comms",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/internal-comms",
+  "license": "Apache-2.0",
+  "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status ",
+  "vendored": true,
+  "library_path": "anthropics/internal-comms"
+ },
+ {
+  "name": "mcp-builder",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/mcp-builder",
+  "license": "Apache-2.0",
+  "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, ",
+  "vendored": true,
+  "library_path": "anthropics/mcp-builder"
+ },
+ {
+  "name": "pdf",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/pdf",
+  "license": "Apache-2.0",
+  "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding w",
+  "vendored": true,
+  "library_path": "anthropics/pdf"
+ },
+ {
+  "name": "pptx",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/pptx",
+  "license": "Apache-2.0",
+  "description": "\"Use this skill any time a .pptx or .potx file is involved in any way \u2014 as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx o",
+  "vendored": true,
+  "library_path": "anthropics/pptx"
+ },
+ {
+  "name": "skill-creator",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/skill-creator",
+  "license": "Apache-2.0",
+  "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill pe",
+  "vendored": true,
+  "library_path": "anthropics/skill-creator"
+ },
+ {
+  "name": "slack-gif-creator",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/slack-gif-creator",
+  "license": "Apache-2.0",
+  "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for ",
+  "vendored": true,
+  "library_path": "anthropics/slack-gif-creator"
+ },
+ {
+  "name": "theme-factory",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/theme-factory",
+  "license": "Apache-2.0",
+  "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creatin",
+  "vendored": true,
+  "library_path": "anthropics/theme-factory"
+ },
+ {
+  "name": "web-artifacts-builder",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/web-artifacts-builder",
+  "license": "Apache-2.0",
+  "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or s",
+  "vendored": true,
+  "library_path": "anthropics/web-artifacts-builder"
+ },
+ {
+  "name": "webapp-testing",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/webapp-testing",
+  "license": "Apache-2.0",
+  "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+  "vendored": true,
+  "library_path": "anthropics/webapp-testing"
+ },
+ {
+  "name": "xlsx",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "skills/xlsx",
+  "license": "Apache-2.0",
+  "description": "\"Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e.g., adding columns,",
+  "vendored": true,
+  "library_path": "anthropics/xlsx"
+ },
+ {
+  "name": "template-skill",
+  "repo": "anthropics/skills",
+  "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+  "path": "template",
+  "license": "Apache-2.0",
+  "description": "Replace with description of the skill and when Claude should use it.",
+  "vendored": true,
+  "library_path": "anthropics/template-skill"
+ },
+ {
+  "name": "diagram-design",
+  "repo": "cathrynlavery/diagram-design",
+  "commit": "f2496acbde9f45ccb55c24d4f75210c8a1355df8",
+  "path": "skills/diagram-design",
+  "license": "MIT",
+  "description": "Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested",
+  "vendored": true,
+  "library_path": "cathrynlavery/diagram-design"
+ },
+ {
+  "name": "jarvis-setup",
+  "repo": "ethanplusai/jarvis",
+  "commit": "16e37bd801eb797798e02540665f8b3804b0fe14",
+  "path": "skills/jarvis-setup",
+  "license": "NONCOMMERCIAL",
+  "description": "Use when helping someone install, configure, or debug a fresh clone of JARVIS (this repo) \u2014 especially \"the mic doesn't work\", \"JARVIS says his language systems are down\", any Firefox/browser question, login/auth failure",
+  "vendored": false,
+  "note": "Personal non-commercial licence: not redistributed; install_skills.sh fetches it only with --include-noncommercial."
+ },
+ {
+  "name": "cache-efficiency",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/cache-efficiency",
+  "license": "MIT",
+  "description": "Analyze prompt-cache effectiveness for Claude Code usage from the Agent Monitor dashboard \u2014 cache hit rate (total_cache_read / (total_cache_read + total_input)), cache_write vs cache_read reuse, cache-read vs cache-write",
+  "vendored": true,
+  "library_path": "hoangsonww/cache-efficiency"
+ },
+ {
+  "name": "cost-breakdown",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/cost-breakdown",
+  "license": "MIT",
+  "description": "Break down Claude Code costs using the Agent Monitor pricing engine. Shows per-model costs (input, output, cache_read, cache_write at $/Mtok rates), per-session costs, daily trends, and compaction baseline token recovery",
+  "vendored": true,
+  "library_path": "hoangsonww/cost-breakdown"
+ },
+ {
+  "name": "model-mix",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/model-mix",
+  "license": "MIT",
+  "description": "Break down Claude Code usage by model family (Opus / Sonnet / Haiku) from the Agent Monitor dashboard \u2014 each family's share of tokens, share of cost, and the spots where an expensive model is doing cheap work. Pulls per-",
+  "vendored": true,
+  "library_path": "hoangsonww/model-mix"
+ },
+ {
+  "name": "productivity-score",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/productivity-score",
+  "license": "MIT",
+  "description": "Calculate a productivity score using actual Agent Monitor metrics \u2014 session completion rates, cache efficiency (cache_read vs input), compaction pressure (baseline tokens), turn velocity (turn_count / total_turn_duration",
+  "vendored": true,
+  "library_path": "hoangsonww/productivity-score"
+ },
+ {
+  "name": "session-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/session-report",
+  "license": "MIT",
+  "description": "Generate a comprehensive session report with per-model token usage (input, output, cache_read, cache_write including compaction baselines), cost breakdown via the pricing engine, tool invocations, agent hierarchy, compac",
+  "vendored": true,
+  "library_path": "hoangsonww/session-report"
+ },
+ {
+  "name": "usage-trends",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-analytics/skills/usage-trends",
+  "license": "MIT",
+  "description": "Analyze Claude Code usage trends over time using the Agent Monitor's analytics API \u2014 daily session counts, daily event counts, token volumes by type, model distribution, tool usage rankings, and agent/event type distribu",
+  "vendored": true,
+  "library_path": "hoangsonww/usage-trends"
+ },
+ {
+  "name": "config-audit",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-config/skills/config-audit",
+  "license": "MIT",
+  "description": "Run a full audit of the user's Claude Code configuration via the Agent Monitor Config Explorer API: counts per surface (user vs project), duplicate or overlapping skills and subagents, hooks that run shell commands, and ",
+  "vendored": true,
+  "library_path": "hoangsonww/config-audit"
+ },
+ {
+  "name": "hook-inventory",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-config/skills/hook-inventory",
+  "license": "MIT",
+  "description": "Inventory hooks across the user, project, and project-local settings plus the ~/.claude/hooks scripts directory \u2014 read through the Agent Monitor Config Explorer API \u2014 and flag hooks that POST to the network or run arbitr",
+  "vendored": true,
+  "library_path": "hoangsonww/hook-inventory"
+ },
+ {
+  "name": "mcp-audit",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-config/skills/mcp-audit",
+  "license": "MIT",
+  "description": "Audit the configured MCP servers (user + project scope) via the Agent Monitor Config Explorer API: transport (stdio vs http), command/args and env variable names, headers, and the source file each definition came from. R",
+  "vendored": true,
+  "library_path": "hoangsonww/mcp-audit"
+ },
+ {
+  "name": "memory-review",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-config/skills/memory-review",
+  "license": "MIT",
+  "description": "Review the file-based memory store via the Agent Monitor Config Explorer API: the user and project CLAUDE.md plus per-project auto-memory files under ~/.claude/projects/<slug>/memory/*.md. Groups by project, shows the in",
+  "vendored": true,
+  "library_path": "hoangsonww/memory-review"
+ },
+ {
+  "name": "skill-inventory",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-config/skills/skill-inventory",
+  "license": "MIT",
+  "description": "Inventory the installed skills and which plugins contribute them, then flag overlap with the user's own skills \u2014 read through the Agent Monitor Config Explorer API. Reads /api/cc-config/skills and /api/cc-config/plugins.",
+  "vendored": true,
+  "library_path": "hoangsonww/skill-inventory"
+ },
+ {
+  "name": "budget-set",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-cost-guard/skills/budget-set",
+  "license": "MIT",
+  "description": "Define a spend budget for Claude Code and, optionally, create a cost alert rule that fires when usage crosses the limit, via POST /api/alerts/rules on the Agent Monitor dashboard. Reads current spend from /api/pricing/co",
+  "vendored": true,
+  "library_path": "hoangsonww/budget-set"
+ },
+ {
+  "name": "cost-alert",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-cost-guard/skills/cost-alert",
+  "license": "MIT",
+  "description": "Review the configured cost alert rules and the alerts currently fired on the Agent Monitor dashboard, then explain exactly what tripped and why. Uses /api/alerts (fired feed) and /api/alerts/rules (definitions). Use when",
+  "vendored": true,
+  "library_path": "hoangsonww/cost-alert"
+ },
+ {
+  "name": "daily-budget-check",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-cost-guard/skills/daily-budget-check",
+  "license": "MIT",
+  "description": "Run a daily spend check-in against a daily budget on the Agent Monitor dashboard \u2014 today's spend vs the daily target, pace through the day, and the projected overage if the current pace holds. Uses /api/pricing/cost and ",
+  "vendored": true,
+  "library_path": "hoangsonww/daily-budget-check"
+ },
+ {
+  "name": "model-savings",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-cost-guard/skills/model-savings",
+  "license": "MIT",
+  "description": "Estimate the dollars saved by routing eligible Claude Code work to a cheaper model family, using the Agent Monitor pricing engine. Re-prices each model's token mix at the target family's rates and quantifies the delta. U",
+  "vendored": true,
+  "library_path": "hoangsonww/model-savings"
+ },
+ {
+  "name": "spend-forecast",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-cost-guard/skills/spend-forecast",
+  "license": "MIT",
+  "description": "Forecast Claude Code spend to the end of the week or month from the daily session trend on the Agent Monitor dashboard \u2014 moving average of daily spend \u00d7 days remaining, added to spend-to-date. Uses /api/analytics daily_s",
+  "vendored": true,
+  "library_path": "hoangsonww/spend-forecast"
+ },
+ {
+  "name": "dashboard-status",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-dashboard/skills/dashboard-status",
+  "license": "MIT",
+  "description": "Quick dashboard health and status overview \u2014 checks the Agent Monitor API (port 4820), reports session/agent/event counts from /api/stats, confirms WebSocket connectivity, reads the redacted hook status returned by /api/",
+  "vendored": true,
+  "library_path": "hoangsonww/dashboard-status"
+ },
+ {
+  "name": "endpoint-probe",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-dashboard/skills/endpoint-probe",
+  "license": "MIT",
+  "description": "Probes each major Agent Monitor API route \u2014 /api/stats, /api/analytics, /api/sessions, /api/pricing/cost, /api/workflows/runs, /api/cc-config/overview \u2014 and reports each one's HTTP status, latency, and response shape, fl",
+  "vendored": true,
+  "library_path": "hoangsonww/endpoint-probe"
+ },
+ {
+  "name": "live-watch",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-dashboard/skills/live-watch",
+  "license": "MIT",
+  "description": "Polls the Agent Monitor /api/stats endpoint several times over a short window and reports the live deltas in active_sessions, active_agents, events_today, and ws_connections so you can see activity moving in real time. U",
+  "vendored": true,
+  "library_path": "hoangsonww/live-watch"
+ },
+ {
+  "name": "quick-stats",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-dashboard/skills/quick-stats",
+  "license": "MIT",
+  "description": "One-line summary of key Agent Monitor metrics \u2014 active sessions, total cost from the pricing engine, events today from daily_events, top tool from tool_usage, and current model from the most recent session. Use for a fas",
+  "vendored": true,
+  "library_path": "hoangsonww/quick-stats"
+ },
+ {
+  "name": "data-export",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/data-export",
+  "license": "MIT",
+  "description": "Export Claude Code session and analytics data in JSON, CSV, or Markdown formats. Supports exporting sessions, events, costs, and analytics for external analysis or reporting. Use for data backup or integration.",
+  "vendored": true,
+  "library_path": "hoangsonww/data-export"
+ },
+ {
+  "name": "event-trace",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/event-trace",
+  "license": "MIT",
+  "description": "Trace the full event chain for one Claude Code session into an ordered timeline of every event type with tool_name and summary, highlighting gaps, out-of-order events, and failures. Reads /api/events?session_id= and /api",
+  "vendored": true,
+  "library_path": "hoangsonww/event-trace"
+ },
+ {
+  "name": "health-check",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/health-check",
+  "license": "MIT",
+  "description": "Run comprehensive health checks on the Claude Code Agent Monitor system. Validates dashboard API, database, WebSocket, hooks, and disk usage. Use to verify the monitoring setup is working correctly.",
+  "vendored": true,
+  "library_path": "hoangsonww/health-check"
+ },
+ {
+  "name": "hook-diagnostics",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/hook-diagnostics",
+  "license": "MIT",
+  "description": "Diagnose Claude Code hook installation, delivery, and ingestion issues. Checks hook configuration, connectivity, event flow, and identifies common problems. Use when events are not appearing in the dashboard.",
+  "vendored": true,
+  "library_path": "hoangsonww/hook-diagnostics"
+ },
+ {
+  "name": "session-debug",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/session-debug",
+  "license": "MIT",
+  "description": "Debug a specific session by inspecting its full event chain (PreToolUse, PostToolUse, Stop, SubagentStop, Compaction, APIError, TurnDuration, Notification events), agent hierarchy (recursive parent/child tree with subage",
+  "vendored": true,
+  "library_path": "hoangsonww/session-debug"
+ },
+ {
+  "name": "transcript-grep",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-devtools/skills/transcript-grep",
+  "license": "MIT",
+  "description": "Search a Claude Code session transcript for a string or regex pattern and show every matching message with surrounding context. Reads /api/sessions/:id/transcript and resolves sessions via /api/sessions?limit= from the A",
+  "vendored": true,
+  "library_path": "hoangsonww/transcript-grep"
+ },
+ {
+  "name": "anomaly-alert",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/anomaly-alert",
+  "license": "MIT",
+  "description": "Identify anomalous sessions using Agent Monitor data \u2014 cost outliers from the pricing engine, token anomalies (cache miss spikes, compaction baseline surges), unusual event type ratios (PreToolUse/PostToolUse gaps, APIEr",
+  "vendored": true,
+  "library_path": "hoangsonww/anomaly-alert"
+ },
+ {
+  "name": "benchmark",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/benchmark",
+  "license": "MIT",
+  "description": "Benchmark one session (or a small recent set) against the rolling average using Agent Monitor data \u2014 cost, total tokens, tool count, and workflow complexity score \u2014 and report where each metric lands as a percentile of t",
+  "vendored": true,
+  "library_path": "hoangsonww/benchmark"
+ },
+ {
+  "name": "optimization-suggest",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/optimization-suggest",
+  "license": "MIT",
+  "description": "Suggest concrete optimizations for Claude Code usage based on historical session data. Covers cost reduction, speed improvement, error prevention, and workflow efficiency. Use for data-driven optimization planning.",
+  "vendored": true,
+  "library_path": "hoangsonww/optimization-suggest"
+ },
+ {
+  "name": "pattern-detect",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/pattern-detect",
+  "license": "MIT",
+  "description": "Detect recurring patterns using the Agent Monitor's workflow intelligence \u2014 toolFlow transitions (tool A \u2192 B frequency matrices), recurring workflow patterns, agent co-occurrence pairs, model delegation habits, error pro",
+  "vendored": true,
+  "library_path": "hoangsonww/pattern-detect"
+ },
+ {
+  "name": "regression-watch",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/regression-watch",
+  "license": "MIT",
+  "description": "Detect quality and efficiency regressions over time using Agent Monitor data \u2014 rising error rate (APIError events), falling cache hit rate, growing compaction frequency, and climbing cost-per-session. Splits history into",
+  "vendored": true,
+  "library_path": "hoangsonww/regression-watch"
+ },
+ {
+  "name": "session-compare",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-insights/skills/session-compare",
+  "license": "MIT",
+  "description": "Compare two sessions side-by-side using Agent Monitor data \u2014 per-model token usage (input/output/cache_read/cache_write + compaction baselines), pricing engine cost breakdowns, workflow intelligence (complexity scores, t",
+  "vendored": true,
+  "library_path": "hoangsonww/session-compare"
+ },
+ {
+  "name": "alert-management",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-integrations/skills/alert-management",
+  "license": "MIT",
+  "description": "Inspect fired CCAM alerts and manage alert rules for token thresholds, event patterns, inactivity, and status duration. Use when acknowledging alerts, creating or editing a rule, checking cooldowns, or connecting alert r",
+  "vendored": true,
+  "library_path": "hoangsonww/alert-management"
+ },
+ {
+  "name": "remote-collection",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-integrations/skills/remote-collection",
+  "license": "MIT",
+  "description": "Configure and troubleshoot CCAM Remote Data Sources that collect Claude Code and Codex history over SSH. Use when adding, editing, testing, syncing, or removing a remote machine, verifying provider paths, or deciding whe",
+  "vendored": true,
+  "library_path": "hoangsonww/remote-collection"
+ },
+ {
+  "name": "webhook-management",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-integrations/skills/webhook-management",
+  "license": "MIT",
+  "description": "Configure and validate CCAM webhook targets across supported chat, incident, automation, and generic providers. Use when listing provider requirements, creating or updating a target, scoping it to alert rules, sending a ",
+  "vendored": true,
+  "library_path": "hoangsonww/webhook-management"
+ },
+ {
+  "name": "config-explorer",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-platform/skills/config-explorer",
+  "license": "MIT",
+  "description": "Inspect and safely edit the Claude Code and Codex configuration surfaces exposed by CCAM. Use when auditing skills, agents, commands, plugins, marketplaces, MCP servers, hooks, settings, memory, keybindings, profiles, ru",
+  "vendored": true,
+  "library_path": "hoangsonww/config-explorer"
+ },
+ {
+  "name": "history-portability",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-platform/skills/history-portability",
+  "license": "MIT",
+  "description": "Import Claude Code or Codex history and move complete CCAM datasets between machines. Use when rescanning provider history, importing a copied directory, uploading JSONL or archives, exporting a backup, restoring it idem",
+  "vendored": true,
+  "library_path": "hoangsonww/history-portability"
+ },
+ {
+  "name": "hook-setup",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-platform/skills/hook-setup",
+  "license": "MIT",
+  "description": "Inspect and install CCAM monitoring hooks for Claude Code and Codex. Use when onboarding a provider, repairing missing hooks, checking which provider is active, or validating that installation preserved unrelated user ho",
+  "vendored": true,
+  "library_path": "hoangsonww/hook-setup"
+ },
+ {
+  "name": "mcp-server",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-platform/skills/mcp-server",
+  "license": "MIT",
+  "description": "Configure, launch, validate, and troubleshoot CCAM's comprehensive MCP server for Claude Code, Codex, and other MCP hosts. Use when installing dependencies, building the server, selecting stdio, HTTP, or REPL transport, ",
+  "vendored": true,
+  "library_path": "hoangsonww/mcp-server"
+ },
+ {
+  "name": "daily-standup",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/daily-standup",
+  "license": "MIT",
+  "description": "Generate a daily standup summary from recent Claude Code sessions \u2014 completed work grouped by project (cwd), session costs from the pricing engine, tool invocations, error/compaction/APIError events, and turn velocity me",
+  "vendored": true,
+  "library_path": "hoangsonww/daily-standup"
+ },
+ {
+  "name": "monthly-review",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/monthly-review",
+  "license": "MIT",
+  "description": "Compile a month-over-month retrospective from Agent Monitor data \u2014 sessions, cost, token volumes, completion rate, top projects by working directory, and notable shifts versus the prior month. Uses daily_sessions/daily_e",
+  "vendored": true,
+  "library_path": "hoangsonww/monthly-review"
+ },
+ {
+  "name": "sprint-summary",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/sprint-summary",
+  "license": "MIT",
+  "description": "Summarize a sprint's worth of Claude Code activity \u2014 sessions grouped by project (cwd), per-model cost breakdown, token efficiency (cache hit rate, compaction baselines), subagent effectiveness from workflow API, velocit",
+  "vendored": true,
+  "library_path": "hoangsonww/sprint-summary"
+ },
+ {
+  "name": "time-of-day",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/time-of-day",
+  "license": "MIT",
+  "description": "Discover when you are most active and most productive with Claude Code by bucketing sessions and events into hour-of-day and day-of-week bins from their timestamps, then flagging peak versus low-output windows. Uses the ",
+  "vendored": true,
+  "library_path": "hoangsonww/time-of-day"
+ },
+ {
+  "name": "weekly-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/weekly-report",
+  "license": "MIT",
+  "description": "Compile a weekly productivity report using Agent Monitor data \u2014 daily_sessions and daily_events trends, per-session costs from pricing engine, token volumes (input/output/cache_read/cache_write + baselines), tool usage t",
+  "vendored": true,
+  "library_path": "hoangsonww/weekly-report"
+ },
+ {
+  "name": "workflow-optimizer",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-productivity/skills/workflow-optimizer",
+  "license": "MIT",
+  "description": "Analyze workflow patterns using the Agent Monitor's workflow intelligence API \u2014 orchestration DAGs, tool flow transitions, subagent effectiveness, model delegation patterns, error propagation by depth, concurrency lanes,",
+  "vendored": true,
+  "library_path": "hoangsonww/workflow-optimizer"
+ },
+ {
+  "name": "api-error-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-quality/skills/api-error-report",
+  "license": "MIT",
+  "description": "Produce a detailed report on APIError events from Agent Monitor data \u2014 counts over time, which sessions and models are affected, and the likely root cause (rate limits, overload/529, or context-window pressure) inferred ",
+  "vendored": true,
+  "library_path": "hoangsonww/api-error-report"
+ },
+ {
+  "name": "error-scan",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-quality/skills/error-scan",
+  "license": "MIT",
+  "description": "Scan recent Claude Code activity for errors and failure signals across all sessions using Agent Monitor data \u2014 APIError events and PreToolUse\u2192PostToolUse gaps (tools that started but never completed) \u2014 then group failure",
+  "vendored": true,
+  "library_path": "hoangsonww/error-scan"
+ },
+ {
+  "name": "hook-failure-audit",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-quality/skills/hook-failure-audit",
+  "license": "MIT",
+  "description": "Audit hook delivery health from Agent Monitor data \u2014 balance PreToolUse vs PostToolUse (a gap means tools that started but never reported back), detect missing Stop/SubagentStop terminators (sessions/subagents that never",
+  "vendored": true,
+  "library_path": "hoangsonww/hook-failure-audit"
+ },
+ {
+  "name": "regression-alert",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-quality/skills/regression-alert",
+  "license": "MIT",
+  "description": "Compare this period's reliability against the prior period using Agent Monitor data \u2014 error rate (APIError/total) and tool-failure rate (PreToolUse\u2192PostToolUse gap) \u2014 flag any regression where reliability got worse, and ",
+  "vendored": true,
+  "library_path": "hoangsonww/regression-alert"
+ },
+ {
+  "name": "slo-check",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-quality/skills/slo-check",
+  "license": "MIT",
+  "description": "Define and check simple service-level objectives for Claude Code from Agent Monitor data \u2014 session completion rate, tool success rate (PostToolUse/PreToolUse), and error rate (APIError/total) \u2014 then compare each to its t",
+  "vendored": true,
+  "library_path": "hoangsonww/slo-check"
+ },
+ {
+  "name": "cost-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-reports/skills/cost-report",
+  "license": "MIT",
+  "description": "Produce a scoped CCAM cost and token report by model, provider, source, and session. Use for spend reviews, model-mix analysis, unpriced usage detection, or export-friendly cost summaries.",
+  "vendored": true,
+  "library_path": "hoangsonww/cost-report"
+ },
+ {
+  "name": "executive-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-reports/skills/executive-report",
+  "license": "MIT",
+  "description": "Generate a concise stakeholder report from CCAM sessions, analytics, cost, alerts, and workflow intelligence. Use for release summaries, leadership updates, operational reviews, or a scoped Markdown report with evidence.",
+  "vendored": true,
+  "library_path": "hoangsonww/executive-report"
+ },
+ {
+  "name": "reliability-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-reports/skills/reliability-report",
+  "license": "MIT",
+  "description": "Generate a CCAM reliability report from session outcomes, hook events, alerts, tool failures, and data freshness. Use for health reviews, incident follow-up, hook-delivery audits, or reliability trend summaries.",
+  "vendored": true,
+  "library_path": "hoangsonww/reliability-report"
+ },
+ {
+  "name": "workflow-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-reports/skills/workflow-report",
+  "license": "MIT",
+  "description": "Create a workflow-intelligence report from CCAM orchestration, delegation, tool flow, concurrency, complexity, compaction, and fleet-run data. Use for architecture reviews, agent-fleet analysis, or workflow optimization ",
+  "vendored": true,
+  "library_path": "hoangsonww/workflow-report"
+ },
+ {
+  "name": "run-agent",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-runner/skills/run-agent",
+  "license": "MIT",
+  "description": "Launch and supervise Claude Code or Codex through the CCAM Run API. Use when the user wants to start a monitored agent, select a model, approval policy, sandbox, or working directory, send a follow-up, inspect live outpu",
+  "vendored": true,
+  "library_path": "hoangsonww/run-agent"
+ },
+ {
+  "name": "run-history",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-runner/skills/run-history",
+  "license": "MIT",
+  "description": "Inspect CCAM dashboard-run history and relate live run handles to persisted Claude Code or Codex sessions. Use when finding a prior launched task, checking whether a run is still attached, reviewing start/end status, or ",
+  "vendored": true,
+  "library_path": "hoangsonww/run-history"
+ },
+ {
+  "name": "cwd-rollup",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-sessions/skills/cwd-rollup",
+  "license": "MIT",
+  "description": "Roll up Claude Code sessions by working directory (project) from Agent Monitor data \u2014 session count, total cost, total tokens, and last-active timestamp per cwd \u2014 so per-project activity can be compared at a glance. Use ",
+  "vendored": true,
+  "library_path": "hoangsonww/cwd-rollup"
+ },
+ {
+  "name": "session-cleanup",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-sessions/skills/session-cleanup",
+  "license": "MIT",
+  "description": "Identify stale and empty Claude Code sessions in the Agent Monitor and explain the cleanup endpoint (POST /api/settings/cleanup), always showing the exact list of what WOULD be removed before anything is deleted. Cleanup",
+  "vendored": true,
+  "library_path": "hoangsonww/session-cleanup"
+ },
+ {
+  "name": "session-search",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-sessions/skills/session-search",
+  "license": "MIT",
+  "description": "Find Claude Code sessions tracked by the Agent Monitor by project (cwd), model, status, or date, then rank the matches by cost or recency. Pulls the session list and the distinct cwd / facet values so filters use real va",
+  "vendored": true,
+  "library_path": "hoangsonww/session-search"
+ },
+ {
+  "name": "session-timeline",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-sessions/skills/session-timeline",
+  "license": "MIT",
+  "description": "Render an ordered timeline of one Claude Code session's events (every event type) with per-event durations and tool names, reconstructed from Agent Monitor data. Pairs PreToolUse with PostToolUse to compute tool duration",
+  "vendored": true,
+  "library_path": "hoangsonww/session-timeline"
+ },
+ {
+  "name": "transcript-replay",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-sessions/skills/transcript-replay",
+  "license": "MIT",
+  "description": "Walk a Claude Code session transcript turn-by-turn from Agent Monitor data, summarizing each user, assistant, and tool message in order so a long conversation can be reviewed quickly. Anchors the recap to the session hea",
+  "vendored": true,
+  "library_path": "hoangsonww/transcript-replay"
+ },
+ {
+  "name": "concurrency-report",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-workflows/skills/concurrency-report",
+  "license": "MIT",
+  "description": "Report concurrency and parallelism for a session \u2014 how many agents ran in parallel, concurrency-lane utilization, peak parallel width, and serialization bottlenecks (sequential chains that could have run as parallel lane",
+  "vendored": true,
+  "library_path": "hoangsonww/concurrency-report"
+ },
+ {
+  "name": "dag-map",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-workflows/skills/dag-map",
+  "license": "MIT",
+  "description": "Render the multi-agent orchestration DAG for a session \u2014 parent\u2192child subagent edges, tree depth, and fan-out \u2014 from the Agent Monitor workflow intelligence API. Cross-checks the orchestration dataset against the raw age",
+  "vendored": true,
+  "library_path": "hoangsonww/dag-map"
+ },
+ {
+  "name": "delegation-audit",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-workflows/skills/delegation-audit",
+  "license": "MIT",
+  "description": "Audit model delegation and subagent effectiveness for a session \u2014 which models handled which subagent types, per-type success rates and average durations, and wasted delegations (heavy models on trivial work or types tha",
+  "vendored": true,
+  "library_path": "hoangsonww/delegation-audit"
+ },
+ {
+  "name": "error-propagation",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-workflows/skills/error-propagation",
+  "license": "MIT",
+  "description": "Trace error propagation through a multi-agent session by agent depth \u2014 where failures originated, the depth at which they appeared, and how they cascaded up to parent agents \u2014 using the Agent Monitor workflow intelligenc",
+  "vendored": true,
+  "library_path": "hoangsonww/error-propagation"
+ },
+ {
+  "name": "fleet-runs",
+  "repo": "hoangsonww/Claude-Code-Agent-Monitor",
+  "commit": "70b8ce90cedd841a2459631acd38755839db37e7",
+  "path": "plugins/ccam-workflows/skills/fleet-runs",
+  "license": "MIT",
+  "description": "Summarize Workflow-tool fleet runs from the Agent Monitor \u2014 these fleets emit no hooks and are ingested from on-disk run journals. List recent runs with status and agents-per-run, then drill into a single run's per-agent",
+  "vendored": true,
+  "library_path": "hoangsonww/fleet-runs"
+ },
+ {
+  "name": "img2threejs",
+  "repo": "img2threejs/img2threejs",
+  "commit": "3e7099e1b7fe93e187e06db4bdbe1e1906c21a28",
+  "path": ".",
+  "license": "Apache-2.0",
+  "description": "Turn an object or character reference image into a quality-gated, animation-ready procedural Three.js model built in code. Use for image-to-3D reconstruction, detail-accurate object rebuilds, stylized/likeness-maximized ",
+  "vendored": true,
+  "library_path": "img2threejs/img2threejs"
+ },
+ {
+  "name": "playwright-cli",
+  "repo": "microsoft/playwright-cli",
+  "commit": "c2d8d199459d1480491bebf0a6b3587136b673fa",
+  "path": "skills/playwright-cli",
+  "license": "Apache-2.0",
+  "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+  "vendored": true,
+  "library_path": "microsoft/playwright-cli"
+ },
+ {
+  "name": "delegate-work",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "integrations/assistant-plugins/claude/paperclip/skills/delegate-work",
+  "license": "MIT",
+  "description": "Delegate user-requested work to an existing Paperclip agent, with a durable task reference and clear execution expectations.",
+  "vendored": true,
+  "library_path": "paperclipai/delegate-work"
+ },
+ {
+  "name": "follow-up-results",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "integrations/assistant-plugins/claude/paperclip/skills/follow-up-results",
+  "license": "MIT",
+  "description": "Find progress or deliverables from earlier Paperclip work and add user-requested feedback with human attribution.",
+  "vendored": true,
+  "library_path": "paperclipai/follow-up-results"
+ },
+ {
+  "name": "review-my-team",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "integrations/assistant-plugins/claude/paperclip/skills/review-my-team",
+  "license": "MIT",
+  "description": "Review a connected Paperclip team's agents, tasks, blockers and pending approvals when the user asks for a team summary or what needs attention.",
+  "vendored": true,
+  "library_path": "paperclipai/review-my-team"
+ },
+ {
+  "name": "paperclip-task-bridge",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/adapters/hermes/skills/paperclip-task-bridge",
+  "license": "MIT",
+  "description": "Create, comment on, update, and list Paperclip tasks from Hermes using scoped Paperclip API credentials.",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-task-bridge"
+ },
+ {
+  "name": "index-refresh",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/index-refresh",
+  "license": "MIT",
+  "description": "Use when an LLM Wiki operation issue requests an index refresh. Rebuild `wiki/index.md` from the actual wiki tree, reconcile missing/deleted entries, and log counts without editing page bodies.",
+  "vendored": true,
+  "library_path": "paperclipai/index-refresh"
+ },
+ {
+  "name": "paperclip-distill",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/paperclip-distill",
+  "license": "MIT",
+  "description": "Use when an operation issue is a Paperclip cursor-window, distill, or backfill. Turn source-bundled Paperclip activity into wiki-insightful project standups, durable project pages, decisions, and history without asset de",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-distill"
+ },
+ {
+  "name": "wiki-ingest",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/wiki-ingest",
+  "license": "MIT",
+  "description": "Use when an operation issue asks to ingest a captured `raw/` source into the LLM Wiki, or the user says \"ingest <slug>\". Create durable source, entity, concept, synthesis, index, and log pages; use paperclip-distill for ",
+  "vendored": true,
+  "library_path": "paperclipai/wiki-ingest"
+ },
+ {
+  "name": "wiki-lint",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/wiki-lint",
+  "license": "MIT",
+  "description": "Use when an LLM Wiki operation issue is a lint or health check. Audit for contradictions, orphans, weak provenance, broken links, missing concept pages, and index/log drift; return triage findings without auto-fixing.",
+  "vendored": true,
+  "library_path": "paperclipai/wiki-lint"
+ },
+ {
+  "name": "llm-wiki-maintainer",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/wiki-maintainer",
+  "license": "MIT",
+  "description": "\"Use the LLM Wiki plugin tools to maintain a cited local company wiki.\"",
+  "vendored": true,
+  "library_path": "paperclipai/llm-wiki-maintainer"
+ },
+ {
+  "name": "wiki-query",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/plugins/plugin-llm-wiki/skills/wiki-query",
+  "license": "MIT",
+  "description": "Use when an LLM Wiki operation issue asks a question. Answer from wiki pages and raw sources with citations, name gaps plainly, and offer to file durable synthesis when the answer should compound.",
+  "vendored": true,
+  "library_path": "paperclipai/wiki-query"
+ },
+ {
+  "name": "doc-maintenance",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/docs/doc-maintenance",
+  "license": "MIT",
+  "description": "Keep project docs aligned with recent code and feature changes \u2014 detect drift, update affected pages, and add release-relevant notes without rewriting unchanged sections.",
+  "vendored": true,
+  "library_path": "paperclipai/doc-maintenance"
+ },
+ {
+  "name": "issue-triage",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/issue-triage",
+  "license": "MIT",
+  "description": "Triage Paperclip inbox issues that are stale, blocked, in-review, or assigned-but-not-progressing, and decide a single next action per issue (resume, reassign, unblock, escalate, or close).",
+  "vendored": true,
+  "library_path": "paperclipai/issue-triage"
+ },
+ {
+  "name": "reflection-coach",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/reflection-coach",
+  "license": "MIT",
+  "description": "Reflect on another agent's recent execution record and propose the smallest durable instruction, skill, or tool-description change. Use for evidence-backed coaching proposals, never hot-swaps.",
+  "vendored": true,
+  "library_path": "paperclipai/reflection-coach"
+ },
+ {
+  "name": "status-card-query",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/status-card-query",
+  "license": "MIT",
+  "description": "Create and maintain agent-authored Paperclip status cards, or compile a prose interest prompt into bounded CompanySearchQuery objects and write the first summary from the assigned Summarizer run.",
+  "vendored": true,
+  "library_path": "paperclipai/status-card-query"
+ },
+ {
+  "name": "summarize-status",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/summarize-status",
+  "license": "MIT",
+  "description": "Write a short, colloquial summary for a Paperclip summary slot: open with the 1\u20133 specific, concrete actions the reader needs to take right now to unblock the work, then a brief plain-language status, streaming progress ",
+  "vendored": true,
+  "library_path": "paperclipai/summarize-status"
+ },
+ {
+  "name": "task-planning",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/paperclip-operations/task-planning",
+  "license": "MIT",
+  "description": "Write or revise a useful Paperclip plan with a clear outcome and verification. Use when a plan is requested or uncertainty needs resolving before execution.",
+  "vendored": true,
+  "library_path": "paperclipai/task-planning"
+ },
+ {
+  "name": "paperclip-capsules",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/product/paperclip-capsules",
+  "license": "MIT",
+  "description": "Generate, implement, or review Paperclip capsule visuals. Use for capsule art, agent capsules, heartbeat status capsules, identicons, capsule banks, or brand-usage validation.",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-capsules"
+ },
+ {
+  "name": "wireframe",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/product/wireframe",
+  "license": "MIT",
+  "description": "Produce low-fidelity black-and-white UI wireframes as SVGs or viewer pages. Use when asked to wireframe, sketch a screen, draft a layout, make a low-fi mockup, or publish wireframes.",
+  "vendored": true,
+  "library_path": "paperclipai/wireframe"
+ },
+ {
+  "name": "qa-acceptance",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/quality/qa-acceptance",
+  "license": "MIT",
+  "description": "Produce QA acceptance criteria and a manual validation plan for a feature change \u2014 golden path, edge cases, error states, performance limits, and explicit pass/fail evidence.",
+  "vendored": true,
+  "library_path": "paperclipai/qa-acceptance"
+ },
+ {
+  "name": "github-pr-workflow",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/bundled/software-development/github-pr-workflow",
+  "license": "MIT",
+  "description": "Prepare a GitHub pull request from a feature branch \u2014 branch hygiene, commit shape, title/body, verification notes, screenshots for UI work, and replies to review comments.",
+  "vendored": true,
+  "library_path": "paperclipai/github-pr-workflow"
+ },
+ {
+  "name": "agent-browser",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/browser/agent-browser",
+  "license": "MIT",
+  "description": "Drive a real browser to inspect or interact with a web page or app \u2014 navigate, take screenshots, read console and network, fill simple forms \u2014 for verification tasks, not unattended automation.",
+  "vendored": true,
+  "library_path": "paperclipai/agent-browser"
+ },
+ {
+  "name": "release-announcement",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/content/release-announcement",
+  "license": "MIT",
+  "description": "Write a release announcement \u2014 changelog, blog post, in-app note, or social post \u2014 that leads with user impact, names the audience, and includes upgrade/migration steps without filler.",
+  "vendored": true,
+  "library_path": "paperclipai/release-announcement"
+ },
+ {
+  "name": "simplified-english",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/content/simplified-english",
+  "license": "MIT",
+  "description": "Write user-facing comments, plans, and documents in ASD-STE100 Simplified Technical English \u2014 short, unambiguous sentences with approved words and one meaning each \u2014 so readers understand them the first time.",
+  "vendored": true,
+  "library_path": "paperclipai/simplified-english"
+ },
+ {
+  "name": "ramp",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/finance/ramp",
+  "license": "MIT",
+  "description": "Fetch and follow Ramp's published agent playbooks inside Paperclip, with mandatory approval gates for spend, incorporation, cards, account setup, and other financial actions.",
+  "vendored": true,
+  "library_path": "paperclipai/ramp"
+ },
+ {
+  "name": "design-critique",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/product/design-critique",
+  "license": "MIT",
+  "description": "Give a structured product design critique \u2014 user job clarity, hierarchy, affordance, error states, accessibility, and consistency \u2014 focused on what to change, in what order, and why.",
+  "vendored": true,
+  "library_path": "paperclipai/design-critique"
+ },
+ {
+  "name": "prepare-mcp-integration",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/skills-catalog/catalog/optional/software-development/prepare-mcp-integration",
+  "license": "MIT",
+  "description": "Prepare MCP/vendor integrations through cited research, a content PR, exact-revision human approval, and one governed Paperclip connector PR per approved connection. Use for new integration research and delivery; not for",
+  "vendored": true,
+  "library_path": "paperclipai/prepare-mcp-integration"
+ },
+ {
+  "name": "content-calendar",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "packages/teams-catalog/catalog/optional/content/content-machine/skills/content-calendar",
+  "license": "MIT",
+  "description": "Plan a weekly editorial calendar by mapping company goals to publishable topics, owners, status, and verification notes.",
+  "vendored": true,
+  "library_path": "paperclipai/content-calendar"
+ },
+ {
+  "name": "first-task",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "server/src/onboarding-assets/first-task/skills/first-task",
+  "license": "MIT",
+  "description": "Guide the user's first Paperclip task when its description invokes /first-task. Interpret the opening answer, clarify their goal, propose a plan or a single task, and wait for approval before hiring agents or executing a",
+  "vendored": true,
+  "library_path": "paperclipai/first-task"
+ },
+ {
+  "name": "agentmail",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/agentmail",
+  "license": "MIT",
+  "description": "Use your assigned AgentMail inbox to read email tasks, explicitly send or reply, and check delivery. Provided automatically by your inbox assignment.",
+  "vendored": true,
+  "library_path": "paperclipai/agentmail"
+ },
+ {
+  "name": "complain",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/complain",
+  "license": "MIT",
+  "description": "Autonomously yeet a brief, unstructured complaint about agent tooling or doing agent work. Preserve the raw voice. Submit proactively without permission, preview, or announcement, then continue the primary task.",
+  "vendored": true,
+  "library_path": "paperclipai/complain"
+ },
+ {
+  "name": "paperclip-board",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/paperclip-board",
+  "license": "MIT",
+  "description": "Manage a Paperclip company as a board member via chat. Use when the user wants onboarding, company or agent management, approvals, task monitoring, cost oversight, work product review, or help finding things in the Paper",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-board"
+ },
+ {
+  "name": "paperclip-converting-plans-to-tasks",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/paperclip-converting-plans-to-tasks",
+  "license": "MIT",
+  "description": "Decide whether Paperclip work needs delegation, and connect justified tasks with owners and real dependencies. Use when turning an authorized plan into work.",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-converting-plans-to-tasks"
+ },
+ {
+  "name": "paperclip-create-agent",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/paperclip-create-agent",
+  "license": "MIT",
+  "description": "Create new agents in Paperclip with governance-aware hiring. Use when you need to inspect adapter configuration options, compare existing agent configs, draft a new agent prompt/config, and submit a hire request.",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip-create-agent"
+ },
+ {
+  "name": "paperclip",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/paperclip",
+  "license": "MIT",
+  "description": "Use for Paperclip-managed tasks and heartbeats: reading task context, delivering task documents or files, updating completion or blockers, coordinating or delegating work, and following company governance. Includes contr",
+  "vendored": true,
+  "library_path": "paperclipai/paperclip"
+ },
+ {
+  "name": "para-memory-files",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/para-memory-files",
+  "license": "MIT",
+  "description": "Use a file-based PARA memory system to store, retrieve, and organize durable knowledge across sessions. Trigger on saving facts, daily notes, entity records, weekly synthesis, recall, tacit user patterns, or plan memory.",
+  "vendored": true,
+  "library_path": "paperclipai/para-memory-files"
+ },
+ {
+  "name": "slack",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/slack",
+  "license": "MIT",
+  "description": "Use the assigned Slack bot from Slack conversations, Paperclip tasks, and routines to read shared discussions and collaborate.",
+  "vendored": true,
+  "library_path": "paperclipai/slack"
+ },
+ {
+  "name": "suggestion-box",
+  "repo": "paperclipai/paperclip",
+  "commit": "cc6728e8deb4f952b79d657e46a51a0945fef02d",
+  "path": "skills/suggestion-box",
+  "license": "MIT",
+  "description": "Quietly suggest a concrete improvement after observing material, generalizable friction in agent work. Submit proactively without permission, preview, or announcement, then continue the primary task.",
+  "vendored": true,
+  "library_path": "paperclipai/suggestion-box"
+ },
+ {
+  "name": "impeccable",
+  "repo": "pbakaus/impeccable",
+  "commit": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+  "path": "plugin/skills/impeccable",
+  "license": "Apache-2.0",
+  "description": "\"Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, animate, or otherwise improve a frontend interface: websites, landing pages, dashboards, product UI, components, forms, sett",
+  "vendored": true,
+  "library_path": "pbakaus/impeccable"
+ },
+ {
+  "name": "promptfoo-evals",
+  "repo": "promptfoo/promptfoo",
+  "commit": "e4ecd0e48b08aedebe186b2ee868b0f31c62e3fe",
+  "path": "plugins/promptfoo/skills/promptfoo-evals",
+  "license": "MIT",
+  "description": "Write, run, and improve non-redteam Promptfoo eval suites for a configured target: test cases, assertions, rubrics, datasets, and CI gates. Use promptfoo-provider-setup first for a new or broken connection; use the redte",
+  "vendored": true,
+  "library_path": "promptfoo/promptfoo-evals"
+ },
+ {
+  "name": "promptfoo-provider-setup",
+  "repo": "promptfoo/promptfoo",
+  "commit": "e4ecd0e48b08aedebe186b2ee868b0f31c62e3fe",
+  "path": "plugins/promptfoo/skills/promptfoo-provider-setup",
+  "license": "MIT",
+  "description": "Connect Promptfoo to a model, live HTTP API, local Python/JavaScript provider, or app code. Use for request/auth mapping, response parsing, OpenAPI setup, and connection smoke tests. Use promptfoo-evals for broader eval ",
+  "vendored": true,
+  "library_path": "promptfoo/promptfoo-provider-setup"
+ },
+ {
+  "name": "promptfoo-redteam-run",
+  "repo": "promptfoo/promptfoo",
+  "commit": "e4ecd0e48b08aedebe186b2ee868b0f31c62e3fe",
+  "path": "plugins/promptfoo/skills/promptfoo-redteam-run",
+  "license": "MIT",
+  "description": "Execute, inspect, and rerun an existing Promptfoo redteam scan. Use for generated YAML, result exports, attack success rates, grader/target errors, filtered reruns, and CI gates. Use promptfoo-provider-setup for connecti",
+  "vendored": true,
+  "library_path": "promptfoo/promptfoo-redteam-run"
+ },
+ {
+  "name": "promptfoo-redteam-setup",
+  "repo": "promptfoo/promptfoo",
+  "commit": "e4ecd0e48b08aedebe186b2ee868b0f31c62e3fe",
+  "path": "plugins/promptfoo/skills/promptfoo-redteam-setup",
+  "license": "MIT",
+  "description": "Create or refine a Promptfoo redteam config and generate probes from target behavior, code, or OpenAPI evidence. Use for purpose, trust boundaries, plugins, strategies, and grading guidance. Use promptfoo-provider-setup ",
+  "vendored": true,
+  "library_path": "promptfoo/promptfoo-redteam-setup"
+ }
+]

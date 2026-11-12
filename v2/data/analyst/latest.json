@@ -1,0 +1,703 @@
+{
+ "schema": "sidoss.analyst/1",
+ "agent": "Head Analyst",
+ "generated_at": "2026-11-12T14:19:46Z",
+ "session": "newyork",
+ "inputs": {
+  "snapshot_fetched_at": "2026-11-12T14:12:09Z",
+  "research_generated_at": "2026-11-12T14:14:31Z"
+ },
+ "assets": {
+  "NQ": {
+   "label": "NQ/MNQ",
+   "contract": "NQ=F continuous front month (Yahoo, ~10 min delayed)",
+   "price": 28096.25,
+   "price_observed_at": "2026-11-12T14:07:07Z",
+   "direction": "bearish",
+   "agreement": 50,
+   "score_breakdown": [
+    {
+     "line": "news",
+     "vote": -1,
+     "evidence": "news_bias.NQ.bias = bearish (strength 70): Nvidia CEO Huang resigned (CNBC, WSJ; interim CEO Kress named); NQ futures ~-1.3% pre-market, global AI selloff (Reuters); US10Y back above 5% on further Fed hike pricing; oil up on Trump Iran remarks. Offsets: leadership question now resolved, AMD upgrade (opinion).",
+     "source": "v2/data/research/latest.json news_bias.NQ.bias"
+    },
+    {
+     "line": "h4",
+     "vote": 1,
+     "evidence": "structure.h4 = bullish: close 28102.00 > EMA20 28069.10, EMA rising",
+     "source": "v2/data/market/snapshot.json assets.NQ.structure.h4"
+    },
+    {
+     "line": "m30",
+     "vote": -1,
+     "evidence": "structure.m30 = bearish: close 28096.25 < EMA20 28206.30, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.NQ.structure.m30"
+    },
+    {
+     "line": "vwap",
+     "vote": -1,
+     "evidence": "price 28096.25 < session VWAP 28200.86 (anchor 2026-11-11T23:00:00Z)",
+     "source": "v2/data/market/snapshot.json assets.NQ.price vs assets.NQ.vwap.value"
+    }
+   ],
+   "conflict": true,
+   "conflict_text": "News (bearish: Nvidia CEO resignation, NQ futures ~-1.3%) and 30M/VWAP are bearish, but 4H structure is still bullish (4H close 28102.00 > rising EMA20 28069.10).",
+   "levels": [
+    {
+     "label": "Prior day high",
+     "price": 28697.0,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Prior day low",
+     "price": 27847.75,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "support"
+    },
+    {
+     "label": "Session VWAP",
+     "price": 28200.86,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "pivot"
+    },
+    {
+     "label": "Asia high",
+     "price": 28368.75,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Asia low",
+     "price": 28134.25,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London high",
+     "price": 28312.75,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London low",
+     "price": 28168.0,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork high (in progress)",
+     "price": 28308.75,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork low (in progress)",
+     "price": 28013.75,
+     "source": "NQ=F",
+     "observed_at": "2026-11-12T14:07:07Z",
+     "role": "support"
+    }
+   ],
+   "invalidation": "Bearish bias is invalidated if NQ=F trades back above Session VWAP 28200.86 and holds above the London high 28312.75; below the Newyork low 28013.75 (in progress) the bearish read stays intact (4H EMA20 28069.10 is the first 4H test).",
+   "session_plan": "Delayed data (~10 min, NQ=F at 28096.25 observed 14:07 UTC): price sits below session VWAP 28200.86 and the Asia/London lows after the Nvidia CEO resignation headline, so the 14:30 UTC (09:30 ET) cash open is the first full-participation read of how the AI-led selloff is absorbed. Scheduled context: Fed Governor Barr speaks on AI at 15:00 UTC (10:00 ET), the 30-Year Bond auction is today (time not confirmed), and PPI is tomorrow 13:30 UTC (08:30 ET); jobless claims are already out (200K, secondary sources only). Volatility is elevated: 5m ATR(14) ~51.6 pts, today's range 355 pts, VIX 18.73 (+1.24) with US10Y 5.036% (+0.038) and DXY 102.878. RVOL 0.92 is near average but based on only 3 sessions, so participation is a weak signal.",
+   "volatility": {
+    "atr_5m_14": 51.5725,
+    "range_today": 355.0,
+    "vix": 18.73,
+    "context_gauges": {
+     "VIX": {
+      "value": 18.73,
+      "change": 1.24,
+      "observed_at": "2026-11-12T14:02:01Z"
+     },
+     "US10Y": {
+      "value": 5.036,
+      "change": 0.038,
+      "observed_at": "2026-11-12T14:02:04Z"
+     },
+     "DXY": {
+      "value": 102.878,
+      "change": -0.03,
+      "observed_at": "2026-11-12T14:07:10Z"
+     }
+    }
+   },
+   "participation": {
+    "rvol": 0.92,
+    "note": "RVOL 0.92 vs 3 prior sessions — small sample (Yahoo 5m history ≤ 5 days); pre-cash-open volume, weak signal."
+   },
+   "freshness": {
+    "price_age_min": 5.0,
+    "stale": false,
+    "provider_delay_min": 10
+   },
+   "events_ref": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "key_headlines": [
+    0,
+    2,
+    3,
+    4,
+    16,
+    1
+   ],
+   "changed_from_previous": "Same direction and agreement as the NQ pilot (2026-11-12T14:09:19Z): bearish, 50/100; session VWAP 28204.8 → 28200.86, price 28102.75 → 28096.25."
+  },
+  "GOLD": {
+   "label": "Gold/MGC",
+   "contract": "GC=F continuous front month (Yahoo, ~10 min delayed) — not XAUUSD spot",
+   "price": 3894.1001,
+   "price_observed_at": "2026-11-12T14:07:09Z",
+   "direction": "bearish",
+   "agreement": 100,
+   "score_breakdown": [
+    {
+     "line": "news",
+     "vote": -1,
+     "evidence": "news_bias.GOLD.bias = bearish (strength 65): Gold (mostly spot $/oz in headlines; GC=F futures in snapshot -2.66%) at a one-week low: dollar near 19-month high, US10Y above 5%, December Fed hike pricing (Reuters, Yahoo, Kitco). Offsets: jobless claims rose to 200k / above expectations (weaker labor), Iran/oil geopolitics; one outlet reports gold edging up after the drop.",
+     "source": "v2/data/research/latest.json news_bias.GOLD.bias"
+    },
+    {
+     "line": "h4",
+     "vote": -1,
+     "evidence": "structure.h4 = bearish: close 3894.10 < EMA20 4019.18, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.GOLD.structure.h4"
+    },
+    {
+     "line": "m30",
+     "vote": -1,
+     "evidence": "structure.m30 = bearish: close 3894.10 < EMA20 3946.03, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.GOLD.structure.m30"
+    },
+    {
+     "line": "vwap",
+     "vote": -1,
+     "evidence": "price 3894.1001 < session VWAP 3948.56 (anchor 2026-11-11T23:00:00Z)",
+     "source": "v2/data/market/snapshot.json assets.GOLD.price vs assets.GOLD.vwap.value"
+    }
+   ],
+   "conflict": false,
+   "conflict_text": "No conflict: news and all three price lines (4H, 30M, VWAP) point the same way.",
+   "levels": [
+    {
+     "label": "Prior day high",
+     "price": 4074.7,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Prior day low",
+     "price": 3989.6,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Session VWAP",
+     "price": 3948.56,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "pivot"
+    },
+    {
+     "label": "Asia high",
+     "price": 4005.9,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Asia low",
+     "price": 3967.7,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London high",
+     "price": 3978.0,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London low",
+     "price": 3929.5,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork high (in progress)",
+     "price": 3954.8,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork low (in progress)",
+     "price": 3889.7,
+     "source": "GC=F",
+     "observed_at": "2026-11-12T14:07:09Z",
+     "role": "support"
+    }
+   ],
+   "invalidation": "Bearish bias is invalidated if GC=F reclaims Session VWAP 3948.56 and holds above the Newyork high 3954.8 (in progress); while below the London low 3929.5 the bearish read stays intact, with the Newyork low 3889.7 the nearest support.",
+   "session_plan": "GC=F continuous front month (Yahoo, ~10 min delayed, not XAUUSD spot) at 3894.1001 observed 14:07 UTC, -2.66% on the day, sits below session VWAP 3948.56 and every Asia/London level, just above the Newyork low 3889.7; news headlines quote spot near $3,900/oz, which is a different instrument from this futures quote. Rate/dollar context: US10Y 5.036% (+0.038), DXY 102.878 (-0.03, near a 19-month high per headlines), VIX 18.73; scheduled: Fed Governor Barr 15:00 UTC (10:00 ET), 30-Year Bond auction today (time not confirmed), PPI tomorrow 13:30 UTC (08:30 ET), with jobless claims already out at 200K (secondary sources only). Volatility: 5m ATR(14) ~7.49, today's range 116.2; RVOL 1.34 vs only 3 prior sessions is a small sample, so participation is a weak signal.",
+   "volatility": {
+    "atr_5m_14": 7.4899,
+    "range_today": 116.2,
+    "vix": 18.73,
+    "context_gauges": {
+     "VIX": {
+      "value": 18.73,
+      "change": 1.24,
+      "observed_at": "2026-11-12T14:02:01Z"
+     },
+     "US10Y": {
+      "value": 5.036,
+      "change": 0.038,
+      "observed_at": "2026-11-12T14:02:04Z"
+     },
+     "DXY": {
+      "value": 102.878,
+      "change": -0.03,
+      "observed_at": "2026-11-12T14:07:10Z"
+     }
+    }
+   },
+   "participation": {
+    "rvol": 1.34,
+    "note": "RVOL 1.34 vs 3 prior sessions — small sample (Yahoo/Coinbase 5m history ≤ 5 days); weak signal."
+   },
+   "freshness": {
+    "price_age_min": 5.0,
+    "stale": false,
+    "provider_delay_min": 10
+   },
+   "events_ref": [
+    0,
+    2,
+    3,
+    4
+   ],
+   "key_headlines": [
+    28,
+    21,
+    13,
+    15,
+    8,
+    11,
+    1,
+    9
+   ],
+   "changed_from_previous": null
+  },
+  "BTC": {
+   "label": "BTC",
+   "contract": "BTC-USD spot (Coinbase, 24/7, no provider delay)",
+   "price": 72171.97,
+   "price_observed_at": "2026-11-12T14:12:09Z",
+   "direction": "bearish",
+   "agreement": 100,
+   "score_breakdown": [
+    {
+     "line": "news",
+     "vote": -1,
+     "evidence": "news_bias.BTC.bias = bearish (strength 60): Spot BTC below $73K for the first time since August; US spot ETF outflows for five sessions; MSCI removal of Strategy (MSTR -6%); Nvidia-led risk-off and Fed hike fears. Offset: CME net shorts down 89% as basis trade unwinds (positioning lighter).",
+     "source": "v2/data/research/latest.json news_bias.BTC.bias"
+    },
+    {
+     "line": "h4",
+     "vote": -1,
+     "evidence": "structure.h4 = bearish: close 72310.69 < EMA20 73960.93, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.BTC.structure.h4"
+    },
+    {
+     "line": "m30",
+     "vote": -1,
+     "evidence": "structure.m30 = bearish: close 72171.97 < EMA20 73088.27, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.BTC.structure.m30"
+    },
+    {
+     "line": "vwap",
+     "vote": -1,
+     "evidence": "price 72171.97 < session VWAP 73131.01 (anchor 2026-11-12T00:00:00Z)",
+     "source": "v2/data/market/snapshot.json assets.BTC.price vs assets.BTC.vwap.value"
+    }
+   ],
+   "conflict": false,
+   "conflict_text": "No conflict: news and all three price lines (4H, 30M, VWAP) point the same way.",
+   "levels": [
+    {
+     "label": "Prior day high",
+     "price": 74737.15,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Prior day low",
+     "price": 73110,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Session VWAP",
+     "price": 73131.01,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "pivot"
+    },
+    {
+     "label": "Asia high",
+     "price": 74123.71,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Asia low",
+     "price": 73324.69,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London high",
+     "price": 73593.76,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London low",
+     "price": 73166.62,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork high (in progress)",
+     "price": 73049.23,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork low (in progress)",
+     "price": 72154.16,
+     "source": "BTC-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "support"
+    }
+   ],
+   "invalidation": "Bearish bias is invalidated if BTC-USD reclaims Session VWAP 73131.01 and holds above the London low 73166.62; below the Newyork low 72154.16 (in progress) the bearish read stays intact.",
+   "session_plan": "Coinbase BTC-USD spot (24/7, no provider delay) at 72171.97 observed 14:12 UTC, with the latest 5m bar still in progress: price is below the 00:00 UTC-anchored VWAP 73131.01 and the prior day low 73110, sitting just above the Newyork low 72154.16. Context is US risk appetite: the NQ cash open at 14:30 UTC (09:30 ET) after the Nvidia CEO headline, Fed Governor Barr at 15:00 UTC (10:00 ET) and PPI tomorrow 13:30 UTC (08:30 ET); no sourced crypto-specific scheduled events today. Volatility: 5m ATR(14) ~166, today's range 1969.55; RVOL 3.13 is high but compared with only 1 prior session, so it is a very small sample.",
+   "volatility": {
+    "atr_5m_14": 166.0261,
+    "range_today": 1969.55
+   },
+   "participation": {
+    "rvol": 3.13,
+    "note": "RVOL 3.13 vs 1 prior session — small sample (Yahoo/Coinbase 5m history ≤ 5 days); weak signal."
+   },
+   "freshness": {
+    "price_age_min": 0.0,
+    "stale": false,
+    "provider_delay_min": 0,
+    "bar_in_progress": true
+   },
+   "events_ref": [
+    1,
+    2,
+    4
+   ],
+   "key_headlines": [
+    19,
+    24,
+    10,
+    25,
+    14,
+    7,
+    26
+   ],
+   "changed_from_previous": null
+  },
+  "ETH": {
+   "label": "ETH",
+   "contract": "ETH-USD spot (Coinbase, 24/7, no provider delay)",
+   "price": 2003.07,
+   "price_observed_at": "2026-11-12T14:12:09Z",
+   "direction": "bearish",
+   "agreement": 100,
+   "score_breakdown": [
+    {
+     "line": "news",
+     "vote": -1,
+     "evidence": "news_bias.ETH.bias = bearish (strength 55): Ether near $2,000 with a weekly loss larger than BTC's; Ether ETFs -$2.35B over seven weeks; Glamsterdam upgrade testing paused; follows BTC lower (beta). Outlets mostly crypto-trade press, few tier-1 confirmations.",
+     "source": "v2/data/research/latest.json news_bias.ETH.bias"
+    },
+    {
+     "line": "h4",
+     "vote": -1,
+     "evidence": "structure.h4 = bearish: close 2003.51 < EMA20 2077.87, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.ETH.structure.h4"
+    },
+    {
+     "line": "m30",
+     "vote": -1,
+     "evidence": "structure.m30 = bearish: close 2003.07 < EMA20 2031.74, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.ETH.structure.m30"
+    },
+    {
+     "line": "vwap",
+     "vote": -1,
+     "evidence": "price 2003.07 < session VWAP 2032.93 (anchor 2026-11-12T00:00:00Z)",
+     "source": "v2/data/market/snapshot.json assets.ETH.price vs assets.ETH.vwap.value"
+    }
+   ],
+   "conflict": false,
+   "conflict_text": "No conflict: news and all three price lines (4H, 30M, VWAP) point the same way.",
+   "levels": [
+    {
+     "label": "Prior day high",
+     "price": 2101.88,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Prior day low",
+     "price": 2033.16,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Session VWAP",
+     "price": 2032.93,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "pivot"
+    },
+    {
+     "label": "Asia high",
+     "price": 2063.57,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Asia low",
+     "price": 2037.01,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London high",
+     "price": 2051.4,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London low",
+     "price": 2036.34,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork high (in progress)",
+     "price": 2027.89,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork low (in progress)",
+     "price": 1986.44,
+     "source": "ETH-USD",
+     "observed_at": "2026-11-12T14:12:09Z",
+     "role": "support"
+    }
+   ],
+   "invalidation": "Bearish bias is invalidated if ETH-USD reclaims Session VWAP 2032.93 and the prior day low 2033.16 and holds above the London low 2036.34; below the Newyork low 1986.44 (in progress) the bearish read stays intact.",
+   "session_plan": "Coinbase ETH-USD spot (24/7, no provider delay) at 2003.07 observed 14:12 UTC, latest 5m bar in progress: price is below the 00:00 UTC-anchored VWAP 2032.93 and the prior day low 2033.16, near the round 2,000 area cited in headlines, with the Newyork low 1986.44 below. ETH is trading as BTC beta into the NQ cash open at 14:30 UTC (09:30 ET), Fed Governor Barr at 15:00 UTC (10:00 ET) and PPI tomorrow 13:30 UTC (08:30 ET); the Glamsterdam testing pause comes from a single source and no All Core Devs call time was found. Volatility: 5m ATR(14) ~6.66, today's range 77.13; RVOL 3.59 vs only 1 prior session is a very small sample.",
+   "volatility": {
+    "atr_5m_14": 6.6608,
+    "range_today": 77.13
+   },
+   "participation": {
+    "rvol": 3.59,
+    "note": "RVOL 3.59 vs 1 prior session — small sample (Yahoo/Coinbase 5m history ≤ 5 days); weak signal."
+   },
+   "freshness": {
+    "price_age_min": 0.0,
+    "stale": false,
+    "provider_delay_min": 0,
+    "bar_in_progress": true
+   },
+   "events_ref": [
+    1,
+    2,
+    4
+   ],
+   "key_headlines": [
+    6,
+    17,
+    22,
+    26
+   ],
+   "changed_from_previous": null
+  },
+  "SOL": {
+   "label": "SOL",
+   "contract": "SOL-USD spot (Coinbase, 24/7, no provider delay)",
+   "price": 81.27,
+   "price_observed_at": "2026-11-12T14:10:00Z",
+   "direction": "bearish",
+   "agreement": 100,
+   "score_breakdown": [
+    {
+     "line": "news",
+     "vote": -1,
+     "evidence": "news_bias.SOL.bias = bearish (strength 35): Thin, mostly second-tier sources: SOL ETF outflows alongside price weakness and a broad crypto sell-off (BTC beta). Offsets: DeFi Development Corp Q3 results, tokenized-stock growth on Solana. Low evidence strength.",
+     "source": "v2/data/research/latest.json news_bias.SOL.bias"
+    },
+    {
+     "line": "h4",
+     "vote": -1,
+     "evidence": "structure.h4 = bearish: close 80.97 < EMA20 84.28, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.SOL.structure.h4"
+    },
+    {
+     "line": "m30",
+     "vote": -1,
+     "evidence": "structure.m30 = bearish: close 81.27 < EMA20 82.44, EMA falling",
+     "source": "v2/data/market/snapshot.json assets.SOL.structure.m30"
+    },
+    {
+     "line": "vwap",
+     "vote": -1,
+     "evidence": "price 81.27 < session VWAP 82.38 (anchor 2026-11-12T00:00:00Z)",
+     "source": "v2/data/market/snapshot.json assets.SOL.price vs assets.SOL.vwap.value"
+    }
+   ],
+   "conflict": false,
+   "conflict_text": "No conflict: news and all three price lines (4H, 30M, VWAP) point the same way.",
+   "levels": [
+    {
+     "label": "Prior day high",
+     "price": 85.8,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Prior day low",
+     "price": 82.1,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Session VWAP",
+     "price": 82.38,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "pivot"
+    },
+    {
+     "label": "Asia high",
+     "price": 83.82,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Asia low",
+     "price": 82.38,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London high",
+     "price": 83.41,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "London low",
+     "price": 82.55,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork high (in progress)",
+     "price": 82.69,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "resistance"
+    },
+    {
+     "label": "Newyork low (in progress)",
+     "price": 80.52,
+     "source": "SOL-USD",
+     "observed_at": "2026-11-12T14:10:00Z",
+     "role": "support"
+    }
+   ],
+   "invalidation": "Bearish bias is invalidated if SOL-USD reclaims the prior day low 82.1 and Session VWAP 82.38 (same price as the Asia low 82.38) and holds there; below the Newyork low 80.52 (in progress) the bearish read stays intact.",
+   "session_plan": "Coinbase SOL-USD spot (24/7, no provider delay) at 81.27 observed 14:10 UTC: price is below the 00:00 UTC-anchored VWAP 82.38 and the prior day low 82.1, between those and the Newyork low 80.52. The news line is weak (researcher strength 35, mostly second-tier sources), so the bearish read rests mainly on price structure and BTC beta into the NQ cash open at 14:30 UTC (09:30 ET), Fed Governor Barr at 15:00 UTC (10:00 ET) and PPI tomorrow 13:30 UTC (08:30 ET); network status was not checked from an official page. Volatility: 5m ATR(14) ~0.30, today's range 3.3; RVOL 1.58 vs only 1 prior session is a very small sample.",
+   "volatility": {
+    "atr_5m_14": 0.2956,
+    "range_today": 3.3
+   },
+   "participation": {
+    "rvol": 1.58,
+    "note": "RVOL 1.58 vs 1 prior session — small sample (Yahoo/Coinbase 5m history ≤ 5 days); weak signal."
+   },
+   "freshness": {
+    "price_age_min": 2.2,
+    "stale": false,
+    "provider_delay_min": 0,
+    "bar_in_progress": false
+   },
+   "events_ref": [
+    1,
+    2,
+    4
+   ],
+   "key_headlines": [
+    27,
+    26,
+    23,
+    18
+   ],
+   "changed_from_previous": null
+  }
+ }
+}

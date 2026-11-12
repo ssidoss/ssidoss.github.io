@@ -1,0 +1,7 @@
+{"_FIXTURE":"Synthetic example game plan for the public repo. The real plan is written by Trading Coach to v2/data/coach/private/gameplan.json (git-ignored).",
+ "schema":"sidoss.coach/1","agent":"Trading Coach","generated_at":"2026-11-12T07:05:00Z","session":"london","account_ref":"DEMO-50K-A",
+ "size_text":"2–4 MNQ micros, set from planned risk before entry.","max_trades":3,
+ "stops":[{"text":"Two losses and the day is done","rule_ref":"fixture-rules-v1","rule_field":"max_losses_per_day","value":2},{"text":"Daily stop −$400","rule_ref":"fixture-rules-v1","rule_field":"daily_stop_usd","value":400}],
+ "news_windows":[],"if_then":[{"if":"a stop-out","then":"10 minutes away from the screen"},{"if":"two losses today","then":"done for the day"}],
+ "focus":"Only written setups; size from planned risk.","mindset":"Process over outcome.","journal":"fixture","confidence":"low",
+ "based_on":{"analyst_generated_at":null,"rules_id":"fixture-rules-v1","journal_synced_at":null},"advice_not_rules":true}

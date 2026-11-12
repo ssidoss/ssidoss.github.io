@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Optional: start Head of CICM on Telegram at login (macOS). Copy to ~/Library/LaunchAgents/, replace REPO_PATH, then:
+     launchctl load ~/Library/LaunchAgents/com.sidoss.ceo-telegram.plist
+     Keep the Mac awake for it to answer (System Settings → Battery → Options → prevent sleep when display is off). -->
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.sidoss.ceo-telegram</string>
+  <key>ProgramArguments</key><array><string>/bin/bash</string><string>-lc</string><string>REPO_PATH/v2/telegram/start-ceo-telegram.sh --bridge</string></array>
+  <key>RunAtLoad</key><true/><key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/tmp/sidoss-ceo.log</string><key>StandardErrorPath</key><string>/tmp/sidoss-ceo.log</string>
+</dict></plist>
