@@ -7,7 +7,7 @@ const PM = window.PropMath, usd = PM.usd, r2 = PM.r2;
 const ASSETS = ['NQ', 'GOLD', 'BTC', 'ETH', 'SOL'];
 const ALABEL = { NQ: 'NQ / MNQ', GOLD: 'Gold / MGC', BTC: 'BTC', ETH: 'ETH', SOL: 'SOL' };
 const LEGACY = 'https://ssidoss.github.io/desk/';
-const S = { data: {}, fixture: new Set(), clock: 'local', theme: localStorage.getItem('sx-theme') || 'night', live: { status: [], usage: null, conn: 'off' } };
+const S = { data: {}, fixture: new Set(), clock: 'local', theme: localStorage.getItem('sx-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'), live: { status: [], usage: null, conn: 'off' } };
 
 /* ---------------- time ---------------- */
 const NYZ = 'America/New_York';
@@ -28,11 +28,16 @@ async function getJSON(paths) {
   return { j: null, p: null };
 }
 async function loadAll() {
+  if (window.__BUNDLE) { // single-file encrypted build: data embedded at build time
+    const Bd = window.__BUNDLE; for (const k of Object.keys(Bd.data)) { S.data[k] = Bd.data[k]; if (Bd.data[k] && (Bd.data[k]._FIXTURE || Bd.data[k]._EXAMPLE_DATA)) S.fixture.add(k); }
+    S.data.runs = Bd.runs || []; return;
+  }
   const B = '../data/';
   const spec = {
     snapshot: [B + 'market/snapshot.json'], research: [B + 'research/latest.json'], analyst: [B + 'analyst/latest.json'],
     coach: [B + 'coach/private/gameplan.json', B + 'coach/gameplan.json'], rules: [B + 'rules/private/rules.json', B + 'rules/rules.json'],
     prop: [B + 'prop/private/accounts.json', B + 'prop/accounts.json'], validation: [B + 'office/validation.json'],
+    journal: [B + 'journal/private/data.json', B + 'journal/data.json'],
   };
   const out = await Promise.all(Object.entries(spec).map(async ([k, ps]) => [k, await getJSON(ps)]));
   for (const [k, { j, p }] of out) { S.data[k] = j; if (j && (j._FIXTURE || j._EXAMPLE_DATA)) S.fixture.add(k); S.data[k + 'Path'] = p; }
@@ -48,13 +53,18 @@ const I = {
   ceo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
   ext: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
   sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  macro: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>',
+  calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  journal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h11a2 2 0 0 1 2 2v16H7a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1zM9 8h6M9 12h6"/></svg>',
+  performance: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+  psychology: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>',
   mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
 };
 const NAV = [
   { r: 'dashboard', t: 'Brief', i: I.brief }, { r: 'asset/NQ', t: 'Markets', i: I.asset, m: 'asset' }, { r: 'prop', t: 'Prop', i: I.prop },
   { r: 'office', t: 'Office', i: I.office }, { r: 'ceo', t: 'CEO', i: I.ceo },
 ];
-const LEG = [['macro', 'Macro'], ['journal', 'Journal'], ['performance', 'Perf'], ['psychology', 'Psych'], ['calendar', 'Cal']];
+const LEG = [['macro', 'Macro'], ['calendar', 'Calendar'], ['journal', 'Journal'], ['performance', 'Performance'], ['psychology', 'Psychology']];
 
 /* ---------------- derived ---------------- */
 function primaryAccount() {
@@ -104,7 +114,8 @@ function renderShell(route) {
   const cur = route.split('/')[0];
   const needs = needsYou().length;
   $('#nav').innerHTML = NAV.map(n => `<a href="#/${n.r}" class="${(n.m || n.r) === cur ? 'on' : ''}" aria-current="${(n.m || n.r) === cur ? 'page' : 'false'}">${n.i}<span>${n.t}</span>${n.r === 'office' && needs ? '<i class="dot" style="background:var(--amb)"></i>' : ''}</a>`).join('')
-    + '<h6>Current Desk</h6>' + LEG.map(([k, t]) => `<a href="${LEGACY}#/${k}" target="_blank" rel="noopener" title="${t} — still on the current Desk">${I.ext}<span>${t}</span></a>`).join('');
+    + '<h6>More</h6>' + LEG.map(([k, t]) => `<a href="#/${k}" class="${k === cur ? 'on' : ''}">${I[k] || I.brief}<span>${t}</span></a>`).join('')
+    + `<h6>Previous Desk</h6><a href="${LEGACY}" target="_blank" rel="noopener">${I.ext}<span>Open current Desk</span></a>`;
   $('#btabs').innerHTML = NAV.map(n => `<a href="#/${n.r}" class="${(n.m || n.r) === cur ? 'on' : ''}">${n.i}<span>${n.t}</span>${n.r === 'office' && needs ? `<span class="badge">${needs}</span>` : ''}</a>`).join('');
   $('#foot').innerHTML = `<button class="btn" id="theme" title="Day / night" style="padding:6px">${I.sun}</button>`;
   $('#theme').onclick = () => { S.theme = S.theme === 'day' ? 'night' : 'day'; localStorage.setItem('sx-theme', S.theme); document.documentElement.dataset.theme = S.theme; };
@@ -116,9 +127,12 @@ function topBar(title, sub) {
    <button class="kbar hide-m" id="kbtn">Jump or ask… <kbd>⌘K</kbd></button>
    <span class="pill hide-m">${sess}</span>
    <div class="clock" id="clock"></div>
-   <div class="seg" role="group" aria-label="Clock zone"><button data-z="local" class="${S.clock === 'local' ? 'on' : ''}">Local</button><button data-z="utc" class="${S.clock === 'utc' ? 'on' : ''}">UTC</button></div></header>`
-    + (S.fixture.size ? `<div class="fixture"><b>FIXTURE DATA</b> — ${[...S.fixture].join(', ')} loaded from synthetic examples (public repo). Real values load from the private data folder inside the encrypted build.</div>` : '');
+   <div class="seg" role="group" aria-label="Clock zone"><button data-z="local" class="${S.clock === 'local' ? 'on' : ''}">Local</button><button data-z="utc" class="${S.clock === 'utc' ? 'on' : ''}">UTC</button></div></header>
+   <div class="ltitle">${esc(title)}</div>${sub ? `<div class="lsub">${sub}</div>` : ''}`
+    + (routeFixtures().length ? `<div class="fixture"><b>FIXTURE DATA</b> — ${routeFixtures().join(', ')} loaded from synthetic examples (public repo). Real values load from the private data folder inside the encrypted build.</div>` : '');
 }
+const ROUTE_DATA = { dashboard: ['coach', 'rules', 'prop'], asset: ['rules', 'prop'], prop: ['prop', 'rules'], office: [], ceo: [], macro: [], calendar: [], journal: ['journal'], performance: ['journal'], psychology: ['journal', 'coach'] };
+function routeFixtures() { const r = cur().split(/[/?]/)[0] || 'dashboard'; return (ROUTE_DATA[r] || []).filter(k => S.fixture.has(k)); }
 function sessionNow() {
   const h = new Date().getUTCHours() + new Date().getUTCMinutes() / 60;
   const S2 = [['London', 7, 11], ['New York', 12, 18]];
@@ -151,6 +165,7 @@ function viewDashboard() {
     <div class="limits">${L.length ? L.map(x => `<div class="limit ${x === bind ? 'bind' : ''}" title="${esc(x.src || '')}"><div class="l">${esc(x.k)}${x === bind ? ' · binding' : ''}</div><div class="v">${usd(x.v)}</div><div class="tiny muted">${esc(x.src || '')}</div></div>`).join('') : '<div class="limit"><div class="l">Limits</div><div class="unavail">Unavailable — no account/rules loaded</div></div>'}</div>
     ${C ? `<div class="hr"></div><div class="small"><b>Size</b> <span class="ink2">${esc(C.size_text || (D.rules || {}).size_text || '—')}</span></div>
       <div class="small" style="margin-top:6px"><b>Focus</b> <span class="ink2">${esc(C.focus || '—')}</span></div>
+      <details class="calc"><summary>Position size</summary>${sizerHTML('NQ')}</details>
       <details class="calc"><summary>If → then (${(C.if_then || []).length})</summary>${(C.if_then || []).map(x => `<div class="chk"><span class="acc">→</span><span><b>${esc(x.if)}</b> <span class="ink2">${esc(x.then)}</span></span></div>`).join('')}</details>
       <div class="src"><span>Coach ${stamp(C.generated_at)}</span><span>confidence ${esc(C.confidence)}</span><span>journal: ${esc(C.journal || (C.based_on || {}).journal_synced_at || '—')}</span><span>advice, not rules</span></div>` : '<div class="src"><span class="unavail">Game plan unavailable — Trading Coach has not run</span></div>'}
    </section>
@@ -223,7 +238,10 @@ function viewAsset(k) {
   h += `<div class="ah"><div><div class="px">${s.price != null ? fmtPx(k, s.price) : '—'}</div><div class="${s.change_pct >= 0 ? 'up' : 'dn'} num">${s.change_pct != null ? (s.change_pct >= 0 ? '+' : '') + s.change_pct.toFixed(2) + '% vs prior close ' + (s.prev_close != null ? fmtPx(k, s.prev_close) : '') : esc(s.missing_reason || '')}</div></div>
     <div><span class="badge ${dirBadge(a.direction)}" style="font-size:13px;padding:4px 10px">${esc(a.direction || 'no read')}</span> ${a.agreement != null ? `<span class="pill">Agreement <b>${a.agreement}/100</b></span>` : ''} ${a.conflict ? '<span class="badge b-amb">conflict</span>' : ''}
      ${(a.score_breakdown || []).length ? `<div class="votes mono small" style="margin-top:8px">Evidence: ${a.score_breakdown.map(x => `${({ news: 'News', h4: '4H', m30: '30M', vwap: 'VWAP' })[x.line] || x.line} <span class="vote ${x.vote > 0 ? 'p' : x.vote < 0 ? 'm' : 'z'}">${x.vote > 0 ? '+1' : x.vote < 0 ? '−1' : '0'}</span>`).join(' ')}</div>` : ''}</div>
+    ${a.price != null && s.price != null && a.price !== s.price ? `<div class="small ${Math.abs(s.price - a.price) > (s.atr_5m_14 || 0) * 3 ? 'amb' : 'muted'}" style="width:100%">Head Analyst read at ${utc((S.data.analyst || {}).generated_at)} UTC with price ${fmtPx(k, a.price)} · now ${fmtPx(k, s.price)} (${s.price - a.price >= 0 ? '+' : ''}${(s.price - a.price).toFixed(2)})${Math.abs(s.price - a.price) > (s.atr_5m_14 || 0) * 3 ? ' — price has moved more than 3× ATR since the read; check the invalidation below or ask for a refresh' : ''}</div>` : ''}
     <div class="small muted mono ameta" style="margin-left:auto;text-align:right">${esc(a.contract || (s.source || {}).symbol || '')}<br>observed ${stamp(s.observed_at)} · ${age(s.observed_at)}<br>${s.provider_delay_min ? '~' + s.provider_delay_min + ' min provider delay · ' : ''}${s.stale ? '<span class="amb">STALE</span>' : 'fresh'}${s.bar_in_progress ? ' · bar in progress' : ''}</div></div>`;
+  h += `<div class="card" data-k="${k}" style="margin-top:16px"><h2>Price · 1h bars <span class="r"><span class="seg">${['1D', '5D', '1M'].map(r => `<button data-rg="${r}" class="${(S.range || '5D') === r ? 'on' : ''}">${r}</button>`).join('')}</span></span></h2><div id="chart">${chartSVG(k, S.range || '5D')}</div>
+    <div class="src"><span>${esc((s.source || {}).name || '')} · ${esc((s.source || {}).symbol || '')}</span><span>levels from Head Analyst / snapshot · shaded = V Areas zones</span></div></div>`;
   if (a.direction === 'no_data' || !a.direction) h += `<div class="fixture" style="margin-top:16px">No Head Analyst read for ${ALABEL[k]}: ${esc(a.missing_reason || 'not run')}. Prices and levels below are from the snapshot only.</div>`;
   h += sec('01', 'Bias — how the score is built', 'Agreement = how much the evidence agrees, not a probability');
   const sb = a.score_breakdown || [];
@@ -240,6 +258,8 @@ function viewAsset(k) {
     <section class="card"><h2>Volatility & participation</h2><dl class="kv"><dt>ATR(14) 5m</dt><dd>${s.atr_5m_14 ?? '—'}</dd><dt>Range today</dt><dd>${s.range_today ?? '—'}</dd><dt>Session VWAP</dt><dd>${(s.vwap || {}).value ?? '—'}</dd><dt>RVOL at time</dt><dd>${(s.rvol || {}).value ?? '—'}× <span class="tiny muted">(${(s.rvol || {}).sessions_compared ?? 0} sessions)</span></dd>
      <dt>4H structure</dt><dd>${esc((s.structure || {}).h4 || '—')}</dd><dt>30M structure</dt><dd>${esc((s.structure || {}).m30 || '—')}</dd>${k === 'NQ' || k === 'GOLD' ? Object.values((S.data.snapshot || {}).gauges || {}).map(g => `<dt>${g.key}</dt><dd>${g.value ?? '—'}${g.unit || ''} <span class="tiny ${g.change >= 0 ? 'up' : 'dn'}">${g.change != null ? (g.change >= 0 ? '+' : '') + g.change : ''}</span></dd>`).join('') : ''}</dl>
      ${(s.rvol || {}).note ? `<div class="tiny amb" style="margin-top:8px">${esc(s.rvol.note)}</div>` : ''}<div class="src"><span>${esc((s.vwap || {}).method || '')}</span></div></section></div>`;
+  h += sec('', 'V Areas & position size') + `<div class="grid g2">${zonesHTML(k)}<div class="card"><h2>Position size</h2>${sizerHTML(k)}</div></div>`;
+  h += sec('', 'Volume') + `<div class="grid g2">${vpHTML(k)}${rvolHTML(k)}</div>`;
   h += sec('03', 'News & events for ' + ALABEL[k], R ? 'Market Researcher ' + age(R.generated_at) : '');
   const nb = R && R.news_bias ? R.news_bias[k] : null;
   const hs = R ? (R.headlines || []).filter(x => (x.assets || []).includes(k) || (x.assets || []).includes('MACRO')) : [];
@@ -345,7 +365,7 @@ function viewOffice() {
   h += sec('02', 'Pre-session pipeline', 'Researcher → Analyst → Coach → CICM QA');
   h += `<div class="card solo">${flowSVG(outs)}</div>`;
   h += sec('03', 'Every agent', '12 agents · latest status and output');
-  h += `<div class="agents">${ROSTER.map(([n, team, col]) => { const s = L[n], o = outs[n]; return `<div class="card agent ${N.includes(s) ? 'need' : ''}"><div class="hd"><span class="av" style="background:${col}">${n.split(/\s|&/).filter(Boolean).map(w => w[0]).join('').slice(0, 2)}</span><div><div class="nm">${esc(n)}</div><div class="tm">${team}</div></div><span class="st s-${s ? s.state : 'unknown'}" style="margin-left:auto">${s ? s.state : 'no status'}</span></div>
+  h += `<div class="agents">${ROSTER.map(([n, team, col]) => { const s = L[n], o = outs[n]; return `<div class="card agent ${N.includes(s) ? 'need' : ''}"><div class="hd"><span class="av" style="background:${col}">${n.split(/\s|&/).filter(w => w && w !== 'of').map(w => w[0].toUpperCase()).join('').slice(0, 2)}</span><div><div class="nm">${esc(n)}</div><div class="tm">${team}</div></div><span class="st s-${s ? s.state : 'unknown'}" style="margin-left:auto">${s ? s.state : 'no status'}</span></div>
      <div class="small">${s ? esc(s.task) : '<span class="unavail">No status posted in the loaded history</span>'}</div><div class="tm">${s ? stamp(s.ts) + ' · ' + age(s.ts) : ''}</div>
      ${o ? `<div class="out">Latest output · <a href="#" data-out="${esc(o.output)}">${esc(o.output.split('/').slice(-2).join('/'))}</a> <span class="muted tiny">${age(o.ts)}</span></div>` : ''}</div>`; }).join('')}</div>`;
   h += `<div class="grid loose g2" style="margin-top:16px"><section class="card solo"><h2>04 · Activity <span class="r">newest first · UTC</span></h2><div class="feed">${allStatus().slice(-60).reverse().map(s => `<div><span>${utc(s.ts)}</span><span class="b"><b>${esc(s.bot)}</b></span><span><span class="st s-${s.state}"></span> ${esc(s.task)}</span></div>`).join('')}</div></section>
@@ -372,6 +392,7 @@ async function openOutput(path) {
   const d = $('#drawer'); d.innerHTML = `<div class="sec" style="margin-top:0"><h2>${esc(path)}</h2><button class="btn" id="dx" style="margin-left:auto">Close</button></div><pre>Loading…</pre>`; d.classList.add('on'); $('#scrim').classList.add('on');
   $('#dx').onclick = closeDrawer;
   const p = path.startsWith('v2/') ? '../' + path.slice(3) : path;
+  if (window.__BUNDLE && window.__BUNDLE.files) { const t = window.__BUNDLE.files[path]; $('pre', d).textContent = t ? JSON.stringify(t, null, 1) : 'Not included in this build.'; return; }
   try { const t = await (await fetch(p, { cache: 'no-store' })).text(); let pretty = t; try { pretty = JSON.stringify(JSON.parse(t), null, 1); } catch { } $('pre', d).textContent = pretty.slice(0, 60000); }
   catch (e) { $('pre', d).textContent = 'Not available in this build: ' + e; }
 }
@@ -522,14 +543,22 @@ function route() {
     case 'prop': html = viewProp(); break;
     case 'office': html = viewOffice(); break;
     case 'ceo': html = viewCEO(params); break;
+    case 'macro': html = viewMacro(); break;
+    case 'calendar': html = viewCalendar(); break;
+    case 'journal': html = viewJournal(); break;
+    case 'performance': html = viewPerformance(); break;
+    case 'psychology': html = viewPsychology(); break;
     default: html = viewDashboard();
   }
   $('#main').innerHTML = html; bindTop();
   $$('[data-out]').forEach(b => b.onclick = e => { e.preventDefault(); openOutput(b.dataset.out); });
   if (parts[0] === 'ceo') bindCEO();
-  document.title = 'Sidoss Capital · ' + ({ asset: ALABEL[(parts[1] || 'NQ').toUpperCase()] || 'Markets', prop: 'Prop', office: 'Office', ceo: 'CEO' }[parts[0]] || 'Brief');
+  if (parts[0] === 'asset') { bindZones((parts[1] || 'NQ').toUpperCase().replace('XAU', 'GOLD')); $$('[data-rg]').forEach(b => b.onclick = () => { S.range = b.dataset.rg; $('#chart').innerHTML = chartSVG(b.closest('[data-k]').dataset.k, S.range); $$('[data-rg]').forEach(x => x.classList.toggle('on', x === b)); }); }
+  bindSizer();
+  document.title = 'Sidoss Capital · ' + ({ asset: ALABEL[(parts[1] || 'NQ').toUpperCase()] || 'Markets', prop: 'Prop', office: 'Office', ceo: 'CEO', macro: 'Macro', calendar: 'Calendar', journal: 'Journal', performance: 'Performance', psychology: 'Psychology' }[parts[0]] || 'Brief');
 }
-addEventListener('hashchange', () => { closeDrawer(); route(); });
+addEventListener('hashchange', () => { closeDrawer(); route(); scrollTo(0, 0); });
+addEventListener('scroll', () => document.body.classList.toggle('scrolled', scrollY > 50), { passive: true });
 addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openCmdk(); }
   if (e.key === 'Escape') { $('#cmdk').classList.remove('on'); closeDrawer(); }

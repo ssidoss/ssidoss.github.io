@@ -1,6 +1,6 @@
 {
  "schema": "sidoss.market.snapshot/1",
- "fetched_at": "2026-11-12T14:12:09Z",
+ "fetched_at": "2026-11-12T14:53:15Z",
  "assets": {
   "NQ": {
    "key": "NQ",
@@ -9,25 +9,17 @@
    "kind": "future",
    "contract_note": "Continuous front-month (Yahoo-rolled). Exact contract month not stated by provider.",
    "bar_in_progress": false,
-   "price": 28096.25,
+   "price": 28356.25,
    "prev_close": 28473.25,
-   "change_pct": -1.324,
+   "change_pct": -0.411,
    "source": {
     "name": "Yahoo Finance chart API (unofficial, free)",
     "symbol": "NQ=F",
     "url": "https://finance.yahoo.com/quote/NQ=F"
    },
-   "observed_at": "2026-11-12T14:07:07Z",
+   "observed_at": "2026-11-12T14:48:15Z",
    "provider_delay_min": 10,
    "spark_5m": [
-    28276.75,
-    28290.0,
-    28283.25,
-    28290.5,
-    28296.25,
-    28287.5,
-    28271.5,
-    28267.75,
     28257.5,
     28240.75,
     28240.25,
@@ -49,12 +41,12 @@
     28225.75,
     28201.0,
     28215.75,
-    28189.5,
+    28190.0,
     28205.5,
     28190.5,
     28195.75,
     28181.0,
-    28169.0,
+    28169.75,
     28058.5,
     28039.75,
     28094.75,
@@ -63,11 +55,19 @@
     28130.0,
     28111.25,
     28147.5,
-    28111.75,
-    28135.75,
+    28113.75,
+    28138.25,
     28126.0,
-    28121.25,
-    28096.25
+    28124.25,
+    28103.5,
+    28082.0,
+    28079.5,
+    28062.0,
+    28066.0,
+    28205.0,
+    28354.5,
+    28329.0,
+    28356.25
    ],
    "bars_1h": [
     [
@@ -899,54 +899,54 @@
     [
      1794492000,
      28121.0,
-     28143.5,
-     28096.25,
-     28121.25
+     28391.0,
+     28044.5,
+     28329.0
     ],
     [
-     1794492129,
-     28102.0,
-     28102.0,
-     28102.0,
-     28102.0
+     1794494595,
+     28356.25,
+     28356.25,
+     28356.25,
+     28356.25
     ]
    ],
    "vwap": {
-    "value": 28200.86,
+    "value": 28204.18,
     "anchor_utc": "2026-11-11T23:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 18:00 ET Globex open"
    },
-   "atr_5m_14": 51.5725,
-   "range_today": 355.0,
+   "atr_5m_14": 64.3378,
+   "range_today": 377.25,
    "rvol": {
-    "value": 0.92,
+    "value": 0.88,
     "sessions_compared": 3,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bullish",
-    "h4_why": "close 28102.00 > EMA20 28069.10, EMA rising",
-    "m30": "bearish",
-    "m30_why": "close 28096.25 < EMA20 28206.30, EMA falling"
+    "h4_why": "close 28356.25 > EMA20 28093.32, EMA rising",
+    "m30": "neutral",
+    "m30_why": "close 28356.25 vs EMA20 28217.94, mixed"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 28697.0,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Prior day low",
      "price": 27847.75,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Session VWAP",
-     "price": 28200.86,
+     "price": 28204.18,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Asia high",
@@ -955,7 +955,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Asia low",
@@ -964,7 +964,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "London high",
@@ -973,7 +973,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "London low",
@@ -982,16 +982,16 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Newyork high",
-     "price": 28308.75,
+     "price": 28391.0,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     },
     {
      "label": "Newyork low",
@@ -1000,9 +1000,320 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:07:07Z"
+     "observed_at": "2026-11-12T14:48:15Z"
     }
    ],
+   "eq_zones": [
+    {
+     "label": "EQ LD (London open 1m)",
+     "candle_utc": "2026-11-12T08:00:00Z",
+     "candle_local": "08:00 GMT",
+     "source": "NQ=F",
+     "low": 28205.0,
+     "high": 28239.75,
+     "method": "low\u2013high of the 1m candle"
+    },
+    {
+     "label": "EQ NY (New York open 1m)",
+     "candle_utc": "2026-11-12T14:30:00Z",
+     "candle_local": "09:30 EST",
+     "source": "NQ=F",
+     "low": 28048.5,
+     "high": 28124.25,
+     "method": "low\u2013high of the 1m candle"
+    }
+   ],
+   "session_rvol": [
+    {
+     "session": "asia",
+     "window_utc": "00:00\u201307:00",
+     "state": "complete",
+     "volume": 58905,
+     "usual": 71566,
+     "rvol": 0.82,
+     "sessions_compared": 3
+    },
+    {
+     "session": "london",
+     "window_utc": "07:00\u201311:00",
+     "state": "complete",
+     "volume": 27962,
+     "usual": 42938,
+     "rvol": 0.65,
+     "sessions_compared": 3
+    },
+    {
+     "session": "newyork",
+     "window_utc": "12:00\u201318:00",
+     "state": "in_progress",
+     "volume": 131415,
+     "usual": 141346,
+     "rvol": 0.93,
+     "sessions_compared": 3
+    }
+   ],
+   "volume_profile_prev": {
+    "from_utc": "2026-11-10T23:00:00Z",
+    "to_utc": "2026-11-11T23:00:00Z",
+    "row_size": 28.2083,
+    "rows": [
+     {
+      "price": 27850.75,
+      "volume": 714
+     },
+     {
+      "price": 27878.96,
+      "volume": 278
+     },
+     {
+      "price": 27907.17,
+      "volume": 1630
+     },
+     {
+      "price": 27935.38,
+      "volume": 6545
+     },
+     {
+      "price": 27963.58,
+      "volume": 6638
+     },
+     {
+      "price": 27991.79,
+      "volume": 3781
+     },
+     {
+      "price": 28020.0,
+      "volume": 2154
+     },
+     {
+      "price": 28048.21,
+      "volume": 5219
+     },
+     {
+      "price": 28076.42,
+      "volume": 7791
+     },
+     {
+      "price": 28104.62,
+      "volume": 7139
+     },
+     {
+      "price": 28132.83,
+      "volume": 3510
+     },
+     {
+      "price": 28161.04,
+      "volume": 7866
+     },
+     {
+      "price": 28189.25,
+      "volume": 21435
+     },
+     {
+      "price": 28217.46,
+      "volume": 22159
+     },
+     {
+      "price": 28245.67,
+      "volume": 33440
+     },
+     {
+      "price": 28273.88,
+      "volume": 44641
+     },
+     {
+      "price": 28302.08,
+      "volume": 36951
+     },
+     {
+      "price": 28330.29,
+      "volume": 39892
+     },
+     {
+      "price": 28358.5,
+      "volume": 49938
+     },
+     {
+      "price": 28386.71,
+      "volume": 22703
+     },
+     {
+      "price": 28414.92,
+      "volume": 11084
+     },
+     {
+      "price": 28443.12,
+      "volume": 36695
+     },
+     {
+      "price": 28471.33,
+      "volume": 35887
+     },
+     {
+      "price": 28499.54,
+      "volume": 45197
+     },
+     {
+      "price": 28527.75,
+      "volume": 42691
+     },
+     {
+      "price": 28555.96,
+      "volume": 38475
+     },
+     {
+      "price": 28584.17,
+      "volume": 27649
+     },
+     {
+      "price": 28612.38,
+      "volume": 28655
+     },
+     {
+      "price": 28640.58,
+      "volume": 28419
+     },
+     {
+      "price": 28668.79,
+      "volume": 16889
+     }
+    ],
+    "poc": 28372.6,
+    "vah": 28584.17,
+    "val": 28189.25,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "volume_profile_today": {
+    "from_utc": "2026-11-11T23:00:00Z",
+    "to_utc": "2026-11-12T14:53:15Z",
+    "row_size": 12.575,
+    "rows": [
+     {
+      "price": 28013.75,
+      "volume": 570
+     },
+     {
+      "price": 28026.33,
+      "volume": 1290
+     },
+     {
+      "price": 28038.9,
+      "volume": 4077
+     },
+     {
+      "price": 28051.47,
+      "volume": 7830
+     },
+     {
+      "price": 28064.05,
+      "volume": 8635
+     },
+     {
+      "price": 28076.62,
+      "volume": 9095
+     },
+     {
+      "price": 28089.2,
+      "volume": 9499
+     },
+     {
+      "price": 28101.78,
+      "volume": 8453
+     },
+     {
+      "price": 28114.35,
+      "volume": 7394
+     },
+     {
+      "price": 28126.92,
+      "volume": 8098
+     },
+     {
+      "price": 28139.5,
+      "volume": 8557
+     },
+     {
+      "price": 28152.08,
+      "volume": 7859
+     },
+     {
+      "price": 28164.65,
+      "volume": 9100
+     },
+     {
+      "price": 28177.22,
+      "volume": 8621
+     },
+     {
+      "price": 28189.8,
+      "volume": 14589
+     },
+     {
+      "price": 28202.38,
+      "volume": 18674
+     },
+     {
+      "price": 28214.95,
+      "volume": 17885
+     },
+     {
+      "price": 28227.53,
+      "volume": 16179
+     },
+     {
+      "price": 28240.1,
+      "volume": 12498
+     },
+     {
+      "price": 28252.67,
+      "volume": 9145
+     },
+     {
+      "price": 28265.25,
+      "volume": 8042
+     },
+     {
+      "price": 28277.83,
+      "volume": 8804
+     },
+     {
+      "price": 28290.4,
+      "volume": 8382
+     },
+     {
+      "price": 28302.97,
+      "volume": 7317
+     },
+     {
+      "price": 28315.55,
+      "volume": 5275
+     },
+     {
+      "price": 28328.12,
+      "volume": 4874
+     },
+     {
+      "price": 28340.7,
+      "volume": 4213
+     },
+     {
+      "price": 28353.28,
+      "volume": 4043
+     },
+     {
+      "price": 28365.85,
+      "volume": 1961
+     },
+     {
+      "price": 28378.42,
+      "volume": 1428
+     }
+    ],
+    "poc": 28208.66,
+    "vah": 28302.97,
+    "val": 28101.78,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
    "age_min": 5.0,
    "stale": false,
    "market_open": true
@@ -1014,25 +1325,17 @@
    "kind": "future",
    "contract_note": "Continuous front-month (Yahoo-rolled). Exact contract month not stated by provider.",
    "bar_in_progress": false,
-   "price": 3894.1001,
+   "price": 3893.8,
    "prev_close": 4000.5,
-   "change_pct": -2.66,
+   "change_pct": -2.667,
    "source": {
     "name": "Yahoo Finance chart API (unofficial, free)",
     "symbol": "GC=F",
     "url": "https://finance.yahoo.com/quote/GC=F"
    },
-   "observed_at": "2026-11-12T14:07:09Z",
+   "observed_at": "2026-11-12T14:48:14Z",
    "provider_delay_min": 10,
    "spark_5m": [
-    3951.5,
-    3954.0,
-    3954.2,
-    3950.8,
-    3955.2,
-    3956.0,
-    3958.1001,
-    3958.0,
     3959.5,
     3959.2,
     3959.8,
@@ -1071,8 +1374,16 @@
     3901.0,
     3891.5,
     3894.8999,
-    3894.8999,
-    3894.1001
+    3895.3,
+    3889.0,
+    3895.7,
+    3908.3,
+    3908.0,
+    3907.8999,
+    3901.3999,
+    3900.2,
+    3891.3,
+    3893.8
    ],
    "bars_1h": [
     [
@@ -1904,54 +2215,54 @@
     [
      1794492000,
      3894.800048828125,
-     3901.39990234375,
-     3891.300048828125,
-     3894.89990234375
+     3913.89990234375,
+     3887.699951171875,
+     3891.300048828125
     ],
     [
-     1794492129,
-     3894.10009765625,
-     3894.10009765625,
-     3894.10009765625,
-     3894.10009765625
+     1794494594,
+     3893.800048828125,
+     3893.800048828125,
+     3893.800048828125,
+     3893.800048828125
     ]
    ],
    "vwap": {
-    "value": 3948.56,
+    "value": 3941.14,
     "anchor_utc": "2026-11-11T23:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 18:00 ET Globex open"
    },
-   "atr_5m_14": 7.4899,
-   "range_today": 116.2,
+   "atr_5m_14": 8.1341,
+   "range_today": 118.2,
    "rvol": {
-    "value": 1.34,
+    "value": 1.37,
     "sessions_compared": 3,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 3894.10 < EMA20 4019.18, EMA falling",
+    "h4_why": "close 3893.80 < EMA20 4019.15, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 3894.10 < EMA20 3946.03, EMA falling"
+    "m30_why": "close 3893.80 < EMA20 3942.25, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 4074.7,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Prior day low",
      "price": 3989.6,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Session VWAP",
-     "price": 3948.56,
+     "price": 3941.14,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Asia high",
@@ -1960,7 +2271,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Asia low",
@@ -1969,7 +2280,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "London high",
@@ -1978,7 +2289,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "London low",
@@ -1987,7 +2298,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Newyork high",
@@ -1996,18 +2307,329 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     },
     {
      "label": "Newyork low",
-     "price": 3889.7,
+     "price": 3887.7,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:07:09Z"
+     "observed_at": "2026-11-12T14:48:14Z"
     }
    ],
+   "eq_zones": [
+    {
+     "label": "EQ LD (London open 1m)",
+     "candle_utc": "2026-11-12T08:00:00Z",
+     "candle_local": "08:00 GMT",
+     "source": "GC=F",
+     "low": 3966.9,
+     "high": 3970.4,
+     "method": "low\u2013high of the 1m candle"
+    },
+    {
+     "label": "EQ NY (New York open 1m)",
+     "candle_utc": "2026-11-12T14:30:00Z",
+     "candle_local": "09:30 EST",
+     "source": "GC=F",
+     "low": 3905.7,
+     "high": 3909.4,
+     "method": "low\u2013high of the 1m candle"
+    }
+   ],
+   "session_rvol": [
+    {
+     "session": "asia",
+     "window_utc": "00:00\u201307:00",
+     "state": "complete",
+     "volume": 28365,
+     "usual": 30456,
+     "rvol": 0.93,
+     "sessions_compared": 3
+    },
+    {
+     "session": "london",
+     "window_utc": "07:00\u201311:00",
+     "state": "complete",
+     "volume": 30525,
+     "usual": 22856,
+     "rvol": 1.34,
+     "sessions_compared": 3
+    },
+    {
+     "session": "newyork",
+     "window_utc": "12:00\u201318:00",
+     "state": "in_progress",
+     "volume": 64073,
+     "usual": 35755,
+     "rvol": 1.79,
+     "sessions_compared": 3
+    }
+   ],
+   "volume_profile_prev": {
+    "from_utc": "2026-11-10T23:00:00Z",
+    "to_utc": "2026-11-11T23:00:00Z",
+    "row_size": 2.8367,
+    "rows": [
+     {
+      "price": 3989.6,
+      "volume": 3466
+     },
+     {
+      "price": 3992.44,
+      "volume": 5342
+     },
+     {
+      "price": 3995.27,
+      "volume": 3801
+     },
+     {
+      "price": 3998.11,
+      "volume": 4339
+     },
+     {
+      "price": 4000.95,
+      "volume": 2777
+     },
+     {
+      "price": 4003.78,
+      "volume": 3159
+     },
+     {
+      "price": 4006.62,
+      "volume": 6067
+     },
+     {
+      "price": 4009.46,
+      "volume": 7056
+     },
+     {
+      "price": 4012.29,
+      "volume": 5710
+     },
+     {
+      "price": 4015.13,
+      "volume": 2392
+     },
+     {
+      "price": 4017.97,
+      "volume": 2589
+     },
+     {
+      "price": 4020.8,
+      "volume": 4321
+     },
+     {
+      "price": 4023.64,
+      "volume": 3354
+     },
+     {
+      "price": 4026.48,
+      "volume": 1713
+     },
+     {
+      "price": 4029.31,
+      "volume": 1713
+     },
+     {
+      "price": 4032.15,
+      "volume": 1014
+     },
+     {
+      "price": 4034.99,
+      "volume": 2773
+     },
+     {
+      "price": 4037.82,
+      "volume": 4665
+     },
+     {
+      "price": 4040.66,
+      "volume": 3479
+     },
+     {
+      "price": 4043.5,
+      "volume": 4148
+     },
+     {
+      "price": 4046.33,
+      "volume": 4544
+     },
+     {
+      "price": 4049.17,
+      "volume": 5494
+     },
+     {
+      "price": 4052.01,
+      "volume": 6611
+     },
+     {
+      "price": 4054.84,
+      "volume": 6809
+     },
+     {
+      "price": 4057.68,
+      "volume": 4756
+     },
+     {
+      "price": 4060.52,
+      "volume": 4503
+     },
+     {
+      "price": 4063.35,
+      "volume": 5929
+     },
+     {
+      "price": 4066.19,
+      "volume": 5752
+     },
+     {
+      "price": 4069.03,
+      "volume": 3301
+     },
+     {
+      "price": 4071.86,
+      "volume": 1959
+     }
+    ],
+    "poc": 4010.88,
+    "vah": 4054.84,
+    "val": 3989.6,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "volume_profile_today": {
+    "from_utc": "2026-11-11T23:00:00Z",
+    "to_utc": "2026-11-12T14:53:15Z",
+    "row_size": 3.94,
+    "rows": [
+     {
+      "price": 3887.7,
+      "volume": 5265
+     },
+     {
+      "price": 3891.64,
+      "volume": 5756
+     },
+     {
+      "price": 3895.58,
+      "volume": 8569
+     },
+     {
+      "price": 3899.52,
+      "volume": 7821
+     },
+     {
+      "price": 3903.46,
+      "volume": 5905
+     },
+     {
+      "price": 3907.4,
+      "volume": 6661
+     },
+     {
+      "price": 3911.34,
+      "volume": 3842
+     },
+     {
+      "price": 3915.28,
+      "volume": 2032
+     },
+     {
+      "price": 3919.22,
+      "volume": 2032
+     },
+     {
+      "price": 3923.16,
+      "volume": 999
+     },
+     {
+      "price": 3927.1,
+      "volume": 2351
+     },
+     {
+      "price": 3931.04,
+      "volume": 3865
+     },
+     {
+      "price": 3934.98,
+      "volume": 3831
+     },
+     {
+      "price": 3938.92,
+      "volume": 6152
+     },
+     {
+      "price": 3942.86,
+      "volume": 6505
+     },
+     {
+      "price": 3946.8,
+      "volume": 6680
+     },
+     {
+      "price": 3950.74,
+      "volume": 6288
+     },
+     {
+      "price": 3954.68,
+      "volume": 4719
+     },
+     {
+      "price": 3958.62,
+      "volume": 2494
+     },
+     {
+      "price": 3962.56,
+      "volume": 2363
+     },
+     {
+      "price": 3966.5,
+      "volume": 3179
+     },
+     {
+      "price": 3970.44,
+      "volume": 2202
+     },
+     {
+      "price": 3974.38,
+      "volume": 3296
+     },
+     {
+      "price": 3978.32,
+      "volume": 3904
+     },
+     {
+      "price": 3982.26,
+      "volume": 7382
+     },
+     {
+      "price": 3986.2,
+      "volume": 7856
+     },
+     {
+      "price": 3990.14,
+      "volume": 4658
+     },
+     {
+      "price": 3994.08,
+      "volume": 2494
+     },
+     {
+      "price": 3998.02,
+      "volume": 1812
+     },
+     {
+      "price": 4001.96,
+      "volume": 1144
+     }
+    ],
+    "poc": 3897.55,
+    "vah": 3966.5,
+    "val": 3887.7,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
    "age_min": 5.0,
    "stale": false,
    "market_open": true
@@ -2018,25 +2640,17 @@
    "desc": "Bitcoin spot (Coinbase)",
    "kind": "spot",
    "bar_in_progress": true,
-   "price": 72171.97,
+   "price": 71475.01,
    "prev_close": 73927.63,
-   "change_pct": -2.375,
+   "change_pct": -3.318,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "BTC-USD",
     "url": "https://exchange.coinbase.com/trade/BTC-USD"
    },
-   "observed_at": "2026-11-12T14:12:09Z",
+   "observed_at": "2026-11-12T14:53:15Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    73416.09,
-    73475.3,
-    73464.73,
-    73461.73,
-    73449.63,
-    73413.94,
-    73384.53,
-    73357.89,
     73370.73,
     73372.47,
     73357.1,
@@ -2076,7 +2690,15 @@
     72415.42,
     72338.9,
     72224.61,
-    72171.97
+    72346.69,
+    72089.81,
+    71822.4,
+    71776.74,
+    71923.73,
+    72120.96,
+    71535.32,
+    71571.9,
+    71475.01
    ],
    "bars_1h": [
     [
@@ -2916,46 +3538,46 @@
      1794492000,
      72415.42,
      72494.32,
-     72310.69,
-     72310.69
+     71380.24,
+     71523.77
     ]
    ],
    "vwap": {
-    "value": 73131.01,
+    "value": 72708.41,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 166.0261,
-   "range_today": 1969.55,
+   "atr_5m_14": 237.3212,
+   "range_today": 2743.47,
    "rvol": {
-    "value": 3.13,
+    "value": 3.47,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 72310.69 < EMA20 73960.93, EMA falling",
+    "h4_why": "close 71523.77 < EMA20 73885.99, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 72171.97 < EMA20 73088.27, EMA falling"
+    "m30_why": "close 71475.01 < EMA20 72900.47, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 74737.15,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Prior day low",
      "price": 73110,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Session VWAP",
-     "price": 73131.01,
+     "price": 72708.41,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia high",
@@ -2964,7 +3586,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia low",
@@ -2973,7 +3595,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London high",
@@ -2982,7 +3604,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London low",
@@ -2991,7 +3613,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork high",
@@ -3000,18 +3622,329 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork low",
-     "price": 72154.16,
+     "price": 71380.24,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     }
    ],
+   "eq_zones": [
+    {
+     "label": "EQ LD (London open 1m)",
+     "candle_utc": "2026-11-12T08:00:00Z",
+     "candle_local": "08:00 GMT",
+     "source": "BTC-USD",
+     "low": null,
+     "high": null,
+     "missing_reason": "1m candle missing in provider data"
+    },
+    {
+     "label": "EQ NY (New York open 1m)",
+     "candle_utc": "2026-11-12T14:30:00Z",
+     "candle_local": "09:30 EST",
+     "source": "BTC-USD",
+     "low": 71753.91,
+     "high": 71958.01,
+     "method": "low\u2013high of the 1m candle"
+    }
+   ],
+   "session_rvol": [
+    {
+     "session": "asia",
+     "window_utc": "00:00\u201307:00",
+     "state": "complete",
+     "volume": 1190,
+     "usual": null,
+     "rvol": null,
+     "sessions_compared": 0
+    },
+    {
+     "session": "london",
+     "window_utc": "07:00\u201311:00",
+     "state": "complete",
+     "volume": 397,
+     "usual": 311,
+     "rvol": 1.28,
+     "sessions_compared": 1
+    },
+    {
+     "session": "newyork",
+     "window_utc": "12:00\u201318:00",
+     "state": "in_progress",
+     "volume": 2996,
+     "usual": 992,
+     "rvol": 3.02,
+     "sessions_compared": 1
+    }
+   ],
+   "volume_profile_prev": {
+    "from_utc": "2026-11-11T00:00:00Z",
+    "to_utc": "2026-11-12T00:00:00Z",
+    "row_size": 48.0977,
+    "rows": [
+     {
+      "price": 73294.22,
+      "volume": 40
+     },
+     {
+      "price": 73342.32,
+      "volume": 58
+     },
+     {
+      "price": 73390.42,
+      "volume": 116
+     },
+     {
+      "price": 73438.51,
+      "volume": 167
+     },
+     {
+      "price": 73486.61,
+      "volume": 178
+     },
+     {
+      "price": 73534.71,
+      "volume": 214
+     },
+     {
+      "price": 73582.81,
+      "volume": 174
+     },
+     {
+      "price": 73630.9,
+      "volume": 166
+     },
+     {
+      "price": 73679.0,
+      "volume": 181
+     },
+     {
+      "price": 73727.1,
+      "volume": 123
+     },
+     {
+      "price": 73775.2,
+      "volume": 179
+     },
+     {
+      "price": 73823.29,
+      "volume": 234
+     },
+     {
+      "price": 73871.39,
+      "volume": 271
+     },
+     {
+      "price": 73919.49,
+      "volume": 273
+     },
+     {
+      "price": 73967.59,
+      "volume": 212
+     },
+     {
+      "price": 74015.68,
+      "volume": 196
+     },
+     {
+      "price": 74063.78,
+      "volume": 216
+     },
+     {
+      "price": 74111.88,
+      "volume": 242
+     },
+     {
+      "price": 74159.98,
+      "volume": 276
+     },
+     {
+      "price": 74208.08,
+      "volume": 307
+     },
+     {
+      "price": 74256.17,
+      "volume": 220
+     },
+     {
+      "price": 74304.27,
+      "volume": 264
+     },
+     {
+      "price": 74352.37,
+      "volume": 320
+     },
+     {
+      "price": 74400.47,
+      "volume": 342
+     },
+     {
+      "price": 74448.56,
+      "volume": 291
+     },
+     {
+      "price": 74496.66,
+      "volume": 205
+     },
+     {
+      "price": 74544.76,
+      "volume": 206
+     },
+     {
+      "price": 74592.86,
+      "volume": 145
+     },
+     {
+      "price": 74640.95,
+      "volume": 100
+     },
+     {
+      "price": 74689.05,
+      "volume": 22
+     }
+    ],
+    "poc": 74424.52,
+    "vah": 74592.86,
+    "val": 73775.2,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "volume_profile_today": {
+    "from_utc": "2026-11-12T00:00:00Z",
+    "to_utc": "2026-11-12T14:53:15Z",
+    "row_size": 91.449,
+    "rows": [
+     {
+      "price": 71380.24,
+      "volume": 24
+     },
+     {
+      "price": 71471.69,
+      "volume": 132
+     },
+     {
+      "price": 71563.14,
+      "volume": 132
+     },
+     {
+      "price": 71654.59,
+      "volume": 196
+     },
+     {
+      "price": 71746.04,
+      "volume": 263
+     },
+     {
+      "price": 71837.49,
+      "volume": 235
+     },
+     {
+      "price": 71928.93,
+      "volume": 188
+     },
+     {
+      "price": 72020.38,
+      "volume": 189
+     },
+     {
+      "price": 72111.83,
+      "volume": 218
+     },
+     {
+      "price": 72203.28,
+      "volume": 104
+     },
+     {
+      "price": 72294.73,
+      "volume": 175
+     },
+     {
+      "price": 72386.18,
+      "volume": 192
+     },
+     {
+      "price": 72477.63,
+      "volume": 260
+     },
+     {
+      "price": 72569.08,
+      "volume": 184
+     },
+     {
+      "price": 72660.53,
+      "volume": 143
+     },
+     {
+      "price": 72751.98,
+      "volume": 239
+     },
+     {
+      "price": 72843.42,
+      "volume": 241
+     },
+     {
+      "price": 72934.87,
+      "volume": 68
+     },
+     {
+      "price": 73026.32,
+      "volume": 58
+     },
+     {
+      "price": 73117.77,
+      "volume": 43
+     },
+     {
+      "price": 73209.22,
+      "volume": 73
+     },
+     {
+      "price": 73300.67,
+      "volume": 172
+     },
+     {
+      "price": 73392.12,
+      "volume": 204
+     },
+     {
+      "price": 73483.57,
+      "volume": 293
+     },
+     {
+      "price": 73575.02,
+      "volume": 266
+     },
+     {
+      "price": 73666.47,
+      "volume": 254
+     },
+     {
+      "price": 73757.91,
+      "volume": 146
+     },
+     {
+      "price": 73849.36,
+      "volume": 92
+     },
+     {
+      "price": 73940.81,
+      "volume": 107
+     },
+     {
+      "price": 74032.26,
+      "volume": 52
+     }
+    ],
+    "poc": 73529.29,
+    "vah": 74123.71,
+    "val": 72111.83,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
    "age_min": 0.0,
    "stale": false
   },
@@ -3021,25 +3954,17 @@
    "desc": "Ether spot (Coinbase)",
    "kind": "spot",
    "bar_in_progress": true,
-   "price": 2003.07,
+   "price": 1999.91,
    "prev_close": 2053.73,
-   "change_pct": -2.467,
+   "change_pct": -2.621,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "ETH-USD",
     "url": "https://exchange.coinbase.com/trade/ETH-USD"
    },
-   "observed_at": "2026-11-12T14:12:09Z",
+   "observed_at": "2026-11-12T14:53:15Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    2044.22,
-    2048.28,
-    2046.72,
-    2047.46,
-    2047.49,
-    2046.01,
-    2043.92,
-    2043.48,
     2042.04,
     2043.53,
     2042.65,
@@ -3079,7 +4004,15 @@
     2010.11,
     2009.08,
     2005.26,
-    2003.07
+    2008.46,
+    1991.72,
+    1990.08,
+    1988.16,
+    1997.85,
+    2011.73,
+    1995.1,
+    1999.21,
+    1999.91
    ],
    "bars_1h": [
     [
@@ -3918,47 +4851,47 @@
     [
      1794492000,
      2010.14,
-     2012.33,
-     2000.7,
-     2003.51
+     2014.62,
+     1981.12,
+     1999.05
     ]
    ],
    "vwap": {
-    "value": 2032.93,
+    "value": 2025.56,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 6.6608,
-   "range_today": 77.13,
+   "atr_5m_14": 9.9111,
+   "range_today": 82.45,
    "rvol": {
-    "value": 3.59,
+    "value": 3.35,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 2003.51 < EMA20 2077.87, EMA falling",
+    "h4_why": "close 1999.05 < EMA20 2077.45, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 2003.07 < EMA20 2031.74, EMA falling"
+    "m30_why": "close 1999.91 < EMA20 2027.42, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 2101.88,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Prior day low",
      "price": 2033.16,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Session VWAP",
-     "price": 2032.93,
+     "price": 2025.56,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia high",
@@ -3967,7 +4900,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia low",
@@ -3976,7 +4909,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London high",
@@ -3985,7 +4918,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London low",
@@ -3994,7 +4927,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork high",
@@ -4003,18 +4936,329 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork low",
-     "price": 1986.44,
+     "price": 1981.12,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:12:09Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     }
    ],
+   "eq_zones": [
+    {
+     "label": "EQ LD (London open 1m)",
+     "candle_utc": "2026-11-12T08:00:00Z",
+     "candle_local": "08:00 GMT",
+     "source": "ETH-USD",
+     "low": null,
+     "high": null,
+     "missing_reason": "1m candle missing in provider data"
+    },
+    {
+     "label": "EQ NY (New York open 1m)",
+     "candle_utc": "2026-11-12T14:30:00Z",
+     "candle_local": "09:30 EST",
+     "source": "ETH-USD",
+     "low": 1987.66,
+     "high": 1996,
+     "method": "low\u2013high of the 1m candle"
+    }
+   ],
+   "session_rvol": [
+    {
+     "session": "asia",
+     "window_utc": "00:00\u201307:00",
+     "state": "complete",
+     "volume": 26071,
+     "usual": null,
+     "rvol": null,
+     "sessions_compared": 0
+    },
+    {
+     "session": "london",
+     "window_utc": "07:00\u201311:00",
+     "state": "complete",
+     "volume": 9061,
+     "usual": 3414,
+     "rvol": 2.65,
+     "sessions_compared": 1
+    },
+    {
+     "session": "newyork",
+     "window_utc": "12:00\u201318:00",
+     "state": "in_progress",
+     "volume": 39150,
+     "usual": 18322,
+     "rvol": 2.14,
+     "sessions_compared": 1
+    }
+   ],
+   "volume_profile_prev": {
+    "from_utc": "2026-11-11T00:00:00Z",
+    "to_utc": "2026-11-12T00:00:00Z",
+    "row_size": 2.2907,
+    "rows": [
+     {
+      "price": 2033.16,
+      "volume": 510
+     },
+     {
+      "price": 2035.45,
+      "volume": 741
+     },
+     {
+      "price": 2037.74,
+      "volume": 741
+     },
+     {
+      "price": 2040.03,
+      "volume": 1465
+     },
+     {
+      "price": 2042.32,
+      "volume": 1465
+     },
+     {
+      "price": 2044.61,
+      "volume": 3252
+     },
+     {
+      "price": 2046.9,
+      "volume": 4481
+     },
+     {
+      "price": 2049.19,
+      "volume": 5763
+     },
+     {
+      "price": 2051.49,
+      "volume": 7076
+     },
+     {
+      "price": 2053.78,
+      "volume": 8154
+     },
+     {
+      "price": 2056.07,
+      "volume": 5621
+     },
+     {
+      "price": 2058.36,
+      "volume": 3057
+     },
+     {
+      "price": 2060.65,
+      "volume": 1137
+     },
+     {
+      "price": 2062.94,
+      "volume": 843
+     },
+     {
+      "price": 2065.23,
+      "volume": 676
+     },
+     {
+      "price": 2067.52,
+      "volume": 1616
+     },
+     {
+      "price": 2069.81,
+      "volume": 4651
+     },
+     {
+      "price": 2072.1,
+      "volume": 5906
+     },
+     {
+      "price": 2074.39,
+      "volume": 11687
+     },
+     {
+      "price": 2076.68,
+      "volume": 10805
+     },
+     {
+      "price": 2078.97,
+      "volume": 6163
+     },
+     {
+      "price": 2081.26,
+      "volume": 2260
+     },
+     {
+      "price": 2083.55,
+      "volume": 2097
+     },
+     {
+      "price": 2085.85,
+      "volume": 2983
+     },
+     {
+      "price": 2088.14,
+      "volume": 2746
+     },
+     {
+      "price": 2090.43,
+      "volume": 1875
+     },
+     {
+      "price": 2092.72,
+      "volume": 858
+     },
+     {
+      "price": 2095.01,
+      "volume": 775
+     },
+     {
+      "price": 2097.3,
+      "volume": 265
+     },
+     {
+      "price": 2099.59,
+      "volume": 265
+     }
+    ],
+    "poc": 2075.54,
+    "vah": 2097.3,
+    "val": 2053.78,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "volume_profile_today": {
+    "from_utc": "2026-11-12T00:00:00Z",
+    "to_utc": "2026-11-12T14:53:15Z",
+    "row_size": 2.7483,
+    "rows": [
+     {
+      "price": 1981.12,
+      "volume": 540
+     },
+     {
+      "price": 1983.87,
+      "volume": 1578
+     },
+     {
+      "price": 1986.62,
+      "volume": 2407
+     },
+     {
+      "price": 1989.37,
+      "volume": 2810
+     },
+     {
+      "price": 1992.11,
+      "volume": 2529
+     },
+     {
+      "price": 1994.86,
+      "volume": 2547
+     },
+     {
+      "price": 1997.61,
+      "volume": 2642
+     },
+     {
+      "price": 2000.36,
+      "volume": 2697
+     },
+     {
+      "price": 2003.11,
+      "volume": 3045
+     },
+     {
+      "price": 2005.86,
+      "volume": 4476
+     },
+     {
+      "price": 2008.6,
+      "volume": 4049
+     },
+     {
+      "price": 2011.35,
+      "volume": 3507
+     },
+     {
+      "price": 2014.1,
+      "volume": 2326
+     },
+     {
+      "price": 2016.85,
+      "volume": 1971
+     },
+     {
+      "price": 2019.6,
+      "volume": 2846
+     },
+     {
+      "price": 2022.35,
+      "volume": 2014
+     },
+     {
+      "price": 2025.09,
+      "volume": 1294
+     },
+     {
+      "price": 2027.84,
+      "volume": 832
+     },
+     {
+      "price": 2030.59,
+      "volume": 393
+     },
+     {
+      "price": 2033.34,
+      "volume": 393
+     },
+     {
+      "price": 2036.09,
+      "volume": 1182
+     },
+     {
+      "price": 2038.84,
+      "volume": 2808
+     },
+     {
+      "price": 2041.58,
+      "volume": 4782
+     },
+     {
+      "price": 2044.33,
+      "volume": 5134
+     },
+     {
+      "price": 2047.08,
+      "volume": 6341
+     },
+     {
+      "price": 2049.83,
+      "volume": 5533
+     },
+     {
+      "price": 2052.58,
+      "volume": 3676
+     },
+     {
+      "price": 2055.33,
+      "volume": 2655
+     },
+     {
+      "price": 2058.07,
+      "volume": 3034
+     },
+     {
+      "price": 2060.82,
+      "volume": 2212
+     }
+    ],
+    "poc": 2048.45,
+    "vah": 2063.57,
+    "val": 2005.86,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
    "age_min": 0.0,
    "stale": false
   },
@@ -4023,27 +5267,18 @@
    "label": "SOL",
    "desc": "Solana spot (Coinbase)",
    "kind": "spot",
-   "bar_in_progress": false,
-   "price": 81.27,
+   "bar_in_progress": true,
+   "price": 81.07,
    "prev_close": 83.18,
-   "change_pct": -2.296,
+   "change_pct": -2.537,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "SOL-USD",
     "url": "https://exchange.coinbase.com/trade/SOL-USD"
    },
-   "observed_at": "2026-11-12T14:10:00Z",
+   "observed_at": "2026-11-12T14:53:15Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    82.94,
-    83.08,
-    83.26,
-    83.27,
-    83.19,
-    83.12,
-    83.08,
-    82.94,
-    82.88,
     82.84,
     82.89,
     82.94,
@@ -4082,7 +5317,16 @@
     81.32,
     81.33,
     81.25,
-    81.27
+    81.15,
+    81.14,
+    80.64,
+    80.53,
+    80.68,
+    81.11,
+    81.54,
+    80.93,
+    81.06,
+    81.07
    ],
    "bars_1h": [
     [
@@ -4921,47 +6165,47 @@
     [
      1794492000,
      81.32,
-     81.41,
-     80.88,
-     80.97
+     81.57,
+     80.36,
+     81.12
     ]
    ],
    "vwap": {
-    "value": 82.38,
+    "value": 82.0,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 0.2956,
-   "range_today": 3.3,
+   "atr_5m_14": 0.3753,
+   "range_today": 3.46,
    "rvol": {
-    "value": 1.58,
+    "value": 1.97,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 80.97 < EMA20 84.28, EMA falling",
+    "h4_why": "close 81.12 < EMA20 84.30, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 81.27 < EMA20 82.44, EMA falling"
+    "m30_why": "close 81.07 < EMA20 82.26, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 85.8,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Prior day low",
      "price": 82.1,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Session VWAP",
-     "price": 82.38,
+     "price": 82.0,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia high",
@@ -4970,7 +6214,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Asia low",
@@ -4979,7 +6223,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London high",
@@ -4988,7 +6232,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "London low",
@@ -4997,7 +6241,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork high",
@@ -5006,61 +6250,372 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     },
     {
      "label": "Newyork low",
-     "price": 80.52,
+     "price": 80.36,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:10:00Z"
+     "observed_at": "2026-11-12T14:53:15Z"
     }
    ],
-   "age_min": 2.2,
+   "eq_zones": [
+    {
+     "label": "EQ LD (London open 1m)",
+     "candle_utc": "2026-11-12T08:00:00Z",
+     "candle_local": "08:00 GMT",
+     "source": "SOL-USD",
+     "low": null,
+     "high": null,
+     "missing_reason": "1m candle missing in provider data"
+    },
+    {
+     "label": "EQ NY (New York open 1m)",
+     "candle_utc": "2026-11-12T14:30:00Z",
+     "candle_local": "09:30 EST",
+     "source": "SOL-USD",
+     "low": 80.57,
+     "high": 80.9,
+     "method": "low\u2013high of the 1m candle"
+    }
+   ],
+   "session_rvol": [
+    {
+     "session": "asia",
+     "window_utc": "00:00\u201307:00",
+     "state": "complete",
+     "volume": 130496,
+     "usual": null,
+     "rvol": null,
+     "sessions_compared": 0
+    },
+    {
+     "session": "london",
+     "window_utc": "07:00\u201311:00",
+     "state": "complete",
+     "volume": 36499,
+     "usual": 28083,
+     "rvol": 1.3,
+     "sessions_compared": 1
+    },
+    {
+     "session": "newyork",
+     "window_utc": "12:00\u201318:00",
+     "state": "in_progress",
+     "volume": 252781,
+     "usual": 177564,
+     "rvol": 1.42,
+     "sessions_compared": 1
+    }
+   ],
+   "volume_profile_prev": {
+    "from_utc": "2026-11-11T00:00:00Z",
+    "to_utc": "2026-11-12T00:00:00Z",
+    "row_size": 0.1233,
+    "rows": [
+     {
+      "price": 82.1,
+      "volume": 1327
+     },
+     {
+      "price": 82.22,
+      "volume": 2110
+     },
+     {
+      "price": 82.35,
+      "volume": 2110
+     },
+     {
+      "price": 82.47,
+      "volume": 2854
+     },
+     {
+      "price": 82.59,
+      "volume": 6195
+     },
+     {
+      "price": 82.72,
+      "volume": 8560
+     },
+     {
+      "price": 82.84,
+      "volume": 8870
+     },
+     {
+      "price": 82.96,
+      "volume": 8086
+     },
+     {
+      "price": 83.09,
+      "volume": 3669
+     },
+     {
+      "price": 83.21,
+      "volume": 9504
+     },
+     {
+      "price": 83.33,
+      "volume": 10867
+     },
+     {
+      "price": 83.46,
+      "volume": 12265
+     },
+     {
+      "price": 83.58,
+      "volume": 44209
+     },
+     {
+      "price": 83.7,
+      "volume": 57644
+     },
+     {
+      "price": 83.83,
+      "volume": 54220
+     },
+     {
+      "price": 83.95,
+      "volume": 43272
+     },
+     {
+      "price": 84.07,
+      "volume": 31740
+     },
+     {
+      "price": 84.2,
+      "volume": 25088
+     },
+     {
+      "price": 84.32,
+      "volume": 24422
+     },
+     {
+      "price": 84.44,
+      "volume": 31496
+     },
+     {
+      "price": 84.57,
+      "volume": 41461
+     },
+     {
+      "price": 84.69,
+      "volume": 47673
+     },
+     {
+      "price": 84.81,
+      "volume": 45698
+     },
+     {
+      "price": 84.94,
+      "volume": 26513
+     },
+     {
+      "price": 85.06,
+      "volume": 16999
+     },
+     {
+      "price": 85.18,
+      "volume": 19981
+     },
+     {
+      "price": 85.31,
+      "volume": 15219
+     },
+     {
+      "price": 85.43,
+      "volume": 7685
+     },
+     {
+      "price": 85.55,
+      "volume": 5164
+     },
+     {
+      "price": 85.68,
+      "volume": 4072
+     }
+    ],
+    "poc": 83.77,
+    "vah": 84.94,
+    "val": 83.58,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "volume_profile_today": {
+    "from_utc": "2026-11-12T00:00:00Z",
+    "to_utc": "2026-11-12T14:53:15Z",
+    "row_size": 0.1153,
+    "rows": [
+     {
+      "price": 80.36,
+      "volume": 9851
+     },
+     {
+      "price": 80.48,
+      "volume": 15816
+     },
+     {
+      "price": 80.59,
+      "volume": 17034
+     },
+     {
+      "price": 80.71,
+      "volume": 12467
+     },
+     {
+      "price": 80.82,
+      "volume": 17073
+     },
+     {
+      "price": 80.94,
+      "volume": 22150
+     },
+     {
+      "price": 81.05,
+      "volume": 25794
+     },
+     {
+      "price": 81.17,
+      "volume": 23934
+     },
+     {
+      "price": 81.28,
+      "volume": 22110
+     },
+     {
+      "price": 81.4,
+      "volume": 24413
+     },
+     {
+      "price": 81.51,
+      "volume": 22774
+     },
+     {
+      "price": 81.63,
+      "volume": 8583
+     },
+     {
+      "price": 81.74,
+      "volume": 2589
+     },
+     {
+      "price": 81.86,
+      "volume": 3476
+     },
+     {
+      "price": 81.97,
+      "volume": 5711
+     },
+     {
+      "price": 82.09,
+      "volume": 8004
+     },
+     {
+      "price": 82.21,
+      "volume": 9843
+     },
+     {
+      "price": 82.32,
+      "volume": 9280
+     },
+     {
+      "price": 82.44,
+      "volume": 9313
+     },
+     {
+      "price": 82.55,
+      "volume": 12043
+     },
+     {
+      "price": 82.67,
+      "volume": 21470
+     },
+     {
+      "price": 82.78,
+      "volume": 25966
+     },
+     {
+      "price": 82.9,
+      "volume": 23604
+     },
+     {
+      "price": 83.01,
+      "volume": 23586
+     },
+     {
+      "price": 83.13,
+      "volume": 21844
+     },
+     {
+      "price": 83.24,
+      "volume": 15021
+     },
+     {
+      "price": 83.36,
+      "volume": 11438
+     },
+     {
+      "price": 83.47,
+      "volume": 11624
+     },
+     {
+      "price": 83.59,
+      "volume": 7849
+     },
+     {
+      "price": 83.7,
+      "volume": 2095
+     }
+    ],
+    "poc": 82.84,
+    "vah": 83.7,
+    "val": 81.17,
+    "method": "approx: 5m bar volume spread evenly over each bar's range"
+   },
+   "age_min": 0.0,
    "stale": false
   }
  },
  "gauges": {
   "VIX": {
    "key": "VIX",
-   "value": 18.73,
+   "value": 18.32,
    "prev_close": 17.49,
-   "change": 1.24,
+   "change": 0.83,
    "unit": "",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "^VIX"
    },
-   "observed_at": "2026-11-12T14:02:01Z",
-   "age_min": 10.1
+   "observed_at": "2026-11-12T14:43:16Z",
+   "age_min": 10.0
   },
   "DXY": {
    "key": "DXY",
-   "value": 102.878,
+   "value": 102.968,
    "prev_close": 102.908,
-   "change": -0.03,
+   "change": 0.06,
    "unit": "",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "DX-Y.NYB"
    },
-   "observed_at": "2026-11-12T14:07:10Z",
+   "observed_at": "2026-11-12T14:48:18Z",
    "age_min": 5.0
   },
   "US10Y": {
    "key": "US10Y",
-   "value": 5.036,
+   "value": 5.04,
    "prev_close": 4.998,
-   "change": 0.038,
+   "change": 0.042,
    "unit": "%",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "^TNX"
    },
-   "observed_at": "2026-11-12T14:02:04Z",
-   "age_min": 10.1
+   "observed_at": "2026-11-12T14:43:14Z",
+   "age_min": 10.0
   }
  },
  "sessions_utc": [

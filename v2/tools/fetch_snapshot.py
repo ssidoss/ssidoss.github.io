@@ -148,6 +148,71 @@ def vwap(bars, since_ts):
     return round(sum((b["h"] + b["l"] + b["c"]) / 3 * b["v"] for b in seg) / vol, 2)
 
 
+LONDON = ZoneInfo("Europe/London")
+
+
+def one_min_bars(cfg, now, raw_dir, save_dir):
+    if cfg.get("yahoo"):
+        b, _ = yahoo_bars(cfg["yahoo"], "1m", "1d", raw_dir, save_dir)
+    else:
+        b = coinbase_bars(cfg["coinbase"], 60, raw_dir, save_dir)
+    return [x for x in b if x["t"] <= now.timestamp()]
+
+
+def eq_candle(b1, local_dt, label, src):
+    """V Areas EQ zone = high/low of the opening 1-minute candle (owner's strategy note: EQ LD / EQ NY)."""
+    ts = local_dt.astimezone(UTC).timestamp()
+    c = next((x for x in b1 if x["t"] == ts), None)
+    base = {"label": label, "candle_utc": iso(ts), "candle_local": local_dt.strftime("%H:%M %Z"), "source": src}
+    if c is None:
+        return dict(base, low=None, high=None, missing_reason="1m candle not available yet" if ts > b1[-1]["t"] else "1m candle missing in provider data")
+    return dict(base, low=round(c["l"], 2), high=round(c["h"], 2), method="low–high of the 1m candle")
+
+
+def session_rvol(b5, now):
+    """Per strategy session (UTC windows), today's volume vs mean of the same window on prior days (elapsed-matched)."""
+    out = []
+    day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    for name, h0, h1 in SESSIONS:
+        s, e = day0 + dt.timedelta(hours=h0), day0 + dt.timedelta(hours=h1)
+        if now < s:
+            out.append({"session": name, "window_utc": f"{h0:02d}:00–{h1:02d}:00", "state": "upcoming", "rvol": None}); continue
+        end = min(now, e); el = (end - s).total_seconds()
+        vol = lambda a: sum(x["v"] for x in b5 if a <= x["t"] < a + el)
+        today = vol(s.timestamp())
+        prior = [vol(s.timestamp() - d * 86400) for d in range(1, 5)]
+        prior = [p for p in prior if p > 0]
+        avg = sum(prior) / len(prior) if prior else None
+        out.append({"session": name, "window_utc": f"{h0:02d}:00–{h1:02d}:00", "state": "complete" if now >= e else "in_progress",
+                    "volume": round(today), "usual": round(avg) if avg else None, "rvol": round(today / avg, 2) if avg else None,
+                    "sessions_compared": len(prior)})
+    return out
+
+
+def volume_profile(b5, start_ts, end_ts, rows=30):
+    """Approximate profile: each 5m bar's volume spread evenly over its high–low range. POC + 70% value area."""
+    seg = [x for x in b5 if start_ts <= x["t"] < end_ts and x["v"]]
+    if not seg:
+        return None
+    lo, hi = min(x["l"] for x in seg), max(x["h"] for x in seg)
+    if hi <= lo:
+        return None
+    step = (hi - lo) / rows; hist = [0.0] * rows
+    for x in seg:
+        a, b = int((x["l"] - lo) / step), min(rows - 1, int((x["h"] - lo) / step))
+        for i in range(a, b + 1):
+            hist[i] += x["v"] / (b - a + 1)
+    poc = max(range(rows), key=lambda i: hist[i]); tot = sum(hist); inc = {poc}; acc = hist[poc]
+    lo_i, hi_i = poc, poc
+    while acc < .7 * tot and (lo_i > 0 or hi_i < rows - 1):
+        dn = hist[lo_i - 1] if lo_i > 0 else -1; up = hist[hi_i + 1] if hi_i < rows - 1 else -1
+        if up >= dn: hi_i += 1; acc += hist[hi_i]
+        else: lo_i -= 1; acc += hist[lo_i]
+    r = lambda i: round(lo + i * step, 2)
+    return {"from_utc": iso(start_ts), "to_utc": iso(end_ts), "row_size": round(step, 4), "rows": [{"price": r(i), "volume": round(v)} for i, v in enumerate(hist)],
+            "poc": round(lo + (poc + .5) * step, 2), "vah": r(hi_i + 1), "val": r(lo_i), "method": "approx: 5m bar volume spread evenly over each bar's range"}
+
+
 def build_asset(key, cfg, now, raw_dir, save_dir):
     a = {"key": key, "label": cfg["label"], "desc": cfg["desc"], "kind": cfg["kind"]}
     try:
@@ -220,6 +285,20 @@ def build_asset(key, cfg, now, raw_dir, save_dir):
         for x in lv:
             x["price"] = round(x["price"], 2); x["source"] = src["symbol"]; x["observed_at"] = a["observed_at"]
         a["levels"] = lv
+        # V Areas EQ zones, session RVOL, previous-session volume profile
+        try:
+            b1 = one_min_bars(cfg, now, raw_dir, save_dir)
+            d = now.date()
+            ld = dt.datetime(d.year, d.month, d.day, 8, 0, tzinfo=LONDON)
+            nyo = dt.datetime(d.year, d.month, d.day, 9, 30, tzinfo=NY)
+            sym = src["symbol"]
+            a["eq_zones"] = [eq_candle(b1, ld, "EQ LD (London open 1m)", sym), eq_candle(b1, nyo, "EQ NY (New York open 1m)", sym)] if b1 else []
+        except Exception as e:
+            a["eq_zones"] = []; a["eq_missing_reason"] = f"1m feed failed: {type(e).__name__}"
+        a["session_rvol"] = session_rvol(b5, now)
+        prev_start = anchor.timestamp() - 86400 if cfg.get("yahoo") else anchor.timestamp() - 86400
+        a["volume_profile_prev"] = volume_profile(b5, prev_start, anchor.timestamp())
+        a["volume_profile_today"] = volume_profile(b5, anchor.timestamp(), now.timestamp())
         age = (now.timestamp() - obs) / 60
         a["age_min"] = round(age, 1)
         a["stale"] = age > 30 + cfg["delay_min"]
