@@ -89,8 +89,11 @@ function verdict() {
     if (now >= s && now <= en) { if (st !== 'stop') st = 'wait'; why.push(`No-entry window now: ${e.event} ${utc(e.time_utc)} UTC (${utc(w.start)}–${utc(w.end)})`); }
     else if (s - now > 0 && s - now < 30 * 6e4) why.push(`No-entry window ${until(w.start)}: ${e.event}`);
   }
+  const nx = highEvents().filter(e => e.no_entry_window_utc && new Date(e.no_entry_window_utc.end) > now).sort((a, b) => a.time_utc < b.time_utc ? -1 : 1)[0];
+  if (nx && !why.some(w => w.includes(nx.event))) why.push(`Next no-entry window: ${nx.event} · ${dshort(nx.time_utc)} ${utc(nx.no_entry_window_utc.start)}–${utc(nx.no_entry_window_utc.end)} UTC (${et(nx.no_entry_window_utc.start)}–${et(nx.no_entry_window_utc.end)} ET) · ${until(nx.no_entry_window_utc.start)}`);
+  else if (!nx) why.push('No high-impact no-entry window on the research calendar.');
   if (!S.data.rules) { st = st === 'stop' ? st : 'wait'; why.push('No approved rule set loaded'); }
-  if (st === 'go' && !why.length) why.push('No rule breach in the data, no no-entry window in the next 30 min.');
+  if (st === 'go' && !why.some(w => /⚠️|now/.test(w))) why.unshift('No rule breach in the data, no no-entry window in the next 30 min.');
   return { st, why };
 }
 const dirClass = d => d === 'bullish' ? 'up' : d === 'bearish' ? 'dn' : '';
@@ -218,8 +221,9 @@ function viewAsset(k) {
   let h = topBar(ALABEL[k], esc(s.desc || ''));
   h += `<nav class="tabs-assets">${ASSETS.map(x => `<a href="#/asset/${x}" class="${x === k ? 'on' : ''}">${x}</a>`).join('')}</nav>`;
   h += `<div class="ah"><div><div class="px">${s.price != null ? fmtPx(k, s.price) : '—'}</div><div class="${s.change_pct >= 0 ? 'up' : 'dn'} num">${s.change_pct != null ? (s.change_pct >= 0 ? '+' : '') + s.change_pct.toFixed(2) + '% vs prior close ' + (s.prev_close != null ? fmtPx(k, s.prev_close) : '') : esc(s.missing_reason || '')}</div></div>
-    <div><span class="badge ${dirBadge(a.direction)}" style="font-size:13px;padding:4px 10px">${esc(a.direction || 'no read')}</span> ${a.agreement != null ? `<span class="pill">Agreement <b>${a.agreement}/100</b></span>` : ''} ${a.conflict ? '<span class="badge b-amb">conflict</span>' : ''}</div>
-    <div class="small muted mono" style="margin-left:auto;text-align:right">${esc(a.contract || (s.source || {}).symbol || '')}<br>observed ${stamp(s.observed_at)} · ${age(s.observed_at)}<br>${s.provider_delay_min ? '~' + s.provider_delay_min + ' min provider delay · ' : ''}${s.stale ? '<span class="amb">STALE</span>' : 'fresh'}${s.bar_in_progress ? ' · bar in progress' : ''}</div></div>`;
+    <div><span class="badge ${dirBadge(a.direction)}" style="font-size:13px;padding:4px 10px">${esc(a.direction || 'no read')}</span> ${a.agreement != null ? `<span class="pill">Agreement <b>${a.agreement}/100</b></span>` : ''} ${a.conflict ? '<span class="badge b-amb">conflict</span>' : ''}
+     ${(a.score_breakdown || []).length ? `<div class="votes mono small" style="margin-top:8px">Evidence: ${a.score_breakdown.map(x => `${({ news: 'News', h4: '4H', m30: '30M', vwap: 'VWAP' })[x.line] || x.line} <span class="vote ${x.vote > 0 ? 'p' : x.vote < 0 ? 'm' : 'z'}">${x.vote > 0 ? '+1' : x.vote < 0 ? '−1' : '0'}</span>`).join(' ')}</div>` : ''}</div>
+    <div class="small muted mono ameta" style="margin-left:auto;text-align:right">${esc(a.contract || (s.source || {}).symbol || '')}<br>observed ${stamp(s.observed_at)} · ${age(s.observed_at)}<br>${s.provider_delay_min ? '~' + s.provider_delay_min + ' min provider delay · ' : ''}${s.stale ? '<span class="amb">STALE</span>' : 'fresh'}${s.bar_in_progress ? ' · bar in progress' : ''}</div></div>`;
   if (a.direction === 'no_data' || !a.direction) h += `<div class="fixture" style="margin-top:16px">No Head Analyst read for ${ALABEL[k]}: ${esc(a.missing_reason || 'not run')}. Prices and levels below are from the snapshot only.</div>`;
   h += sec('01', 'Bias — how the score is built', 'Agreement = how much the evidence agrees, not a probability');
   const sb = a.score_breakdown || [];
@@ -259,7 +263,7 @@ function viewProp() {
   const fees = P.accounts.flatMap(a => (a.fees || []).map(f => ({ ...f, acct: a.id }))).filter(f => f.amount != null);
   const feeIn = fees.filter(f => f.in_desk_totals !== false).reduce((t, f) => t + f.amount, 0), feeAll = fees.reduce((t, f) => t + f.amount, 0);
   const paid = P.accounts.flatMap(a => a.payouts || []).filter(p => p.status === 'paid').reduce((t, p) => t + (p.net ?? p.gross ?? 0), 0);
-  h += `<div class="grid g5" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+  h += `<div class="grid kpis">
    <div class="card"><h2>Payouts received</h2><div class="big">${usd(r2(paid))}</div></div>
    <div class="card"><h2>Fees counted</h2><div class="big">${usd(r2(feeIn))}</div><div class="tiny muted">${feeAll !== feeIn ? `${usd(r2(feeAll - feeIn))} more not counted (owner decision pending)` : 'all fees counted'}</div></div>
    <div class="card"><h2>Net realised</h2><div class="big ${paid - feeIn >= 0 ? 'up' : 'dn'}">${usd(r2(paid - feeIn))}</div><div class="tiny muted">${feeAll !== feeIn ? 'incl. all fees: ' + usd(r2(paid - feeAll)) : ''}</div></div>
@@ -388,6 +392,8 @@ async function connectTopic() {
 }
 
 /* ---------------- CEO console ---------------- */
+// minimal, safe markdown for agent replies: escape first, then bold / code / bullets
+const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code class="mono">$1</code>').replace(/^- (.*)$/gm, '<span style="display:block;padding-left:14px;text-indent:-10px">• $1</span>');
 const CEO = {
   msgs: JSON.parse(sessionStorage.getItem('ceo-msgs') || '[]'), transport: localStorage.getItem('ceo-transport') || 'auto', lang: localStorage.getItem('ceo-lang') || 'en-US',
   bridge: localStorage.getItem('ceo-bridge') || 'http://127.0.0.1:8787', rec: null, speaking: false, listening: false, to: 'Head of CICM',
@@ -395,7 +401,7 @@ const CEO = {
   push(m) { this.msgs.push(m); this.save(); this.draw(); },
   draw() {
     const box = $('#msgs'); if (!box) return;
-    box.innerHTML = this.msgs.map(m => `<div class="msg ${m.from === 'me' ? 'me' : 'ceo'}"><div class="who">${m.from === 'me' ? 'You' : esc(m.from)} · ${utc(m.ts)} UTC<span class="state">${m.state ? esc(m.state) : ''}${m.via ? ' · ' + esc(m.via) : ''}</span></div>${esc(m.text)}${m.sources ? `<div class="src">${m.sources.map(s => `<span>${esc(s)}</span>`).join('')}</div>` : ''}</div>`).join('') || `<div class="muted" style="margin:auto;text-align:center;max-width:420px">Talk or type to <b>Head of CICM</b>. Hold the mic (or Space) to speak. Answers come from the Desk data files, with sources.</div>`;
+    box.innerHTML = this.msgs.map(m => `<div class="msg ${m.from === 'me' ? 'me' : 'bot'}"><div class="who">${m.from === 'me' ? 'You' : esc(m.from)} · ${utc(m.ts)} UTC<span class="state">${m.state ? esc(m.state) : ''}${m.via ? ' · ' + esc(m.via) : ''}</span></div>${m.from === 'me' ? esc(m.text) : md(m.text)}${m.sources ? `<div class="src">${m.sources.map(s => `<span>${esc(s)}</span>`).join('')}</div>` : ''}</div>`).join('') || `<div class="muted" style="margin:auto;text-align:center;max-width:420px">Talk or type to <b>Head of CICM</b>. Hold the mic (or Space) to speak. Answers come from the Desk data files, with sources.</div>`;
     box.scrollTop = box.scrollHeight;
   },
   async send(text) {

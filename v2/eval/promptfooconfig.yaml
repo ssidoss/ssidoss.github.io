@@ -1,0 +1,18 @@
+# Claude-vs-Grok comparison on the SAME saved inputs (promptfoo, MIT).
+# Grok outputs were not in the export (GAPS.md #2), so the Grok arm reads saved files once you export them to
+# v2/eval/grok-outputs/<run>/{research,analyst,coach}.json. Both arms are scored by the same deterministic validator
+# (sources, timestamps, ET/DST, score arithmetic, missing-data handling, routing), not by an LLM judge.
+description: Sidoss pre-session — Claude agents vs Grok on saved snapshots
+prompts: ['{{stage}} for {{run}}']
+providers:
+  - id: file://v2/eval/providers/claude_run.py      # replays the Claude run outputs saved for {{run}}
+    label: claude
+  - id: file://v2/eval/providers/grok_saved.py      # returns the saved Grok output for {{run}}
+    label: grok
+tests:
+  - vars: { run: 2026-11-12T1412Z, stage: research }
+    assert: [{ type: python, value: file://v2/eval/assert_validator.py }]
+  - vars: { run: 2026-11-12T1412Z, stage: analyst }
+    assert: [{ type: python, value: file://v2/eval/assert_validator.py }]
+  - vars: { run: 2026-11-12T1412Z, stage: coach }
+    assert: [{ type: python, value: file://v2/eval/assert_validator.py }]

@@ -31,7 +31,7 @@
     if (x > 1) x = x / 100;
     return (x > 0 && x <= 1) ? x : null;
   }
-  function consCurrentRatio(v) { // 200.03 -> 2.0003
+  function consCurrentRatio(v) { // 150.5 -> 1.505
     if (v == null || v === '') return null;
     let x = num(v); if (x == null) return null;
     if (x > 1) x = x / 100;
