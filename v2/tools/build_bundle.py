@@ -19,14 +19,15 @@ for r in runs:
     if o and o not in files:
         p = os.path.join(os.path.dirname(V), o)
         if os.path.exists(p): files[o] = load(p)
-bundle = json.dumps({'data': data, 'runs': runs, 'files': files, 'built_at': __import__('datetime').datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')}, ensure_ascii=False).replace('</', '<\\/')
+bundle = json.dumps({'data': data, 'runs': runs, 'files': files, 'built_at': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}, ensure_ascii=False).replace('</', '<\\/')
 html = open(os.path.join(A, 'index.html')).read()
-css = open(os.path.join(A, 'apple.css')).read()
+css = open(os.path.join(A, 'pro.css')).read()
+css = re.sub(r'url\((fonts/[\w.-]+\.woff2)\)', lambda m: 'url(data:font/woff2;base64,' + base64.b64encode(open(os.path.join(A, m.group(1)), 'rb').read()).decode() + ')', css)
 def icon(m):
     p = os.path.join(A, m.group(1)); return 'data:image/svg+xml;base64,' + base64.b64encode(open(p, 'rb').read()).decode() if os.path.exists(p) else m.group(1)
 js = '\n'.join(open(os.path.join(A, f)).read() for f in ('prop-math.js', 'app.js', 'features.js'))
 js = re.sub(r'(icons/[\w.-]+\.svg)', lambda m: icon(m), js)
-html = html.replace('<link rel="stylesheet" href="apple.css">', '<style>' + css + '</style>')
+html = html.replace('<link rel="stylesheet" href="pro.css">', '<style>' + css + '</style>')
 html = re.sub(r'<script src="[\w.-]+\.js"></script>\n?', '', html)
 html = html.replace('</body>', '<script>window.__BUNDLE=' + bundle + ';</script>\n<script>' + js.replace('</script', '<\\/script') + '</script>\n</body>')
 html = re.sub(r'(src|href)="(icons/[\w.-]+\.svg)"', lambda m: f'{m.group(1)}="{icon(re.match(r"(.*)", m.group(2)))}"', html)
