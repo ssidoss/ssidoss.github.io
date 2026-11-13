@@ -19,13 +19,23 @@ for r in runs:
     if o and o not in files:
         p = os.path.join(os.path.dirname(V), o)
         if os.path.exists(p): files[o] = load(p)
-bundle = json.dumps({'data': data, 'runs': runs, 'files': files, 'built_at': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}, ensure_ascii=False).replace('</', '<\\/')
-html = open(os.path.join(A, 'index.html')).read()
+MODE = os.environ.get('APP_MODE', 'desk')
+hist = []
+hp = os.environ.get('OFFICE_HISTORY')
+if hp and os.path.exists(hp):
+    for l in open(hp):
+        try:
+            m = json.loads(json.loads(l)['message'])
+            if m.get('type') in ('status', 'usage'): hist.append(m)
+        except Exception: pass
+links = json.loads(os.environ.get('APP_LINKS', '{}'))
+bundle = json.dumps({'links': links, 'office_history': [m for m in hist if m.get('type') == 'status'], 'office_history_note': 'Grok Office topic as read 2026-11-12 13:48Z' if hist else None, 'data': data, 'runs': runs, 'files': files, 'built_at': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}, ensure_ascii=False).replace('</', '<\\/')
+html = open(os.path.join(A, 'index.html')).read().replace('window.APP_MODE = "desk"', 'window.APP_MODE = "' + MODE + '"').replace('Sidoss Capital · Desk', 'Sidoss Capital · ' + ('Office' if MODE == 'office' else 'Desk'))
 css = open(os.path.join(A, 'pro.css')).read()
 css = re.sub(r'url\((fonts/[\w.-]+\.woff2)\)', lambda m: 'url(data:font/woff2;base64,' + base64.b64encode(open(os.path.join(A, m.group(1)), 'rb').read()).decode() + ')', css)
 def icon(m):
     p = os.path.join(A, m.group(1)); return 'data:image/svg+xml;base64,' + base64.b64encode(open(p, 'rb').read()).decode() if os.path.exists(p) else m.group(1)
-js = '\n'.join(open(os.path.join(A, f)).read() for f in ('prop-math.js', 'app.js', 'features.js'))
+js = '\n'.join(open(os.path.join(A, f)).read() for f in ('prop-math.js', 'app.js', 'features.js', 'parity.js'))
 js = re.sub(r'(icons/[\w.-]+\.svg)', lambda m: icon(m), js)
 html = html.replace('<link rel="stylesheet" href="pro.css">', '<style>' + css + '</style>')
 html = re.sub(r'<script src="[\w.-]+\.js"></script>\n?', '', html)

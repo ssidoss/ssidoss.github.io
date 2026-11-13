@@ -61,7 +61,7 @@ function bindSizer(root = document) {
 }
 
 /* ---------- V Areas zones ---------- */
-const manualZones = k => { try { return JSON.parse(localStorage.getItem('zones-' + k) || '[]'); } catch { return []; } };
+const manualZones = k => { try { return JSON.parse(SAFE.get(localStorage, 'zones-' + k) || '[]'); } catch { return []; } };
 function zonesHTML(k) {
   const s = ((S.data.snapshot || {}).assets || {})[k] || {}, all = [...(s.eq_zones || []).map(z => ({ ...z, auto: 1 })), ...manualZones(k)];
   const inZone = all.filter(z => z.low != null && s.price != null && s.price >= z.low && s.price <= z.high);
@@ -71,8 +71,8 @@ function zonesHTML(k) {
    <div class="src"><span>Rejection: closed hanging candle in the zone (A+ = no wicks) · confirmation candle after it · invalidation: not defined in your note — set your own</span><span>Manual zones are stored on this device only</span></div></div>`;
 }
 function bindZones(k) {
-  const f = $('[data-zadd]'); if (f) f.onsubmit = e => { e.preventDefault(); const lo = +f.lo.value, hi = +f.hi.value; if (!lo || !hi) return; const z = manualZones(k); z.push({ label: f.t.value, low: Math.min(lo, hi), high: Math.max(lo, hi), note: 'added ' + new Date().toISOString().slice(0, 16) + 'Z' }); localStorage.setItem('zones-' + k, JSON.stringify(z)); route(); };
-  $$('[data-zdel]').forEach(b => b.onclick = () => { const z = manualZones(k); z.splice(+b.dataset.zdel, 1); localStorage.setItem('zones-' + k, JSON.stringify(z)); route(); });
+  const f = $('[data-zadd]'); if (f) f.onsubmit = e => { e.preventDefault(); const lo = +f.lo.value, hi = +f.hi.value; if (!lo || !hi) return; const z = manualZones(k); z.push({ label: f.t.value, low: Math.min(lo, hi), high: Math.max(lo, hi), note: 'added ' + new Date().toISOString().slice(0, 16) + 'Z' }); SAFE.set(localStorage, 'zones-' + k, JSON.stringify(z)); route(); };
+  $$('[data-zdel]').forEach(b => b.onclick = () => { const z = manualZones(k); z.splice(+b.dataset.zdel, 1); SAFE.set(localStorage, 'zones-' + k, JSON.stringify(z)); route(); });
 }
 
 /* ---------- volume profile + session RVOL ---------- */
@@ -103,6 +103,7 @@ function viewMacro() {
 function viewCalendar() {
   const R = S.data.research; let h = topBar('Calendar', '') + `<div class="lsub">UTC with ET for US releases · high-impact events carry a ±15 min no-entry window</div>`;
   if (!R) return h + '<div class="card unavail">Calendar unavailable — Market Researcher has not run</div>';
+  h += calendarExtras();
   const by = {}; for (const e of R.calendar || []) (by[e.date || (e.time_utc || '').slice(0, 10)] ||= []).push(e);
   for (const [d, list] of Object.entries(by).sort()) h += sec('', new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }).format(new Date(d + 'T12:00:00Z'))) + `<div class="card">${list.map(e => `<div class="ev ${e.impact}"><div class="t">${e.time_utc ? utc(e.time_utc) + ' UTC<small>' + (e.time_et || et(e.time_utc)) + ' ET</small>' : '<span class="muted">untimed</span>'}</div><div class="e">${esc(e.event)}${e.no_entry_window_utc ? `<div class="tiny dn">No entries ${utc(e.no_entry_window_utc.start)}–${utc(e.no_entry_window_utc.end)} UTC</div>` : ''}<div class="tiny muted">${esc(e.source || '')}${e.forecast ? ' · forecast ' + esc(e.forecast) : ''}${e.previous ? ' · previous ' + esc(e.previous) : ''}${e.actual ? ' · actual ' + esc(e.actual) : ''}${e.time_missing_reason ? ' · ' + esc(e.time_missing_reason) : ''}</div></div><div class="x"><span class="badge ${e.impact === 'high' ? 'b-dn' : e.impact === 'medium' ? 'b-amb' : 'b-mut'}">${e.impact}</span></div></div>`).join('')}</div>`;
   if ((R.gaps || []).length) h += sec('', 'Not verified') + `<div class="card small ink2">${R.gaps.map(g => `<div class="chk">• ${esc(g)}</div>`).join('')}</div>`;
@@ -110,7 +111,8 @@ function viewCalendar() {
 }
 
 /* ---------- Journal / Performance / Psychology (Grok journal data.json contract) ---------- */
-function J() { return S.data.journal; }
+// never mix example journal data into a real build: fixture journal only when the rest is fixture too
+function J() { const j = S.data.journal; return j && j._FIXTURE && !S.fixture.has('prop') ? null : j; }
 function trades() { const j = J(); return j ? (j.trades || []).filter(t => t.pnl != null) : []; }
 function perfStats(ts) {
   const w = ts.filter(t => t.pnl > 0), l = ts.filter(t => t.pnl < 0), gw = w.reduce((s, t) => s + t.pnl, 0), gl = -l.reduce((s, t) => s + t.pnl, 0);
@@ -120,8 +122,8 @@ function journalMissing(title) { return topBar(title, '') + `<div class="card"><
 function viewJournal() {
   if (!J()) return journalMissing('Journal');
   const ts = [...(J().trades || [])].sort((a, b) => (b.date + b.time) < (a.date + a.time) ? -1 : 1);
-  let h = topBar('Journal', '') + `<div class="lsub">${ts.length} trades · written only by Trading Journal · ${esc((J().meta || {}).asOf || '')}</div>`;
-  h += `<div class="card" style="padding:0;overflow-x:auto"><table><thead><tr><th>Date (UTC)</th><th>Account</th><th>Ticker</th><th>Side</th><th class="n">Qty</th><th class="n">Entry</th><th class="n">Exit</th><th class="n">P&L</th><th>Setup</th><th>Grade</th><th>Emotion</th><th>Rules</th></tr></thead><tbody>${ts.map(t => `<tr><td class="small">${esc(t.date)} ${esc(t.time || '')}${t.approx ? ' ≈' : ''}</td><td class="small">${esc(t.account || '—')}</td><td><b>${esc(t.ticker)}</b></td><td>${esc(t.side)}</td><td class="n">${t.qty ?? '—'}</td><td class="n">${t.entry ?? '—'}</td><td class="n">${t.exit ?? '—'}</td><td class="n ${t.pnl > 0 ? 'up' : t.pnl < 0 ? 'dn' : ''}">${t.pnl != null ? usd(t.pnl) : '<span class="muted">unknown</span>'}</td><td class="small">${esc(t.setup || '—')}</td><td>${t.grade ? `<span class="badge b-info">${esc(t.grade)}</span>` : '—'}</td><td class="small">${esc(t.emotional || '—')}</td><td class="small">${(t.rules || []).length ? `<span class="badge b-amb">${(t.rules || []).length} broken</span>` : '<span class="badge b-up">ok</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+  let h = topBar('Journal', '') + journalHeader() + `<div class="lsub">${ts.length} trades · written only by Trading Journal · ${esc((J().meta || {}).asOf || '')}</div>`;
+  h += `<div class="card" style="padding:0;overflow-x:auto"><table><thead><tr><th>Date (UTC)</th><th>Account</th><th>Ticker</th><th>Side</th><th class="n">Qty</th><th class="n">Entry</th><th class="n">Exit</th><th class="n">P&L</th><th>Setup</th><th>Grade</th><th>Emotion</th><th>Rules</th></tr></thead><tbody>${ts.map(t => `<tr data-tr="${esc(t.id)}" style="cursor:pointer"><td class="small">${esc(t.date)} ${esc(t.time || '')}${t.approx ? ' ≈' : ''}</td><td class="small">${esc(t.account || '—')}</td><td><b>${esc(t.ticker)}</b></td><td>${esc(t.side)}</td><td class="n">${t.qty ?? '—'}</td><td class="n">${t.entry ?? '—'}</td><td class="n">${t.exit ?? '—'}</td><td class="n ${t.pnl > 0 ? 'up' : t.pnl < 0 ? 'dn' : ''}">${t.pnl != null ? usd(t.pnl) : '<span class="muted">unknown</span>'}</td><td class="small">${esc(t.setup || '—')}</td><td>${t.grade ? `<span class="badge b-info">${esc(t.grade)}</span>` : '—'}</td><td class="small">${esc(t.emotional || '—')}</td><td class="small">${(t.rules || []).length ? `<span class="badge b-amb">${(t.rules || []).length} broken</span>` : '<span class="badge b-up">ok</span>'}</td></tr>`).join('')}</tbody></table></div>`;
   return h;
 }
 function viewPerformance() {
@@ -133,6 +135,7 @@ function viewPerformance() {
   let eq = 0; const pts = [...ts].sort((a, b) => (a.date + a.time) < (b.date + b.time) ? -1 : 1).map(t => (eq += t.pnl)); const mn = Math.min(0, ...pts), mx = Math.max(0, ...pts), W = 900, H = 200;
   h += sec('', 'Equity curve') + `<div class="card"><svg viewBox="0 0 ${W} ${H}" class="chart"><line x1="0" x2="${W}" y1="${H - (0 - mn) / ((mx - mn) || 1) * H}" y2="${H - (0 - mn) / ((mx - mn) || 1) * H}" stroke="var(--rule2)"/><polyline fill="none" stroke="var(--acc)" stroke-width="2" points="${pts.map((p, i) => `${(i / Math.max(1, pts.length - 1) * W).toFixed(1)},${(H - (p - mn) / ((mx - mn) || 1) * (H - 10) - 5).toFixed(1)}`).join(' ')}"/></svg></div>`;
   const grp = (f, label) => { const m = {}; ts.forEach(t => (m[f(t) || '—'] ||= []).push(t)); return `<div class="card"><h2>${label}</h2><table><thead><tr><th></th><th class="n">Trades</th><th class="n">Net</th><th class="n">Win %</th><th class="n">PF</th></tr></thead><tbody>${Object.entries(m).map(([k, v]) => { const p = perfStats(v); return `<tr><td>${esc(k)}</td><td class="n">${p.n}</td><td class="n ${p.net >= 0 ? 'up' : 'dn'}">${usd(p.net)}</td><td class="n">${p.wr}</td><td class="n">${p.pf ?? '—'}</td></tr>`; }).join('')}</tbody></table>${ts.length < 30 ? '<div class="src"><span>small sample</span></div>' : ''}</div>`; };
+  h += perfExtras();
   h += sec('', 'Breakdown') + `<div class="grid g3">${grp(t => t.session, 'By session')}${grp(t => t.ticker, 'By instrument')}${grp(t => t.setup, 'By setup')}</div>`;
   return h;
 }
@@ -142,7 +145,8 @@ function viewPsychology() {
   const grp = f => { const m = {}; ts.forEach(t => (m[f(t) || 'not recorded'] ||= []).push(t)); return Object.entries(m).map(([k, v]) => [k, perfStats(v)]); };
   const broke = ts.filter(t => (t.rules || []).length), kept = ts.filter(t => !(t.rules || []).length), B = perfStats(broke), K = perfStats(kept);
   let h = topBar('Psychology', '') + `<div class="lsub">From journal emotions and rule checks · Trading Coach ${C.generated_at ? stamp(C.generated_at) : 'not run'}</div>`;
-  h += `<div class="grid g2"><div class="card"><h2>Rules kept vs broken</h2><table><tbody><tr><td>Rules kept</td><td class="n">${K.n} trades</td><td class="n ${K.net >= 0 ? 'up' : 'dn'}">${usd(K.net)}</td></tr><tr><td>Rules broken</td><td class="n">${B.n} trades</td><td class="n ${B.net >= 0 ? 'up' : 'dn'}">${usd(B.net)}</td></tr></tbody></table><div class="src"><span>Winning rule-breaks are listed, not netted away</span></div></div>
+  h += psychExtras();
+  h += `<div class="grid g2" style="margin-top:10px"><div class="card"><h2>Rules kept vs broken</h2><table><tbody><tr><td>Rules kept</td><td class="n">${K.n} trades</td><td class="n ${K.net >= 0 ? 'up' : 'dn'}">${usd(K.net)}</td></tr><tr><td>Rules broken</td><td class="n">${B.n} trades</td><td class="n ${B.net >= 0 ? 'up' : 'dn'}">${usd(B.net)}</td></tr></tbody></table><div class="src"><span>Winning rule-breaks are listed, not netted away</span></div></div>
    <div class="card"><h2>Coach focus</h2><h3>${esc(C.focus || '—')}</h3><div class="ink2">${esc(C.mindset || '')}</div></div></div>`;
   h += sec('', 'Results by emotion') + `<div class="card"><table><thead><tr><th>Emotion</th><th class="n">Trades</th><th class="n">Net</th><th class="n">Win %</th></tr></thead><tbody>${grp(t => t.emotional).map(([k, p]) => `<tr><td>${esc(k)}</td><td class="n">${p.n}</td><td class="n ${p.net >= 0 ? 'up' : 'dn'}">${usd(p.net)}</td><td class="n">${p.wr}</td></tr>`).join('')}</tbody></table>${ts.length < 30 ? '<div class="src"><span>small sample — patterns are hints, not conclusions</span></div>' : ''}</div>`;
   return h;

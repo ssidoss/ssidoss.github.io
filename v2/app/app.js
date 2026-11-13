@@ -1,13 +1,15 @@
 /* Sidoss Capital v2 app — Dashboard · Asset · Prop · Office · CEO Console. No framework, no build.
    Data contract: ../data/** (see CLAUDE.md). Private (git-ignored) files win over public fixtures. */
 'use strict';
+// storage can be unavailable (sandboxed viewers, private mode): never let it break the page
+const SAFE = { get(st, k) { try { return st.getItem(k); } catch { return null; } }, set(st, k, v) { try { st.setItem(k, v); } catch { } } };
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const PM = window.PropMath, usd = PM.usd, r2 = PM.r2;
 const ASSETS = ['NQ', 'GOLD', 'BTC', 'ETH', 'SOL'];
 const ALABEL = { NQ: 'NQ / MNQ', GOLD: 'Gold / MGC', BTC: 'BTC', ETH: 'ETH', SOL: 'SOL' };
 const LEGACY = 'https://ssidoss.github.io/desk/';
-const S = { data: {}, fixture: new Set(), clock: 'local', theme: localStorage.getItem('sx-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'), live: { status: [], usage: null, conn: 'off' } };
+const S = { data: {}, fixture: new Set(), clock: 'local', theme: SAFE.get(localStorage, 'sx-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day'), live: { status: [], usage: null, conn: 'off' } };
 
 /* ---------------- time ---------------- */
 const NYZ = 'America/New_York';
@@ -30,7 +32,7 @@ async function getJSON(paths) {
 async function loadAll() {
   if (window.__BUNDLE) { // single-file encrypted build: data embedded at build time
     const Bd = window.__BUNDLE; for (const k of Object.keys(Bd.data)) { S.data[k] = Bd.data[k]; if (Bd.data[k] && (Bd.data[k]._FIXTURE || Bd.data[k]._EXAMPLE_DATA)) S.fixture.add(k); }
-    S.data.runs = Bd.runs || []; return;
+    S.data.runs = Bd.runs || []; S.live.status = Bd.office_history || []; S.data.office_history_note = Bd.office_history_note; return;
   }
   const B = '../data/';
   const spec = {
@@ -38,6 +40,7 @@ async function loadAll() {
     coach: [B + 'coach/private/gameplan.json', B + 'coach/gameplan.json'], rules: [B + 'rules/private/rules.json', B + 'rules/rules.json'],
     prop: [B + 'prop/private/accounts.json', B + 'prop/accounts.json'], validation: [B + 'office/validation.json'],
     journal: [B + 'journal/private/data.json', B + 'journal/data.json'],
+    routines: [B + 'office/routines.json'], usage: [B + 'office/private/usage.json'],
   };
   const out = await Promise.all(Object.entries(spec).map(async ([k, ps]) => [k, await getJSON(ps)]));
   for (const [k, { j, p }] of out) { S.data[k] = j; if (j && (j._FIXTURE || j._EXAMPLE_DATA)) S.fixture.add(k); S.data[k + 'Path'] = p; }
@@ -60,11 +63,15 @@ const I = {
   psychology: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>',
   mic: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
 };
-const NAV = [
+const MODE = window.APP_MODE || 'desk';
+const ASSET = window.__BUNDLE ? '' : (MODE === 'office' ? '../app/' : '');
+const NAV_DESK = [
   { r: 'dashboard', t: 'Brief', i: I.brief }, { r: 'asset/NQ', t: 'Markets', i: I.asset, m: 'asset' }, { r: 'prop', t: 'Prop', i: I.prop },
-  { r: 'office', t: 'Office', i: I.office }, { r: 'ceo', t: 'CEO', i: I.ceo },
+  { r: 'macro', t: 'Macro', i: I.macro }, { r: 'calendar', t: 'Calendar', i: I.calendar },
 ];
-const LEG = [['macro', 'Macro'], ['calendar', 'Calendar'], ['journal', 'Journal'], ['performance', 'Performance'], ['psychology', 'Psychology']];
+const NAV_OFFICE = [{ r: 'office', t: 'Office', i: I.office }, { r: 'ceo', t: 'Chat', i: I.ceo }];
+const NAV = MODE === 'office' ? NAV_OFFICE : NAV_DESK;
+const LEG = MODE === 'office' ? [] : [['journal', 'Journal'], ['performance', 'Performance'], ['psychology', 'Psychology']];
 
 /* ---------------- derived ---------------- */
 function primaryAccount() {
@@ -115,10 +122,12 @@ function renderShell(route) {
   const needs = needsYou().length;
   $('#nav').innerHTML = NAV.map(n => `<a href="#/${n.r}" class="${(n.m || n.r) === cur ? 'on' : ''}" aria-current="${(n.m || n.r) === cur ? 'page' : 'false'}">${n.i}<span>${n.t}</span>${n.r === 'office' && needs ? '<i class="dot" style="background:var(--amb)"></i>' : ''}</a>`).join('')
     + '<h6>More</h6>' + LEG.map(([k, t]) => `<a href="#/${k}" class="${k === cur ? 'on' : ''}">${I[k] || I.brief}<span>${t}</span></a>`).join('')
-    + `<h6>Previous Desk</h6><a href="${LEGACY}" target="_blank" rel="noopener">${I.ext}<span>Open current Desk</span></a>`;
-  $('#btabs').innerHTML = NAV.map(n => `<a href="#/${n.r}" class="${(n.m || n.r) === cur ? 'on' : ''}">${n.i}<span>${n.t}</span>${n.r === 'office' && needs ? `<span class="badge">${needs}</span>` : ''}</a>`).join('');
+    + (MODE === 'office' ? `<h6>Apps</h6><a href="${(window.__BUNDLE && window.__BUNDLE.links || {}).desk || '../desk-v2/'}">${I.brief}<span>Desk</span></a>` : `<h6>Apps</h6><a href="${(window.__BUNDLE && window.__BUNDLE.links || {}).office || '../office-v2/'}">${I.office}<span>Office</span></a>`)
+    + `<h6>Previous version</h6><a href="${MODE === 'office' ? 'https://ssidoss.github.io/office/' : LEGACY}" target="_blank" rel="noopener">${I.ext}<span>Open Grok ${MODE === 'office' ? 'Office' : 'Desk'}</span></a>`;
+  const BT = MODE === 'office' ? NAV : [NAV[0], NAV[1], NAV[2], { r: 'journal', t: 'Journal', i: I.journal }, { r: 'macro', t: 'More', i: I.macro }];
+  $('#btabs').innerHTML = BT.map(n => `<a href="#/${n.r}" class="${(n.m || n.r) === cur ? 'on' : ''}">${n.i}<span>${n.t}</span>${n.r === 'office' && needs ? `<span class="badge">${needs}</span>` : ''}</a>`).join('');
   $('#foot').innerHTML = `<button class="btn" id="theme" title="Day / night" style="padding:6px">${I.sun}</button>`;
-  $('#theme').onclick = () => { S.theme = S.theme === 'day' ? 'night' : 'day'; localStorage.setItem('sx-theme', S.theme); document.documentElement.dataset.theme = S.theme; };
+  $('#theme').onclick = () => { S.theme = S.theme === 'day' ? 'night' : 'day'; SAFE.set(localStorage, 'sx-theme', S.theme); document.documentElement.dataset.theme = S.theme; };
 }
 function topBar(title, sub) {
   const n = new Date();
@@ -132,7 +141,7 @@ function topBar(title, sub) {
     + (routeFixtures().length ? `<div class="fixture"><b>FIXTURE DATA</b> — ${routeFixtures().join(', ')} loaded from synthetic examples (public repo). Real values load from the private data folder inside the encrypted build.</div>` : '');
 }
 const ROUTE_DATA = { dashboard: ['coach', 'rules', 'prop'], asset: ['rules', 'prop'], prop: ['prop', 'rules'], office: [], ceo: [], macro: [], calendar: [], journal: ['journal'], performance: ['journal'], psychology: ['journal', 'coach'] };
-function routeFixtures() { const r = cur().split(/[/?]/)[0] || 'dashboard'; return (ROUTE_DATA[r] || []).filter(k => S.fixture.has(k)); }
+function routeFixtures() { const r = cur().split(/[/?]/)[0] || 'dashboard'; return (ROUTE_DATA[r] || []).filter(k => S.fixture.has(k) && !(k === 'journal' && !J())); }
 function sessionNow() {
   const h = new Date().getUTCHours() + new Date().getUTCMinutes() / 60;
   const S2 = [['London', 7, 11], ['New York', 12, 18]];
@@ -158,7 +167,7 @@ function viewDashboard() {
   const v = verdict(), a = primaryAccount(), { L, bind } = limitsFor(a);
   const lamp = { go: 'GO', wait: 'WAIT', stop: 'STOP' }[v.st];
   const head = { go: 'Clear to trade inside your rules', wait: 'Wait — conditions not clear yet', stop: 'Stop — resolve before the next trade' }[v.st];
-  let h = topBar('Pre-session brief', `${dshort(new Date().toISOString())} · ${sessionNow().replace(/<[^>]+>/g, '')}`);
+  let h = topBar('Pre-session brief', `${dshort(new Date().toISOString())} · ${sessionNow().replace(/<[^>]+>/g, '')}`) + briefExtras();
   h += `<div class="grid g-brief">
    <section class="card"><h2>01 · Before your next trade <span class="r">${a ? esc(a.label) : ''}</span></h2>
     <div class="verdict"><div class="lamp ${v.st}">${lamp}</div><div><h3>${head}</h3>${v.why.map(w => `<div class="small ink2" style="margin:3px 0">${esc(w)}</div>`).join('')}</div></div>
@@ -176,6 +185,7 @@ function viewDashboard() {
   h += `<div class="grid loose g2" style="margin-top:16px">
     <section class="card solo"><h2>04 · What changed <span class="r">${R ? 'Researcher ' + age(R.generated_at) : ''}</span></h2>${whatChanged()}</section>
     <section class="card solo"><h2>05 · Data & pipeline <span class="r">every number has a source</span></h2>${pipeline()}${freshness()}</section></div>`;
+  h += briefBottom();
   return h;
 }
 function instTile(k) {
@@ -310,6 +320,7 @@ function viewProp() {
    ${row('Consistency: best day vs cap', (a, t, k) => k === 'eval' && t.available ? `${usd(t.B)} / ${usd(t.capAtTarget)}<div class="tiny ${t.B > t.capAtTarget - 1 ? 'amb' : 'muted'}">margin ${usd(r2(t.capAtTarget - t.B))}</div>` : '—')}
    ${row('Payout now (gross → yours)', (a, t, k) => k === 'payout' ? `${usd(t.gross)} → ${usd(t.share)}` : '<span class="muted">after passing</span>')}
   </tbody></table></div>`;
+  h += propExtras();
   h += sec('02', 'Remaining requirements & calculations', 'planning aid, not a rule change');
   h += `<div class="acards">${act.map(a => accountCard(a, calc[a.id], firms[a.firm])).join('')}</div>`;
   if (closed.length) h += sec('03', 'Closed accounts', closed.length) + `<div class="cmp"><table><thead><tr><th>Account</th><th>Plan</th><th class="n">Final balance</th><th class="n">Payouts</th></tr></thead><tbody>${closed.map(a => `<tr><td>${esc(a.label)}</td><td>${esc(a.plan)}</td><td class="n">${usd(a.balance)}</td><td class="n">${usd((a.payouts || []).reduce((t, p) => t + (p.net ?? 0), 0))}</td></tr>`).join('')}</tbody></table></div>`;
@@ -369,7 +380,7 @@ function viewOffice() {
      <div class="small">${s ? esc(s.task) : '<span class="unavail">No status posted in the loaded history</span>'}</div><div class="tm">${s ? stamp(s.ts) + ' · ' + age(s.ts) : ''}</div>
      ${o ? `<div class="out">Latest output · <a href="#" data-out="${esc(o.output)}">${esc(o.output.split('/').slice(-2).join('/'))}</a> <span class="muted tiny">${age(o.ts)}</span></div>` : ''}</div>`; }).join('')}</div>`;
   h += `<div class="grid loose g2" style="margin-top:16px"><section class="card solo"><h2>04 · Activity <span class="r">newest first · UTC</span></h2><div class="feed">${allStatus().slice(-60).reverse().map(s => `<div><span>${utc(s.ts)}</span><span class="b"><b>${esc(s.bot)}</b></span><span><span class="st s-${s.state}"></span> ${esc(s.task)}</span></div>`).join('')}</div></section>
-   <section class="card solo"><h2>05 · Usage & integrations</h2>${usage()}<div class="hr"></div><div class="integr"><span><img src="icons/claude-ai.svg" alt="">Claude Code agents</span><span><img src="icons/notion.svg" alt="">Notion journal</span><span><img src="icons/github.svg" alt="">GitHub Pages</span><span><img src="icons/ntfy.svg" alt="">ntfy Office topic</span><span><img src="icons/telegram.svg" alt="">Telegram (CEO)</span></div>
+   <section class="card solo"><h2>05 · Usage & integrations</h2>${usage()}<div class="hr"></div><div class="integr"><span><img src="${ASSET}icons/claude-ai.svg" alt="">Claude Code agents</span><span><img src="${ASSET}icons/notion.svg" alt="">Notion journal</span><span><img src="${ASSET}icons/github.svg" alt="">GitHub Pages</span><span><img src="${ASSET}icons/ntfy.svg" alt="">ntfy Office topic</span><span><img src="${ASSET}icons/telegram.svg" alt="">Telegram (CEO)</span></div>
    <div class="src"><span>3D building view: <a href="https://ssidoss.github.io/office/" target="_blank" rel="noopener">current Office ↗</a></span><span>icons: homarr-labs/dashboard-icons (Apache-2.0)</span></div></section></div>`;
   return h;
 }
@@ -416,9 +427,9 @@ async function connectTopic() {
 // minimal, safe markdown for agent replies: escape first, then bold / code / bullets
 const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`([^`]+)`/g, '<code class="mono">$1</code>').replace(/^- (.*)$/gm, '<span style="display:block;padding-left:14px;text-indent:-10px">• $1</span>');
 const CEO = {
-  msgs: JSON.parse(sessionStorage.getItem('ceo-msgs') || '[]'), transport: localStorage.getItem('ceo-transport') || 'auto', lang: localStorage.getItem('ceo-lang') || 'en-US',
-  bridge: localStorage.getItem('ceo-bridge') || 'http://127.0.0.1:8787', rec: null, speaking: false, listening: false, to: 'Head of CICM',
-  save() { sessionStorage.setItem('ceo-msgs', JSON.stringify(this.msgs.slice(-80))); },
+  msgs: JSON.parse(SAFE.get(sessionStorage, 'ceo-msgs') || '[]'), transport: SAFE.get(localStorage, 'ceo-transport') || 'auto', lang: SAFE.get(localStorage, 'ceo-lang') || 'en-US',
+  bridge: SAFE.get(localStorage, 'ceo-bridge') || 'http://127.0.0.1:8787', rec: null, speaking: false, listening: false, to: 'Head of CICM',
+  save() { SAFE.set(sessionStorage, 'ceo-msgs', JSON.stringify(this.msgs.slice(-80))); },
   push(m) { this.msgs.push(m); this.save(); this.draw(); },
   draw() {
     const box = $('#msgs'); if (!box) return;
@@ -477,7 +488,7 @@ function drawScope() {
     for (let i = 0; i < 256; i++) { const t = performance.now() / 300, base = CEO.an ? (buf[i] - 128) / 128 : (CEO.scopeMode === 'speaking' ? Math.sin(i / 9 + t * 3) * .35 * Math.sin(t) : Math.sin(i / 16 + t) * .04); const x = i / 255 * w, y = h / 2 + base * h * .42; i ? g.lineTo(x, y) : g.moveTo(x, y); }
     g.stroke();
   }
-  requestAnimationFrame(drawScope);
+  requestAnimationFrame(drawScope); voiceShell();
 }
 function deskAnswer(q) {
   const D = S.data, low = q.toLowerCase(), src = [];
@@ -509,8 +520,8 @@ function viewCEO(params) {
 }
 function bindCEO() {
   CEO.draw(); $('#tr').value = CEO.transport; $('#lang').value = CEO.lang;
-  $('#tr').onchange = e => { CEO.transport = e.target.value; localStorage.setItem('ceo-transport', CEO.transport); };
-  $('#lang').onchange = e => { CEO.lang = e.target.value; localStorage.setItem('ceo-lang', CEO.lang); };
+  $('#tr').onchange = e => { CEO.transport = e.target.value; SAFE.set(localStorage, 'ceo-transport', CEO.transport); };
+  $('#lang').onchange = e => { CEO.lang = e.target.value; SAFE.set(localStorage, 'ceo-lang', CEO.lang); };
   $('#to').onchange = e => { CEO.to = e.target.value; };
   $('#cf').onsubmit = e => { e.preventDefault(); const t = $('#ta').value; $('#ta').value = ''; CEO.send(t); };
   $('#ta').onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); $('#cf').requestSubmit(); } };
@@ -534,27 +545,29 @@ function drawCmdk() {
 const cur = () => location.hash.replace(/^#\/?/, '') || 'dashboard';
 function route() {
   const raw = cur(), [path, qs] = raw.split('?'), params = new URLSearchParams(qs || '');
-  if (params.get('topic')) { S.topic = params.get('topic'); sessionStorage.setItem('office-topic', S.topic); connectTopic(); }
+  if (params.get('topic')) { S.topic = params.get('topic'); SAFE.set(sessionStorage, 'office-topic', S.topic); connectTopic(); }
   const parts = path.split('/');
   renderShell(path);
   let html;
   switch (parts[0]) {
     case 'asset': html = viewAsset((parts[1] || 'NQ').toUpperCase().replace('XAU', 'GOLD')); break;
     case 'prop': html = viewProp(); break;
-    case 'office': html = viewOffice(); break;
+    case 'office': html = MODE === 'office' ? viewOfficeApp() : viewOffice(); break;
     case 'ceo': html = viewCEO(params); break;
     case 'macro': html = viewMacro(); break;
     case 'calendar': html = viewCalendar(); break;
     case 'journal': html = viewJournal(); break;
     case 'performance': html = viewPerformance(); break;
     case 'psychology': html = viewPsychology(); break;
-    default: html = viewDashboard();
+    default: html = MODE === 'office' ? viewOfficeApp() : viewDashboard();
   }
   $('#main').innerHTML = html; bindTop();
   $$('[data-out]').forEach(b => b.onclick = e => { e.preventDefault(); openOutput(b.dataset.out); });
   if (parts[0] === 'ceo') bindCEO();
   if (parts[0] === 'asset') { bindZones((parts[1] || 'NQ').toUpperCase().replace('XAU', 'GOLD')); $$('[data-rg]').forEach(b => b.onclick = () => { S.range = b.dataset.rg; $('#chart').innerHTML = chartSVG(b.closest('[data-k]').dataset.k, S.range); $$('[data-rg]').forEach(x => x.classList.toggle('on', x === b)); }); }
-  bindSizer();
+  bindSizer(); bindProp(); bindCalendar(); bindOffice();
+  $$('[data-trade]').forEach(b => b.onclick = () => tradeDetail(b.dataset.trade));
+  $$('[data-tr]').forEach(r => r.onclick = () => tradeDetail(r.dataset.tr));
   document.title = 'Sidoss Capital · ' + ({ asset: ALABEL[(parts[1] || 'NQ').toUpperCase()] || 'Markets', prop: 'Prop', office: 'Office', ceo: 'CEO', macro: 'Macro', calendar: 'Calendar', journal: 'Journal', performance: 'Performance', psychology: 'Psychology' }[parts[0]] || 'Brief');
 }
 addEventListener('hashchange', () => { closeDrawer(); route(); scrollTo(0, 0); });
@@ -571,8 +584,8 @@ $('#cmdk').addEventListener('click', e => { if (e.target.id === 'cmdk') e.target
 $('#scrim').onclick = closeDrawer;
 document.documentElement.dataset.theme = S.theme;
 (async () => {
-  S.topic = sessionStorage.getItem('office-topic') || null;
+  S.topic = SAFE.get(sessionStorage, 'office-topic') || null;
   await loadAll(); route(); if (S.topic) connectTopic();
-  setInterval(tickClock, 1000); setInterval(() => { if (!document.hidden && !cur().startsWith('ceo')) route(); }, 60000);
+  setInterval(() => { tickClock(); $$('[data-count]').forEach(e => { e.textContent = until(e.dataset.count).replace('in ', ''); }); }, 1000); setInterval(() => { if (!document.hidden && !cur().startsWith('ceo')) route(); }, 60000);
   requestAnimationFrame(drawScope);
 })();

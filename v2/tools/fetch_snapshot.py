@@ -228,6 +228,9 @@ def build_asset(key, cfg, now, raw_dir, save_dir):
             done = [b for b in bd if b["t"] < anchor.timestamp() - 3600]
             prev_close = done[-1]["c"] if done else None
             prev_day = done[-1] if done else None
+            rng = [x["h"] - x["l"] for x in done[-20:]]
+            a["range_avg_20d"] = round(sum(rng) / len(rng), 2) if rng else None
+            a["range_avg_days"] = len(rng)
             a["contract_note"] = "Continuous front-month (Yahoo-rolled). Exact contract month not stated by provider."
         else:
             b5 = coinbase_bars(cfg["coinbase"], 300, raw_dir, save_dir)
@@ -318,7 +321,10 @@ def build_gauge(k, sym, now, raw_dir, save_dir):
         last = b[-1]
         v = last["c"] / (10 if k == "US10Y" and last["c"] > 20 else 1)
         pc = meta.get("chartPreviousClose")
-        return {"key": k, "value": round(v, 3), "prev_close": pc, "change": round(v - pc, 3) if pc else None,
+        dv = 10 if k == "US10Y" and last["c"] > 20 else 1
+        day = [x for x in b if x["t"] >= b[-1]["t"] - 20 * 3600]
+        hl = {"day_high": round(max(x["h"] for x in day) / dv, 3), "day_low": round(min(x["l"] for x in day) / dv, 3)} if day else {}
+        return {**hl, "key": k, "value": round(v, 3), "prev_close": pc, "change": round(v - pc, 3) if pc else None,
                 "unit": "%" if k == "US10Y" else "", "source": {"name": "Yahoo Finance chart API", "symbol": sym},
                 "observed_at": iso(last["t"] + 300), "age_min": round((now.timestamp() - last["t"] - 300) / 60, 1)}
     except Exception as e:

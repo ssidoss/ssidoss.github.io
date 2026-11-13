@@ -1,29 +1,27 @@
 {
  "schema": "sidoss.market.snapshot/1",
- "fetched_at": "2026-11-12T14:53:15Z",
+ "fetched_at": "2026-11-12T15:13:02Z",
  "assets": {
   "NQ": {
    "key": "NQ",
    "label": "NQ/MNQ",
    "desc": "Nasdaq-100 futures (front month, continuous NQ=F)",
    "kind": "future",
+   "range_avg_20d": 814.55,
+   "range_avg_days": 20,
    "contract_note": "Continuous front-month (Yahoo-rolled). Exact contract month not stated by provider.",
    "bar_in_progress": false,
-   "price": 28356.25,
+   "price": 28264.5,
    "prev_close": 28473.25,
-   "change_pct": -0.411,
+   "change_pct": -0.733,
    "source": {
     "name": "Yahoo Finance chart API (unofficial, free)",
     "symbol": "NQ=F",
     "url": "https://finance.yahoo.com/quote/NQ=F"
    },
-   "observed_at": "2026-11-12T14:48:15Z",
+   "observed_at": "2026-11-12T15:08:01Z",
    "provider_delay_min": 10,
    "spark_5m": [
-    28257.5,
-    28240.75,
-    28240.25,
-    28257.75,
     28262.25,
     28258.75,
     28234.25,
@@ -41,12 +39,12 @@
     28225.75,
     28201.0,
     28215.75,
-    28190.0,
+    28189.5,
     28205.5,
     28190.5,
     28195.75,
     28181.0,
-    28169.75,
+    28169.0,
     28058.5,
     28039.75,
     28094.75,
@@ -55,28 +53,25 @@
     28130.0,
     28111.25,
     28147.5,
-    28113.75,
-    28138.25,
+    28111.75,
+    28135.75,
     28126.0,
     28124.25,
     28103.5,
     28082.0,
-    28079.5,
-    28062.0,
-    28066.0,
+    28079.75,
+    28061.5,
+    28066.25,
     28205.0,
-    28354.5,
-    28329.0,
-    28356.25
+    28354.0,
+    28329.25,
+    28289.5,
+    28336.5,
+    28359.0,
+    28262.25,
+    28264.5
    ],
    "bars_1h": [
-    [
-     1793880000,
-     28440.25,
-     28443.25,
-     28293.5,
-     28328.0
-    ],
     [
      1793883600,
      28327.0,
@@ -899,54 +894,61 @@
     [
      1794492000,
      28121.0,
-     28391.0,
+     28398.5,
      28044.5,
-     28329.0
+     28359.0
     ],
     [
-     1794494595,
-     28356.25,
-     28356.25,
-     28356.25,
-     28356.25
+     1794495600,
+     28363.5,
+     28368.25,
+     28249.75,
+     28262.25
+    ],
+    [
+     1794495781,
+     28264.5,
+     28264.5,
+     28264.5,
+     28264.5
     ]
    ],
    "vwap": {
-    "value": 28204.18,
+    "value": 28225.91,
     "anchor_utc": "2026-11-11T23:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 18:00 ET Globex open"
    },
-   "atr_5m_14": 64.3378,
-   "range_today": 377.25,
+   "atr_5m_14": 73.1324,
+   "range_today": 384.75,
    "rvol": {
-    "value": 0.88,
+    "value": 0.92,
     "sessions_compared": 3,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bullish",
-    "h4_why": "close 28356.25 > EMA20 28093.32, EMA rising",
+    "h4_why": "close 28264.50 > EMA20 28084.58, EMA rising",
     "m30": "neutral",
-    "m30_why": "close 28356.25 vs EMA20 28217.94, mixed"
+    "m30_why": "close 28264.50 vs EMA20 28222.66, mixed"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 28697.0,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Prior day low",
      "price": 27847.75,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Session VWAP",
-     "price": 28204.18,
+     "price": 28225.91,
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Asia high",
@@ -955,7 +957,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Asia low",
@@ -964,7 +966,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "London high",
@@ -973,7 +975,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "London low",
@@ -982,16 +984,16 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Newyork high",
-     "price": 28391.0,
+     "price": 28398.5,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Newyork low",
@@ -1000,7 +1002,7 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "NQ=F",
-     "observed_at": "2026-11-12T14:48:15Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     }
    ],
    "eq_zones": [
@@ -1038,7 +1040,7 @@
      "window_utc": "07:00\u201311:00",
      "state": "complete",
      "volume": 27962,
-     "usual": 42938,
+     "usual": 42936,
      "rvol": 0.65,
      "sessions_compared": 3
     },
@@ -1046,272 +1048,272 @@
      "session": "newyork",
      "window_utc": "12:00\u201318:00",
      "state": "in_progress",
-     "volume": 131415,
-     "usual": 141346,
-     "rvol": 0.93,
+     "volume": 185329,
+     "usual": 188943,
+     "rvol": 0.98,
      "sessions_compared": 3
     }
    ],
    "volume_profile_prev": {
     "from_utc": "2026-11-10T23:00:00Z",
     "to_utc": "2026-11-11T23:00:00Z",
-    "row_size": 28.2083,
+    "row_size": 28.0333,
     "rows": [
      {
-      "price": 27850.75,
-      "volume": 714
+      "price": 27856.0,
+      "volume": 1195
      },
      {
-      "price": 27878.96,
+      "price": 27884.03,
       "volume": 278
      },
      {
-      "price": 27907.17,
-      "volume": 1630
+      "price": 27912.07,
+      "volume": 3280
      },
      {
-      "price": 27935.38,
-      "volume": 6545
+      "price": 27940.1,
+      "volume": 5947
      },
      {
-      "price": 27963.58,
-      "volume": 6638
+      "price": 27968.13,
+      "volume": 6206
      },
      {
-      "price": 27991.79,
-      "volume": 3781
+      "price": 27996.17,
+      "volume": 3608
      },
      {
-      "price": 28020.0,
-      "volume": 2154
+      "price": 28024.2,
+      "volume": 2318
      },
      {
-      "price": 28048.21,
-      "volume": 5219
+      "price": 28052.23,
+      "volume": 5648
      },
      {
-      "price": 28076.42,
-      "volume": 7791
+      "price": 28080.27,
+      "volume": 8782
      },
      {
-      "price": 28104.62,
-      "volume": 7139
+      "price": 28108.3,
+      "volume": 5853
      },
      {
-      "price": 28132.83,
-      "volume": 3510
+      "price": 28136.33,
+      "volume": 2764
      },
      {
-      "price": 28161.04,
-      "volume": 7866
+      "price": 28164.37,
+      "volume": 8116
      },
      {
-      "price": 28189.25,
-      "volume": 21435
+      "price": 28192.4,
+      "volume": 23489
      },
      {
-      "price": 28217.46,
-      "volume": 22159
+      "price": 28220.43,
+      "volume": 20876
      },
      {
-      "price": 28245.67,
-      "volume": 33440
+      "price": 28248.47,
+      "volume": 33492
      },
      {
-      "price": 28273.88,
-      "volume": 44641
+      "price": 28276.5,
+      "volume": 44799
      },
      {
-      "price": 28302.08,
-      "volume": 36951
+      "price": 28304.53,
+      "volume": 41549
      },
      {
-      "price": 28330.29,
-      "volume": 39892
+      "price": 28332.57,
+      "volume": 41363
      },
      {
-      "price": 28358.5,
-      "volume": 49938
+      "price": 28360.6,
+      "volume": 47375
      },
      {
-      "price": 28386.71,
-      "volume": 22703
+      "price": 28388.63,
+      "volume": 20476
      },
      {
-      "price": 28414.92,
-      "volume": 11084
+      "price": 28416.67,
+      "volume": 18163
      },
      {
-      "price": 28443.12,
-      "volume": 36695
+      "price": 28444.7,
+      "volume": 31546
      },
      {
-      "price": 28471.33,
-      "volume": 35887
+      "price": 28472.73,
+      "volume": 33432
      },
      {
-      "price": 28499.54,
-      "volume": 45197
+      "price": 28500.77,
+      "volume": 45098
      },
      {
-      "price": 28527.75,
-      "volume": 42691
+      "price": 28528.8,
+      "volume": 42604
      },
      {
-      "price": 28555.96,
-      "volume": 38475
+      "price": 28556.83,
+      "volume": 38330
      },
      {
-      "price": 28584.17,
-      "volume": 27649
+      "price": 28584.87,
+      "volume": 27707
      },
      {
-      "price": 28612.38,
-      "volume": 28655
+      "price": 28612.9,
+      "volume": 27794
      },
      {
-      "price": 28640.58,
-      "volume": 28419
+      "price": 28640.93,
+      "volume": 27570
      },
      {
-      "price": 28668.79,
-      "volume": 16889
+      "price": 28668.97,
+      "volume": 16886
      }
     ],
-    "poc": 28372.6,
-    "vah": 28584.17,
-    "val": 28189.25,
+    "poc": 28374.62,
+    "vah": 28584.87,
+    "val": 28192.4,
     "method": "approx: 5m bar volume spread evenly over each bar's range"
    },
    "volume_profile_today": {
     "from_utc": "2026-11-11T23:00:00Z",
-    "to_utc": "2026-11-12T14:53:15Z",
-    "row_size": 12.575,
+    "to_utc": "2026-11-12T15:13:02Z",
+    "row_size": 12.825,
     "rows": [
      {
       "price": 28013.75,
-      "volume": 570
+      "volume": 571
      },
      {
-      "price": 28026.33,
+      "price": 28026.58,
       "volume": 1290
      },
      {
-      "price": 28038.9,
-      "volume": 4077
+      "price": 28039.4,
+      "volume": 4078
      },
      {
-      "price": 28051.47,
-      "volume": 7830
+      "price": 28052.22,
+      "volume": 8165
      },
      {
-      "price": 28064.05,
-      "volume": 8635
+      "price": 28065.05,
+      "volume": 9094
      },
      {
-      "price": 28076.62,
-      "volume": 9095
+      "price": 28077.88,
+      "volume": 9553
      },
      {
-      "price": 28089.2,
-      "volume": 9499
+      "price": 28090.7,
+      "volume": 9759
      },
      {
-      "price": 28101.78,
-      "volume": 8453
+      "price": 28103.53,
+      "volume": 8116
      },
      {
-      "price": 28114.35,
-      "volume": 7394
+      "price": 28116.35,
+      "volume": 7428
      },
      {
-      "price": 28126.92,
-      "volume": 8098
+      "price": 28129.17,
+      "volume": 8569
      },
      {
-      "price": 28139.5,
-      "volume": 8557
+      "price": 28142.0,
+      "volume": 8526
      },
      {
-      "price": 28152.08,
-      "volume": 7859
+      "price": 28154.83,
+      "volume": 8054
      },
      {
-      "price": 28164.65,
-      "volume": 9100
+      "price": 28167.65,
+      "volume": 8674
      },
      {
-      "price": 28177.22,
-      "volume": 8621
+      "price": 28180.47,
+      "volume": 9969
      },
      {
-      "price": 28189.8,
-      "volume": 14589
+      "price": 28193.3,
+      "volume": 16163
      },
      {
-      "price": 28202.38,
-      "volume": 18674
+      "price": 28206.12,
+      "volume": 19496
      },
      {
-      "price": 28214.95,
-      "volume": 17885
+      "price": 28218.95,
+      "volume": 17031
      },
      {
-      "price": 28227.53,
-      "volume": 16179
+      "price": 28231.78,
+      "volume": 15162
      },
      {
-      "price": 28240.1,
-      "volume": 12498
+      "price": 28244.6,
+      "volume": 12626
      },
      {
-      "price": 28252.67,
-      "volume": 9145
+      "price": 28257.42,
+      "volume": 10911
      },
      {
-      "price": 28265.25,
-      "volume": 8042
+      "price": 28270.25,
+      "volume": 12445
      },
      {
-      "price": 28277.83,
-      "volume": 8804
+      "price": 28283.08,
+      "volume": 13658
      },
      {
-      "price": 28290.4,
-      "volume": 8382
+      "price": 28295.9,
+      "volume": 14583
      },
      {
-      "price": 28302.97,
-      "volume": 7317
+      "price": 28308.72,
+      "volume": 11995
      },
      {
-      "price": 28315.55,
-      "volume": 5275
+      "price": 28321.55,
+      "volume": 11032
      },
      {
-      "price": 28328.12,
-      "volume": 4874
+      "price": 28334.38,
+      "volume": 10278
      },
      {
-      "price": 28340.7,
-      "volume": 4213
+      "price": 28347.2,
+      "volume": 9950
      },
      {
-      "price": 28353.28,
-      "volume": 4043
+      "price": 28360.03,
+      "volume": 9576
      },
      {
-      "price": 28365.85,
-      "volume": 1961
+      "price": 28372.85,
+      "volume": 6291
      },
      {
-      "price": 28378.42,
-      "volume": 1428
+      "price": 28385.67,
+      "volume": 3260
      }
     ],
-    "poc": 28208.66,
-    "vah": 28302.97,
-    "val": 28101.78,
+    "poc": 28212.54,
+    "vah": 28372.85,
+    "val": 28154.83,
     "method": "approx: 5m bar volume spread evenly over each bar's range"
    },
    "age_min": 5.0,
@@ -1323,23 +1325,21 @@
    "label": "Gold/MGC",
    "desc": "Gold futures (front month, continuous GC=F) \u2014 not XAUUSD spot",
    "kind": "future",
+   "range_avg_20d": 84.03,
+   "range_avg_days": 20,
    "contract_note": "Continuous front-month (Yahoo-rolled). Exact contract month not stated by provider.",
    "bar_in_progress": false,
-   "price": 3893.8,
+   "price": 3872.7,
    "prev_close": 4000.5,
-   "change_pct": -2.667,
+   "change_pct": -3.195,
    "source": {
     "name": "Yahoo Finance chart API (unofficial, free)",
     "symbol": "GC=F",
     "url": "https://finance.yahoo.com/quote/GC=F"
    },
-   "observed_at": "2026-11-12T14:48:14Z",
+   "observed_at": "2026-11-12T15:08:01Z",
    "provider_delay_min": 10,
    "spark_5m": [
-    3959.5,
-    3959.2,
-    3959.8,
-    3957.3999,
     3954.6001,
     3954.3,
     3953.5,
@@ -1382,17 +1382,14 @@
     3907.8999,
     3901.3999,
     3900.2,
-    3891.3,
-    3893.8
+    3891.3999,
+    3887.8,
+    3886.1001,
+    3874.3,
+    3872.3,
+    3872.7
    ],
    "bars_1h": [
-    [
-     1793880000,
-     4142.5,
-     4144.2001953125,
-     4125.7998046875,
-     4129.60009765625
-    ],
     [
      1793883600,
      4129.39990234375,
@@ -2216,53 +2213,60 @@
      1794492000,
      3894.800048828125,
      3913.89990234375,
-     3887.699951171875,
-     3891.300048828125
+     3870.699951171875,
+     3874.300048828125
     ],
     [
-     1794494594,
-     3893.800048828125,
-     3893.800048828125,
-     3893.800048828125,
-     3893.800048828125
+     1794495600,
+     3873.39990234375,
+     3878.300048828125,
+     3869.800048828125,
+     3872.300048828125
+    ],
+    [
+     1794495783,
+     3872.10009765625,
+     3872.10009765625,
+     3872.10009765625,
+     3872.10009765625
     ]
    ],
    "vwap": {
-    "value": 3941.14,
+    "value": 3935.83,
     "anchor_utc": "2026-11-11T23:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 18:00 ET Globex open"
    },
-   "atr_5m_14": 8.1341,
-   "range_today": 118.2,
+   "atr_5m_14": 8.4127,
+   "range_today": 136.0999,
    "rvol": {
-    "value": 1.37,
+    "value": 1.44,
     "sessions_compared": 3,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 3893.80 < EMA20 4019.15, EMA falling",
+    "h4_why": "close 3872.10 < EMA20 4017.09, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 3893.80 < EMA20 3942.25, EMA falling"
+    "m30_why": "close 3872.70 < EMA20 3933.94, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 4074.7,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Prior day low",
      "price": 3989.6,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Session VWAP",
-     "price": 3941.14,
+     "price": 3935.83,
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Asia high",
@@ -2271,7 +2275,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Asia low",
@@ -2280,7 +2284,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "London high",
@@ -2289,7 +2293,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "London low",
@@ -2298,7 +2302,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Newyork high",
@@ -2307,16 +2311,16 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     },
     {
      "label": "Newyork low",
-     "price": 3887.7,
+     "price": 3869.8,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "GC=F",
-     "observed_at": "2026-11-12T14:48:14Z"
+     "observed_at": "2026-11-12T15:08:01Z"
     }
    ],
    "eq_zones": [
@@ -2362,9 +2366,9 @@
      "session": "newyork",
      "window_utc": "12:00\u201318:00",
      "state": "in_progress",
-     "volume": 64073,
-     "usual": 35755,
-     "rvol": 1.79,
+     "volume": 77023,
+     "usual": 40032,
+     "rvol": 1.92,
      "sessions_compared": 3
     }
    ],
@@ -2501,133 +2505,133 @@
    },
    "volume_profile_today": {
     "from_utc": "2026-11-11T23:00:00Z",
-    "to_utc": "2026-11-12T14:53:15Z",
-    "row_size": 3.94,
+    "to_utc": "2026-11-12T15:13:02Z",
+    "row_size": 4.5367,
     "rows": [
      {
-      "price": 3887.7,
-      "volume": 5265
+      "price": 3869.8,
+      "volume": 2564
      },
      {
-      "price": 3891.64,
-      "volume": 5756
+      "price": 3874.34,
+      "volume": 2564
      },
      {
-      "price": 3895.58,
-      "volume": 8569
+      "price": 3878.87,
+      "volume": 1181
      },
      {
-      "price": 3899.52,
-      "volume": 7821
+      "price": 3883.41,
+      "volume": 3600
      },
      {
-      "price": 3903.46,
-      "volume": 5905
+      "price": 3887.95,
+      "volume": 9036
      },
      {
-      "price": 3907.4,
-      "volume": 6661
+      "price": 3892.48,
+      "volume": 9572
      },
      {
-      "price": 3911.34,
-      "volume": 3842
+      "price": 3897.02,
+      "volume": 9723
      },
      {
-      "price": 3915.28,
-      "volume": 2032
+      "price": 3901.56,
+      "volume": 6187
      },
      {
-      "price": 3919.22,
-      "volume": 2032
+      "price": 3906.09,
+      "volume": 7883
      },
      {
-      "price": 3923.16,
-      "volume": 999
+      "price": 3910.63,
+      "volume": 4459
      },
      {
-      "price": 3927.1,
-      "volume": 2351
+      "price": 3915.17,
+      "volume": 2174
      },
      {
-      "price": 3931.04,
-      "volume": 3865
+      "price": 3919.7,
+      "volume": 2174
      },
      {
-      "price": 3934.98,
-      "volume": 3831
+      "price": 3924.24,
+      "volume": 1786
      },
      {
-      "price": 3938.92,
-      "volume": 6152
+      "price": 3928.78,
+      "volume": 4036
      },
      {
-      "price": 3942.86,
-      "volume": 6505
+      "price": 3933.31,
+      "volume": 4784
      },
      {
-      "price": 3946.8,
-      "volume": 6680
+      "price": 3937.85,
+      "volume": 6018
      },
      {
-      "price": 3950.74,
-      "volume": 6288
+      "price": 3942.39,
+      "volume": 7161
      },
      {
-      "price": 3954.68,
-      "volume": 4719
+      "price": 3946.92,
+      "volume": 7980
      },
      {
-      "price": 3958.62,
-      "volume": 2494
+      "price": 3951.46,
+      "volume": 6735
      },
      {
-      "price": 3962.56,
-      "volume": 2363
+      "price": 3956.0,
+      "volume": 3909
      },
      {
-      "price": 3966.5,
-      "volume": 3179
+      "price": 3960.53,
+      "volume": 2499
      },
      {
-      "price": 3970.44,
-      "volume": 2202
+      "price": 3965.07,
+      "volume": 3343
      },
      {
-      "price": 3974.38,
-      "volume": 3296
+      "price": 3969.61,
+      "volume": 3094
      },
      {
-      "price": 3978.32,
-      "volume": 3904
+      "price": 3974.14,
+      "volume": 3542
      },
      {
-      "price": 3982.26,
-      "volume": 7382
+      "price": 3978.68,
+      "volume": 5404
      },
      {
-      "price": 3986.2,
-      "volume": 7856
+      "price": 3983.22,
+      "volume": 9315
      },
      {
-      "price": 3990.14,
-      "volume": 4658
+      "price": 3987.75,
+      "volume": 7039
      },
      {
-      "price": 3994.08,
-      "volume": 2494
+      "price": 3992.29,
+      "volume": 3661
      },
      {
-      "price": 3998.02,
-      "volume": 1812
+      "price": 3996.83,
+      "volume": 2269
      },
      {
-      "price": 4001.96,
-      "volume": 1144
+      "price": 4001.36,
+      "volume": 1316
      }
     ],
-    "poc": 3897.55,
-    "vah": 3966.5,
-    "val": 3887.7,
+    "poc": 3899.29,
+    "vah": 3969.61,
+    "val": 3883.41,
     "method": "approx: 5m bar volume spread evenly over each bar's range"
    },
    "age_min": 5.0,
@@ -2640,21 +2644,17 @@
    "desc": "Bitcoin spot (Coinbase)",
    "kind": "spot",
    "bar_in_progress": true,
-   "price": 71475.01,
+   "price": 71285.44,
    "prev_close": 73927.63,
-   "change_pct": -3.318,
+   "change_pct": -3.574,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "BTC-USD",
     "url": "https://exchange.coinbase.com/trade/BTC-USD"
    },
-   "observed_at": "2026-11-12T14:53:15Z",
+   "observed_at": "2026-11-12T15:13:02Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    73370.73,
-    73372.47,
-    73357.1,
-    73322.04,
     73268,
     73250.78,
     73200.64,
@@ -2698,16 +2698,13 @@
     72120.96,
     71535.32,
     71571.9,
-    71475.01
+    71305.5,
+    71556.04,
+    71352.04,
+    71279.36,
+    71285.44
    ],
    "bars_1h": [
-    [
-     1794063600,
-     75851.52,
-     75853.04,
-     75507.9,
-     75662.97
-    ],
     [
      1794067200,
      75665.69,
@@ -3538,46 +3535,53 @@
      1794492000,
      72415.42,
      72494.32,
-     71380.24,
-     71523.77
+     71199,
+     71556.04
+    ],
+    [
+     1794495600,
+     71556.03,
+     71614.64,
+     71151.01,
+     71332.41
     ]
    ],
    "vwap": {
-    "value": 72708.41,
+    "value": 72536.24,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 237.3212,
-   "range_today": 2743.47,
+   "atr_5m_14": 254.9634,
+   "range_today": 2972.7,
    "rvol": {
-    "value": 3.47,
+    "value": 3.45,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 71523.77 < EMA20 73885.99, EMA falling",
+    "h4_why": "close 71332.41 < EMA20 73867.76, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 71475.01 < EMA20 72900.47, EMA falling"
+    "m30_why": "close 71285.44 < EMA20 72753.58, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 74737.15,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Prior day low",
      "price": 73110,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Session VWAP",
-     "price": 72708.41,
+     "price": 72536.24,
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia high",
@@ -3586,7 +3590,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia low",
@@ -3595,7 +3599,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London high",
@@ -3604,7 +3608,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London low",
@@ -3613,7 +3617,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork high",
@@ -3622,16 +3626,16 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork low",
-     "price": 71380.24,
+     "price": 71151.01,
      "session": "newyork",
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "BTC-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     }
    ],
    "eq_zones": [
@@ -3669,17 +3673,17 @@
      "window_utc": "07:00\u201311:00",
      "state": "complete",
      "volume": 397,
-     "usual": 311,
-     "rvol": 1.28,
+     "usual": 266,
+     "rvol": 1.49,
      "sessions_compared": 1
     },
     {
      "session": "newyork",
      "window_utc": "12:00\u201318:00",
      "state": "in_progress",
-     "volume": 2996,
-     "usual": 992,
-     "rvol": 3.02,
+     "volume": 3710,
+     "usual": 1252,
+     "rvol": 2.96,
      "sessions_compared": 1
     }
    ],
@@ -3710,23 +3714,23 @@
      },
      {
       "price": 73534.71,
-      "volume": 214
+      "volume": 205
      },
      {
       "price": 73582.81,
-      "volume": 174
+      "volume": 161
      },
      {
       "price": 73630.9,
-      "volume": 166
+      "volume": 155
      },
      {
       "price": 73679.0,
-      "volume": 181
+      "volume": 173
      },
      {
       "price": 73727.1,
-      "volume": 123
+      "volume": 118
      },
      {
       "price": 73775.2,
@@ -3816,133 +3820,133 @@
    },
    "volume_profile_today": {
     "from_utc": "2026-11-12T00:00:00Z",
-    "to_utc": "2026-11-12T14:53:15Z",
-    "row_size": 91.449,
+    "to_utc": "2026-11-12T15:13:02Z",
+    "row_size": 99.09,
     "rows": [
      {
-      "price": 71380.24,
-      "volume": 24
+      "price": 71151.01,
+      "volume": 161
      },
      {
-      "price": 71471.69,
-      "volume": 132
-     },
-     {
-      "price": 71563.14,
-      "volume": 132
-     },
-     {
-      "price": 71654.59,
-      "volume": 196
-     },
-     {
-      "price": 71746.04,
-      "volume": 263
-     },
-     {
-      "price": 71837.49,
-      "volume": 235
-     },
-     {
-      "price": 71928.93,
-      "volume": 188
-     },
-     {
-      "price": 72020.38,
-      "volume": 189
-     },
-     {
-      "price": 72111.83,
-      "volume": 218
-     },
-     {
-      "price": 72203.28,
-      "volume": 104
-     },
-     {
-      "price": 72294.73,
-      "volume": 175
-     },
-     {
-      "price": 72386.18,
+      "price": 71250.1,
       "volume": 192
      },
      {
-      "price": 72477.63,
-      "volume": 260
+      "price": 71349.19,
+      "volume": 192
      },
      {
-      "price": 72569.08,
-      "volume": 184
+      "price": 71448.28,
+      "volume": 234
      },
      {
-      "price": 72660.53,
-      "volume": 143
+      "price": 71547.37,
+      "volume": 234
      },
      {
-      "price": 72751.98,
-      "volume": 239
+      "price": 71646.46,
+      "volume": 201
      },
      {
-      "price": 72843.42,
-      "volume": 241
+      "price": 71745.55,
+      "volume": 285
      },
      {
-      "price": 72934.87,
-      "volume": 68
+      "price": 71844.64,
+      "volume": 257
      },
      {
-      "price": 73026.32,
-      "volume": 58
+      "price": 71943.73,
+      "volume": 210
      },
      {
-      "price": 73117.77,
-      "volume": 43
+      "price": 72042.82,
+      "volume": 211
      },
      {
-      "price": 73209.22,
-      "volume": 73
+      "price": 72141.91,
+      "volume": 122
      },
      {
-      "price": 73300.67,
-      "volume": 172
+      "price": 72241.0,
+      "volume": 147
      },
      {
-      "price": 73392.12,
-      "volume": 204
+      "price": 72340.09,
+      "volume": 198
      },
      {
-      "price": 73483.57,
-      "volume": 293
+      "price": 72439.18,
+      "volume": 283
      },
      {
-      "price": 73575.02,
-      "volume": 266
+      "price": 72538.27,
+      "volume": 245
      },
      {
-      "price": 73666.47,
-      "volume": 254
+      "price": 72637.36,
+      "volume": 147
      },
      {
-      "price": 73757.91,
-      "volume": 146
+      "price": 72736.45,
+      "volume": 243
      },
      {
-      "price": 73849.36,
-      "volume": 92
+      "price": 72835.54,
+      "volume": 270
      },
      {
-      "price": 73940.81,
-      "volume": 107
+      "price": 72934.63,
+      "volume": 72
      },
      {
-      "price": 74032.26,
-      "volume": 52
+      "price": 73033.72,
+      "volume": 51
+     },
+     {
+      "price": 73132.81,
+      "volume": 55
+     },
+     {
+      "price": 73231.9,
+      "volume": 112
+     },
+     {
+      "price": 73330.99,
+      "volume": 199
+     },
+     {
+      "price": 73430.08,
+      "volume": 240
+     },
+     {
+      "price": 73529.17,
+      "volume": 305
+     },
+     {
+      "price": 73628.26,
+      "volume": 306
+     },
+     {
+      "price": 73727.35,
+      "volume": 212
+     },
+     {
+      "price": 73826.44,
+      "volume": 89
+     },
+     {
+      "price": 73925.53,
+      "volume": 121
+     },
+     {
+      "price": 74024.62,
+      "volume": 66
      }
     ],
-    "poc": 73529.29,
+    "poc": 73677.81,
     "vah": 74123.71,
-    "val": 72111.83,
+    "val": 71844.64,
     "method": "approx: 5m bar volume spread evenly over each bar's range"
    },
    "age_min": 0.0,
@@ -3954,21 +3958,17 @@
    "desc": "Ether spot (Coinbase)",
    "kind": "spot",
    "bar_in_progress": true,
-   "price": 1999.91,
+   "price": 1998.78,
    "prev_close": 2053.73,
-   "change_pct": -2.621,
+   "change_pct": -2.676,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "ETH-USD",
     "url": "https://exchange.coinbase.com/trade/ETH-USD"
    },
-   "observed_at": "2026-11-12T14:53:15Z",
+   "observed_at": "2026-11-12T15:13:02Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    2042.04,
-    2043.53,
-    2042.65,
-    2041.78,
     2040.04,
     2039.75,
     2037.9,
@@ -4012,16 +4012,13 @@
     2011.73,
     1995.1,
     1999.21,
-    1999.91
+    1995.28,
+    2002.85,
+    1999.14,
+    1998.52,
+    1998.78
    ],
    "bars_1h": [
-    [
-     1794063600,
-     2243.45,
-     2243.65,
-     2228.48,
-     2234.38
-    ],
     [
      1794067200,
      2234.39,
@@ -4853,45 +4850,52 @@
      2010.14,
      2014.62,
      1981.12,
-     1999.05
+     2002.85
+    ],
+    [
+     1794495600,
+     2002.69,
+     2003.42,
+     1989.77,
+     1998.81
     ]
    ],
    "vwap": {
-    "value": 2025.56,
+    "value": 2024.17,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 9.9111,
+   "atr_5m_14": 9.5631,
    "range_today": 82.45,
    "rvol": {
-    "value": 3.35,
+    "value": 3.07,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 1999.05 < EMA20 2077.45, EMA falling",
+    "h4_why": "close 1998.81 < EMA20 2077.43, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 1999.91 < EMA20 2027.42, EMA falling"
+    "m30_why": "close 1998.78 < EMA20 2024.94, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 2101.88,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Prior day low",
      "price": 2033.16,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Session VWAP",
-     "price": 2025.56,
+     "price": 2024.17,
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia high",
@@ -4900,7 +4904,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia low",
@@ -4909,7 +4913,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London high",
@@ -4918,7 +4922,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London low",
@@ -4927,7 +4931,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork high",
@@ -4936,7 +4940,7 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork low",
@@ -4945,7 +4949,7 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "ETH-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     }
    ],
    "eq_zones": [
@@ -4983,17 +4987,17 @@
      "window_utc": "07:00\u201311:00",
      "state": "complete",
      "volume": 9061,
-     "usual": 3414,
-     "rvol": 2.65,
+     "usual": 2568,
+     "rvol": 3.53,
      "sessions_compared": 1
     },
     {
      "session": "newyork",
      "window_utc": "12:00\u201318:00",
      "state": "in_progress",
-     "volume": 39150,
-     "usual": 18322,
-     "rvol": 2.14,
+     "volume": 43511,
+     "usual": 22834,
+     "rvol": 1.91,
      "sessions_compared": 1
     }
    ],
@@ -5028,23 +5032,23 @@
      },
      {
       "price": 2046.9,
-      "volume": 4481
+      "volume": 4440
      },
      {
       "price": 2049.19,
-      "volume": 5763
+      "volume": 5675
      },
      {
       "price": 2051.49,
-      "volume": 7076
+      "volume": 6794
      },
      {
       "price": 2053.78,
-      "volume": 8154
+      "volume": 7913
      },
      {
       "price": 2056.07,
-      "volume": 5621
+      "volume": 5427
      },
      {
       "price": 2058.36,
@@ -5130,7 +5134,7 @@
    },
    "volume_profile_today": {
     "from_utc": "2026-11-12T00:00:00Z",
-    "to_utc": "2026-11-12T14:53:15Z",
+    "to_utc": "2026-11-12T15:13:02Z",
     "row_size": 2.7483,
     "rows": [
      {
@@ -5147,27 +5151,27 @@
      },
      {
       "price": 1989.37,
-      "volume": 2810
+      "volume": 3147
      },
      {
       "price": 1992.11,
-      "volume": 2529
+      "volume": 3396
      },
      {
       "price": 1994.86,
-      "volume": 2547
+      "volume": 3523
      },
      {
       "price": 1997.61,
-      "volume": 2642
+      "volume": 3617
      },
      {
       "price": 2000.36,
-      "volume": 2697
+      "volume": 3500
      },
      {
       "price": 2003.11,
-      "volume": 3045
+      "volume": 3448
      },
      {
       "price": 2005.86,
@@ -5268,21 +5272,17 @@
    "desc": "Solana spot (Coinbase)",
    "kind": "spot",
    "bar_in_progress": true,
-   "price": 81.07,
+   "price": 80.73,
    "prev_close": 83.18,
-   "change_pct": -2.537,
+   "change_pct": -2.945,
    "source": {
     "name": "Coinbase Exchange public API (free, 24/7 spot)",
     "symbol": "SOL-USD",
     "url": "https://exchange.coinbase.com/trade/SOL-USD"
    },
-   "observed_at": "2026-11-12T14:53:15Z",
+   "observed_at": "2026-11-12T15:13:02Z",
    "provider_delay_min": 0,
    "spark_5m": [
-    82.84,
-    82.89,
-    82.94,
-    82.87,
     82.75,
     82.82,
     82.7,
@@ -5326,16 +5326,13 @@
     81.54,
     80.93,
     81.06,
-    81.07
+    80.86,
+    81.12,
+    80.95,
+    80.89,
+    80.73
    ],
    "bars_1h": [
-    [
-     1794063600,
-     89.83,
-     89.84,
-     89.08,
-     89.46
-    ],
     [
      1794067200,
      89.45,
@@ -6168,44 +6165,51 @@
      81.57,
      80.36,
      81.12
+    ],
+    [
+     1794495600,
+     81.09,
+     81.15,
+     80.55,
+     80.74
     ]
    ],
    "vwap": {
-    "value": 82.0,
+    "value": 81.94,
     "anchor_utc": "2026-11-12T00:00:00Z",
     "method": "typical price \u00d7 volume, 5m bars since 00:00 UTC"
    },
-   "atr_5m_14": 0.3753,
+   "atr_5m_14": 0.3759,
    "range_today": 3.46,
    "rvol": {
-    "value": 1.97,
+    "value": 1.74,
     "sessions_compared": 1,
     "note": "small sample (Yahoo/Coinbase 5m history \u2264 5 days)"
    },
    "structure": {
     "h4": "bearish",
-    "h4_why": "close 81.12 < EMA20 84.30, EMA falling",
+    "h4_why": "close 80.74 < EMA20 84.26, EMA falling",
     "m30": "bearish",
-    "m30_why": "close 81.07 < EMA20 82.26, EMA falling"
+    "m30_why": "close 80.73 < EMA20 82.12, EMA falling"
    },
    "levels": [
     {
      "label": "Prior day high",
      "price": 85.8,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Prior day low",
      "price": 82.1,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Session VWAP",
-     "price": 82.0,
+     "price": 81.94,
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia high",
@@ -6214,7 +6218,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Asia low",
@@ -6223,7 +6227,7 @@
      "state": "complete",
      "window_utc": "00:00\u201307:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London high",
@@ -6232,7 +6236,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "London low",
@@ -6241,7 +6245,7 @@
      "state": "complete",
      "window_utc": "07:00\u201311:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork high",
@@ -6250,7 +6254,7 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     },
     {
      "label": "Newyork low",
@@ -6259,7 +6263,7 @@
      "state": "in_progress",
      "window_utc": "12:00\u201318:00",
      "source": "SOL-USD",
-     "observed_at": "2026-11-12T14:53:15Z"
+     "observed_at": "2026-11-12T15:13:02Z"
     }
    ],
    "eq_zones": [
@@ -6297,17 +6301,17 @@
      "window_utc": "07:00\u201311:00",
      "state": "complete",
      "volume": 36499,
-     "usual": 28083,
-     "rvol": 1.3,
+     "usual": 21164,
+     "rvol": 1.72,
      "sessions_compared": 1
     },
     {
      "session": "newyork",
      "window_utc": "12:00\u201318:00",
      "state": "in_progress",
-     "volume": 252781,
-     "usual": 177564,
-     "rvol": 1.42,
+     "volume": 277537,
+     "usual": 228863,
+     "rvol": 1.21,
      "sessions_compared": 1
     }
    ],
@@ -6350,19 +6354,19 @@
      },
      {
       "price": 83.09,
-      "volume": 3669
+      "volume": 3201
      },
      {
       "price": 83.21,
-      "volume": 9504
+      "volume": 7673
      },
      {
       "price": 83.33,
-      "volume": 10867
+      "volume": 8323
      },
      {
       "price": 83.46,
-      "volume": 12265
+      "volume": 10189
      },
      {
       "price": 83.58,
@@ -6444,7 +6448,7 @@
    },
    "volume_profile_today": {
     "from_utc": "2026-11-12T00:00:00Z",
-    "to_utc": "2026-11-12T14:53:15Z",
+    "to_utc": "2026-11-12T15:13:02Z",
     "row_size": 0.1153,
     "rows": [
      {
@@ -6453,31 +6457,31 @@
      },
      {
       "price": 80.48,
-      "volume": 15816
+      "volume": 17007
      },
      {
       "price": 80.59,
-      "volume": 17034
+      "volume": 19995
      },
      {
       "price": 80.71,
-      "volume": 12467
+      "volume": 17734
      },
      {
       "price": 80.82,
-      "volume": 17073
+      "volume": 23366
      },
      {
       "price": 80.94,
-      "volume": 22150
+      "volume": 28443
      },
      {
       "price": 81.05,
-      "volume": 25794
+      "volume": 28278
      },
      {
       "price": 81.17,
-      "volume": 23934
+      "volume": 24200
      },
      {
       "price": 81.28,
@@ -6568,9 +6572,9 @@
       "volume": 2095
      }
     ],
-    "poc": 82.84,
-    "vah": 83.7,
-    "val": 81.17,
+    "poc": 80.99,
+    "vah": 82.9,
+    "val": 80.36,
     "method": "approx: 5m bar volume spread evenly over each bar's range"
    },
    "age_min": 0.0,
@@ -6579,42 +6583,48 @@
  },
  "gauges": {
   "VIX": {
+   "day_high": 19.34,
+   "day_low": 17.99,
    "key": "VIX",
-   "value": 18.32,
+   "value": 18.24,
    "prev_close": 17.49,
-   "change": 0.83,
+   "change": 0.75,
    "unit": "",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "^VIX"
    },
-   "observed_at": "2026-11-12T14:43:16Z",
+   "observed_at": "2026-11-12T15:03:01Z",
    "age_min": 10.0
   },
   "DXY": {
+   "day_high": 103.086,
+   "day_low": 102.801,
    "key": "DXY",
-   "value": 102.968,
+   "value": 103.073,
    "prev_close": 102.908,
-   "change": 0.06,
+   "change": 0.165,
    "unit": "",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "DX-Y.NYB"
    },
-   "observed_at": "2026-11-12T14:48:18Z",
+   "observed_at": "2026-11-12T15:08:04Z",
    "age_min": 5.0
   },
   "US10Y": {
+   "day_high": 5.064,
+   "day_low": 5.02,
    "key": "US10Y",
-   "value": 5.04,
+   "value": 5.064,
    "prev_close": 4.998,
-   "change": 0.042,
+   "change": 0.066,
    "unit": "%",
    "source": {
     "name": "Yahoo Finance chart API",
     "symbol": "^TNX"
    },
-   "observed_at": "2026-11-12T14:43:14Z",
+   "observed_at": "2026-11-12T15:03:04Z",
    "age_min": 10.0
   }
  },

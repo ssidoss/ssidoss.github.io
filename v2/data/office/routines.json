@@ -1,0 +1,115 @@
+{
+ "source": "Grok export routines.json (prompts REBUILT by Grok; originals not exportable)",
+ "routines": [
+  {
+   "id": "R01",
+   "owner": "Head of CICM",
+   "name": "Pre-session briefing (London)",
+   "cadence": "weekdays 07:40",
+   "cron": "40 7 * * 1-5",
+   "timezone": "Europe/London",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R02",
+   "owner": "Head of CICM",
+   "name": "NY pre-session briefing",
+   "cadence": "weekdays 09:10",
+   "cron": "10 9 * * 1-5",
+   "timezone": "America/New_York",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R03",
+   "owner": "Head of CICM",
+   "name": "Office chat relay (formerly telegram-inbox)",
+   "cadence": "every 15 minutes",
+   "cron": "*/15 * * * *",
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R04",
+   "owner": "Head of CICM",
+   "name": "Desk auto-refresh live+preview",
+   "cadence": "every 15 minutes, weekdays 07:00\u201320:45 UTC",
+   "cron": "*/15 7-20 * * 1-5",
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R05",
+   "owner": "Head of CICM",
+   "name": "CICM Office roster + usage",
+   "cadence": "every 2 hours",
+   "cron": "0 */2 * * *",
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R06",
+   "owner": "Head of CICM",
+   "name": "Bias update to Telegram",
+   "cadence": "PAUSED",
+   "cron": null,
+   "timezone": "UTC",
+   "grok_state": "paused",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R07",
+   "owner": "Head Analyst",
+   "name": "Trading dashboard 30-min update",
+   "cadence": "weekday :00/:30 07:00\u201320:30 UTC",
+   "cron": "0,30 7-20 * * 1-5",
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R08",
+   "owner": "Head Analyst",
+   "name": "15-min fill",
+   "cadence": "weekday :15/:45 07:15\u201320:45 UTC",
+   "cron": "15,45 7-20 * * 1-5",
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R09",
+   "owner": "Market Researcher",
+   "name": "Session news update",
+   "cadence": "every 30 min London open \u2192 NY close",
+   "cron": null,
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R10",
+   "owner": "Market Researcher",
+   "name": "Off-hours breaking-news check",
+   "cadence": "hourly off-hours + weekends",
+   "cron": null,
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  },
+  {
+   "id": "R11",
+   "owner": "Trading Coach",
+   "name": "Pre-session game plan",
+   "cadence": "each trading day before London (~07:30 UTC)",
+   "cron": null,
+   "timezone": "UTC",
+   "grok_state": "active",
+   "claude_state": "not scheduled (enable one at a time after owner OK)"
+  }
+ ]
+}
